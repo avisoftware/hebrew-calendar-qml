@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-01 12:13+0200\n"
+"POT-Creation-Date: 2015-03-02 09:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,18 +17,33 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/Main.qml:28
-msgid "App with backend"
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayView.qml:40
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/MonthView.qml:39
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/YearView.qml:36
+msgid "Today"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/Main.qml:34
-msgid "Hello world.."
+#. TRANSLATORS: this is a time formatting string,
+#. see http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid expressions.
+#. It's used in the header of the month and week views
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayView.qml:55
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/MonthView.qml:55
+msgid "MMMM yyyy"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/Main.qml:56
-msgid "Tap me!"
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/Main.qml:73
+msgid "Year"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/Main.qml:59
-msgid "..from Cpp Backend"
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/Main.qml:107
+msgid "Month"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/Main.qml:136
+msgid "Day"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/YearView.qml:50
+#, qt-format
+msgid "Year %1"
 msgstr ""

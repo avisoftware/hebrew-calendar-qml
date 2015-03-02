@@ -19,6 +19,8 @@ import QtQuick 2.3
 import Ubuntu.Components 1.1
 import "dateExt.js" as DateExt
 import "colorUtils.js" as Color
+import HebrewCalendar 1.0
+
 
 Page {
     id: monthViewPage
@@ -51,8 +53,14 @@ Page {
             // see http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid expressions.
             // It's used in the header of the month and week views
             text: i18n.tr(currentMonth.toLocaleString(Qt.locale(),i18n.tr("MMMM yyyy")))
+//            text: hebrewDate.thisMonth
             font.capitalization: Font.Capitalize
+           //to anchors it to right side
+            anchors{right: parent.right; rightMargin: units.gu(2) }
         }
+    }
+    HDate{
+        id:hebrewDate
     }
 
     PathViewBase{

@@ -10,12 +10,12 @@ import HebrewCalendar 1.0
 
 Item {
     // The objects
-    MyType {
+    HDate {
         id: objectUnderTest
     }
 
     TestCase {
-        name: "MyType"
+        name: "HDate"
 
         function init() {
             console.debug(">> init");

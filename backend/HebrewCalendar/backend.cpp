@@ -1,14 +1,14 @@
 #include <QtQml>
 #include <QtQml/QQmlContext>
 #include "backend.h"
-#include "mytype.h"
+#include "hebdate.h"
 
 
 void BackendPlugin::registerTypes(const char *uri)
 {
     Q_ASSERT(uri == QLatin1String("HebrewCalendar"));
 
-    qmlRegisterType<MyType>(uri, 1, 0, "MyType");
+    qmlRegisterType<HDate>(uri, 1, 0, "HDate");
 }
 
 void BackendPlugin::initializeEngine(QQmlEngine *engine, const char *uri)

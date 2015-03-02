@@ -2,7 +2,7 @@ TEMPLATE = lib
 TARGET = HebrewCalendarbackend
 QT += qml quick
 CONFIG += qt plugin
-
+LIBS += -lhdate
 load(ubuntu-click)
 
 TARGET = $$qtLibraryTarget($$TARGET)
@@ -10,11 +10,11 @@ TARGET = $$qtLibraryTarget($$TARGET)
 # Input
 SOURCES += \
     backend.cpp \
-    mytype.cpp
+    hebdate.cpp
 
 HEADERS += \
     backend.h \
-    mytype.h
+    hebdate.h
 
 OTHER_FILES = qmldir
 
