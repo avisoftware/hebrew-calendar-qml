@@ -2,7 +2,7 @@ import QtQuick 2.0
 import Ubuntu.Components 1.1
 import Ubuntu.Components.Popups 1.0
 import "dateExt.js" as DateExt
-
+import HebrewCalendar 1.0
 MainView {
     // objectName for functional testing purposes (autopilot-qt5)
     objectName: "mainView"
@@ -31,12 +31,14 @@ MainView {
     PageStack {
         id: pageStack
         Component.onCompleted: push(tabs)
-
+        HDate{
+            id:hebrewDate
+        }
         Tabs{
             id: tabs
             Keys.forwardTo: [tabs.currentPage.item]
 
-            property var currentDay: DateExt.today();
+            property var currentDay: hebrewDate.today();
 
 
             selectedTabIndex: monthTab.index
@@ -110,7 +112,7 @@ MainView {
                     objectName: "monthViewLoader"
                     source: tabs.selectedTab == monthTab ? Qt.resolvedUrl("MonthView.qml"):""
                     onLoaded: {
-                        item.currentMonth = tabs.currentDay.midnight();
+                        item.currentMonth = tabs.currentDay
                     }
 
                     anchors{

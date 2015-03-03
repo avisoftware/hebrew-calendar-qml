@@ -27,7 +27,7 @@ Page {
     objectName: "monthViewPage"
 
 //    property var currentMonth: DateExt.today();
-    property var currentMonth: hebrewDate.today;
+    property var currentMonth: hebrewDate.today();
     signal dateSelected(var date);
     HDate{
         id:hebrewDate
@@ -41,7 +41,7 @@ Page {
         text: i18n.tr("Today")
         onTriggered: {
 //            currentMonth = new Date().midnight()
-            currentMonth = hebrewDate.today
+            currentMonth = hebrewDate.today()
         }
     }
 
@@ -115,7 +115,7 @@ Page {
 
 //                    currentMonth: monthViewPath.addMonth(monthViewPath.startMonth,
 //                                                         monthViewPath.indexType(index));
-                    currentMonth:currentMonth
+                    currentMonth:monthViewPage.currentMonth
 
                     isYearView: false
 

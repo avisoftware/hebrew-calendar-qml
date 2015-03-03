@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Ubuntu.Components 1.1
+import HebrewCalendar 1.0
 
 Item{
     id: dateRootItem
@@ -9,6 +10,9 @@ Item{
     property bool isToday;
     property bool showEvent;
     property alias fontSize: dateLabel.font.pixelSize
+    HDate{
+        id:hebrewDate
+    }
 
     Loader {
         sourceComponent: isToday && isCurrentMonth ? highLightComp : undefined
@@ -22,8 +26,10 @@ Item{
     Label {
         id: dateLabel
         anchors.centerIn: parent
-        text: date
+//        text: date
+        text: hebrewDate.intToHebStr(date)+"\n"+date
         fontSize: root.dateLabelFontSize
+        horizontalAlignment:Text.AlignHCenter
         color: {
             if( isCurrentMonth ) {
                 if(isToday) {

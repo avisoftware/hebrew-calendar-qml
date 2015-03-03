@@ -12,11 +12,75 @@ HDate::~HDate() {
 
 hdate_struct HDate::weekStart(hdate_struct h)
 {
-    hdate_set_gdate (&h, 1, h.hd_mon, h.hd_year);
+    hdate_set_hdate (&h, 1, h.hd_mon, h.hd_year);
     int jd_current_month = h.hd_jd - h.hd_dw + 1;
     hdate_struct h1;
     hdate_set_jd (&h1, jd_current_month);
     return h1;
+}
+
+int HDate::daysInMonth(hdate_struct h)
+{
+    switch (h.hd_mon) {
+    case 1:
+        return 30;
+        break;
+    case 2:
+        if(h.hd_size_of_year==355||h.hd_size_of_year==385){
+            return 30;
+        }else{
+            return 29;
+        }
+        break;
+    case 3:
+        if(h.hd_size_of_year==353||h.hd_size_of_year==383){
+            return 29;
+        }else{
+            return 30;
+        }
+        break;
+    case 4:
+        return 29;
+        break;
+    case 5:
+        return 30;
+        break;
+    case 6:
+        return 29;
+        break;
+    case 7:
+        return 30;
+        break;
+    case 8:
+        return 29;
+        break;
+    case 9:
+        return 30;
+        break;
+    case 10:
+        return 29;
+        break;
+    case 11:
+        return 30;
+        break;
+    case 12:
+        return 29;
+        break;
+    case 13:
+        return 30;
+        break;
+    case 14:
+        return 29;
+        break;
+    default:
+        break;
+    }
+}
+
+QString HDate::intToHebStr(int n)
+{
+    return (hdate_get_int_string(n));
+
 }
 
 hdate_struct HDate::nextMonth()

@@ -60,7 +60,7 @@ Item{
 //        property int todayMonth: today.getMonth()
 //        property int todayYear: today.getFullYear()
 
-        property var today:hebrewDate.today
+        property var today:hebrewDate.today()
         property int todayDate: hebrewDate.getDay(today)
         property int todayMonth: hebrewDate.getMonth(today)
         property int todayYear: hebrewDate.getYear(today)
@@ -76,8 +76,11 @@ Item{
         property int monthStartMonth: hebrewDate.getMonth(monthStart)
         property int monthStartYear: hebrewDate.getYear(monthStart)
 
-        property int daysInStartMonth: Date.daysInMonth(monthStartYear, monthStartMonth)
-        property int daysInCurMonth:  Date.daysInMonth(curMonthYear,curMonth)
+//        property int daysInStartMonth: Date.daysInMonth(monthStartYear, monthStartMonth)
+//        property int daysInCurMonth:  Date.daysInMonth(curMonthYear,curMonth)
+
+        property int daysInStartMonth: hebrewDate.daysInMonth(monthStart)
+        property int daysInCurMonth:  hebrewDate.daysInMonth(currentMonth)
 
         //check if current month is start month
         property bool isCurMonthStartMonth: curMonthDate === monthStartDate

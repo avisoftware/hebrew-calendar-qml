@@ -8,7 +8,7 @@ class HDate : public QObject
     Q_OBJECT
 
     Q_PROPERTY( QString currentMonthStr READ currentMonthStr NOTIFY currentMonthStrChanged)
-    Q_PROPERTY( hdate_struct today READ today )
+
     Q_PROPERTY( hdate_struct currentDate READ currentDate NOTIFY currentDateChanged)
     Q_PROPERTY( hdate_struct nextMonth READ nextMonth )
     Q_PROPERTY( hdate_struct previousMonth READ previousMonth )
@@ -16,16 +16,18 @@ class HDate : public QObject
 public:
     explicit HDate(QObject *parent = 0);
     ~HDate();
+     Q_INVOKABLE hdate_struct today();
     Q_INVOKABLE int getDay(hdate_struct h){return h.hd_day;}
     Q_INVOKABLE int getMonth(hdate_struct h){return h.hd_mon;}
     Q_INVOKABLE int getYear(hdate_struct h){return h.hd_year;}
     Q_INVOKABLE hdate_struct weekStart(hdate_struct h);
+    Q_INVOKABLE int daysInMonth(hdate_struct h);
+    Q_INVOKABLE QString intToHebStr(int n);
 signals:
     void currentDateChanged();
     void currentMonthStrChanged();
 protected:
     QString currentMonthStr() ;
-    hdate_struct today ();
     hdate_struct currentDate();
     hdate_struct nextMonth();
     hdate_struct previousMonth();
