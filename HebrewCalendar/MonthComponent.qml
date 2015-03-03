@@ -19,6 +19,7 @@ import QtQuick 2.3
 import Ubuntu.Components 1.1
 import "dateExt.js" as DateExt
 import "colorUtils.js" as Color
+import HebrewCalendar 1.0
 
 Item{
     id: root
@@ -40,24 +41,40 @@ Item{
     signal monthSelected(var date);
     signal dateSelected(var date)
 
-
+    HDate{
+        id:hebrewDate
+    }
     QtObject{
         id: intern
 
-        property int curMonthDate: currentMonth.getDate()
-        property int curMonth: currentMonth.getMonth()
-        property int curMonthYear: currentMonth.getFullYear()
+//        property int curMonthDate: currentMonth.getDate()
+//        property int curMonth: currentMonth.getMonth()
+//        property int curMonthYear: currentMonth.getFullYear()
 
-        property var today: DateExt.today()
-        property int todayDate: today.getDate()
-        property int todayMonth: today.getMonth()
-        property int todayYear: today.getFullYear()
+        property int curMonthDate: hebrewDate.getDay(currentMonth)
+        property int curMonth: hebrewDate.getMonth(currentMonth)
+        property int curMonthYear: hebrewDate.getYear(currentMonth)
+
+//        property var today: DateExt.today()
+//        property int todayDate: today.getDate()
+//        property int todayMonth: today.getMonth()
+//        property int todayYear: today.getFullYear()
+
+        property var today:hebrewDate.today
+        property int todayDate: hebrewDate.getDay(today)
+        property int todayMonth: hebrewDate.getMonth(today)
+        property int todayYear: hebrewDate.getYear(today)
 
         //date from month will start, this date might be from previous month
-        property var monthStart: currentMonth.weekStart( Qt.locale().firstDayOfWeek )
-        property int monthStartDate: monthStart.getDate()
-        property int monthStartMonth: monthStart.getMonth()
-        property int monthStartYear: monthStart.getFullYear()
+//        property var monthStart: currentMonth.weekStart( Qt.locale().firstDayOfWeek )
+//        property int monthStartDate: monthStart.getDate()
+//        property int monthStartMonth: monthStart.getMonth()
+//        property int monthStartYear: monthStart.getFullYear()
+
+        property var monthStart: hebrewDate.weekStart( currentMonth)
+        property int monthStartDate: hebrewDate.getDay(monthStart)
+        property int monthStartMonth: hebrewDate.getMonth(monthStart)
+        property int monthStartYear: hebrewDate.getYear(monthStart)
 
         property int daysInStartMonth: Date.daysInMonth(monthStartYear, monthStartMonth)
         property int daysInCurMonth:  Date.daysInMonth(curMonthYear,curMonth)

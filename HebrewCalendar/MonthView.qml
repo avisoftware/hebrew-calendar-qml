@@ -26,10 +26,12 @@ Page {
     id: monthViewPage
     objectName: "monthViewPage"
 
-    property var currentMonth: DateExt.today();
-
+//    property var currentMonth: DateExt.today();
+    property var currentMonth: hebrewDate.today;
     signal dateSelected(var date);
-
+    HDate{
+        id:hebrewDate
+    }
     Keys.forwardTo: [monthViewPath]
 
     Action {
@@ -38,7 +40,8 @@ Page {
         iconName: "calendar-today"
         text: i18n.tr("Today")
         onTriggered: {
-            currentMonth = new Date().midnight()
+//            currentMonth = new Date().midnight()
+            currentMonth = hebrewDate.today
         }
     }
 
@@ -52,16 +55,14 @@ Page {
             // TRANSLATORS: this is a time formatting string,
             // see http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid expressions.
             // It's used in the header of the month and week views
-            text: i18n.tr(currentMonth.toLocaleString(Qt.locale(),i18n.tr("MMMM yyyy")))
-//            text: hebrewDate.thisMonth
+//            text: i18n.tr(currentMonth.toLocaleString(Qt.locale(),i18n.tr("MMMM yyyy")))
+           text: hebrewDate.currentMonthStr
             font.capitalization: Font.Capitalize
            //to anchors it to right side
             anchors{right: parent.right; rightMargin: units.gu(2) }
         }
     }
-    HDate{
-        id:hebrewDate
-    }
+
 
     PathViewBase{
         id: monthViewPath
@@ -83,16 +84,18 @@ Page {
         }
 
         function nextMonth() {
-            currentMonth = addMonth(currentMonth, 1);
+//            currentMonth = addMonth(currentMonth, 1);
+             currentMonth = hebrewDate.nextMonth
         }
 
         function previousMonth() {
-            currentMonth = addMonth(currentMonth, -1);
+//            currentMonth = addMonth(currentMonth, -1);
+            currentMonth= hebrewDate.previousMonth
         }
 
-        function addMonth(date,month) {
-            return  new Date(date.getFullYear(), date.getMonth() + month, 1, 0, 0, 0);
-        }
+//        function addMonth(date,month) {
+//           return  new Date(date.getFullYear(), date.getMonth() + month, 1, 0, 0, 0);
+//          }
 
         delegate: Loader {
             width: parent.width - units.gu(4)
@@ -110,8 +113,9 @@ Page {
 
                     anchors.fill: parent
 
-                    currentMonth: monthViewPath.addMonth(monthViewPath.startMonth,
-                                                         monthViewPath.indexType(index));
+//                    currentMonth: monthViewPath.addMonth(monthViewPath.startMonth,
+//                                                         monthViewPath.indexType(index));
+                    currentMonth:currentMonth
 
                     isYearView: false
 
