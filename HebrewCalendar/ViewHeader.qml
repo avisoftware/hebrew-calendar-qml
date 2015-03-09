@@ -17,6 +17,7 @@
  */
 import QtQuick 2.3
 import Ubuntu.Components 1.1
+import HebrewCalendar 1.0
 
 Item{
     id: header
@@ -28,12 +29,14 @@ Item{
 
     property string monthLabelFontSize: "x-large"
     property string yearLabelFontSize: "large"
-
+    HDate{
+        id:hebrewDate
+    }
     Label{
         id: monthLabel
         objectName: "monthLabel"
         fontSize: monthLabelFontSize
-        text: Qt.locale().standaloneMonthName(month)
+        text: hebrewDate.getHebMonthStr(month)
         anchors.leftMargin: units.gu(1)
         anchors.left: parent.left
         color:"black"
@@ -44,7 +47,7 @@ Item{
         id: yearLabel
         objectName: "yearLabel"
         fontSize: yearLabelFontSize
-        text: year
+        text: hebrewDate.intToHebStr(year)
         anchors.right: parent.right
         anchors.rightMargin: units.gu(1)
         color:"black"

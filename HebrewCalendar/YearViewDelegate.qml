@@ -1,7 +1,10 @@
 import QtQuick 2.0
 import Ubuntu.Components 1.1
-
+import HebrewCalendar 1.0
 GridView{
+    HDate{
+        id:hebrewDate
+    }
     id: yearView
     clip: true
 
@@ -15,13 +18,13 @@ GridView{
 
     cellHeight: cellWidth * 1.4
 
-    model: 12 /* months in a year */
+    model: hebrewDate.is_leap_year(year)? 13 :12 /* months in a year */
 
     onYearChanged: {
         scrollMonth = 0;
-        var today = new Date();
-        if(year == today.getFullYear()) {
-            scrollMonth = today.getMonth();
+        var today =  hebrewDate.today();
+        if(year === hebrewDate.getYear(today)) {
+            scrollMonth = hebrewDate.getMonth(today)-1;
         }
         yearView.positionViewAtIndex(scrollMonth, GridView.Beginning);
     }
@@ -31,9 +34,9 @@ GridView{
         yearView.positionViewAtIndex(scrollMonth, GridView.Beginning);
     }
 
-    Component.onCompleted: {
+    Component.onCompleted: {        
         yearView.positionViewAtIndex(scrollMonth, GridView.Beginning);
-    }
+     }
 
     Connections{
         target: yearPathView
@@ -73,7 +76,7 @@ GridView{
                     id: monthComponent
                     objectName: "monthComponent" + index
 
-                    currentMonth: new Date(yearView.year, index, 1, 0, 0, 0, 0)
+                    currentMonth: hebrewDate.setHebDate(yearView.year, index+1, 1)
 
                     isCurrentItem: yearView.focus
 

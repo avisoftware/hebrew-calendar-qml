@@ -17,7 +17,6 @@
  */
 import QtQuick 2.3
 import Ubuntu.Components 1.1
-import "dateExt.js" as DateExt
 import "colorUtils.js" as Color
 import HebrewCalendar 1.0
 
@@ -211,11 +210,12 @@ Item{
             id: weekDay
             width: parent.dayWidth
             property var day :Qt.locale().standaloneDayName(( Qt.locale().firstDayOfWeek + index), Locale.ShortFormat)
+
             text: isYearView ? day.charAt(0) : day;
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: intern.dayFontSize
             font.bold: true
-            color: "black"
+            color: "black"            
         }
     }
 }

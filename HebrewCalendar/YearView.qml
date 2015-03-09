@@ -18,13 +18,12 @@
 
 import QtQuick 2.3
 import Ubuntu.Components 1.1
-
-import "dateExt.js" as DateExt
+import HebrewCalendar 1.0
 Page {
     id: yearViewPage
     objectName: "yearViewPage"
 
-    property int currentYear: DateExt.today().getFullYear();
+    property int currentYear: hebrewDate.getYear(hebrewDate.today());
     signal monthSelected(var date);
 
     Keys.forwardTo: [yearPathView]
@@ -35,7 +34,7 @@ Page {
         iconName: "calendar-today"
         text: i18n.tr("Today")
         onTriggered: {
-            currentYear = new Date().getFullYear()
+            currentYear = hebrewDate.getYear(hebrewDate.today())
         }
     }
 
@@ -47,10 +46,14 @@ Page {
             id:year
             objectName:"yearLabel"
             fontSize: "x-large"
-            text: i18n.tr("Year %1").arg(currentYear)
+            text: i18n.tr("Year %1").arg(hebrewDate.intToHebStr(currentYear))
+            anchors.leftMargin: units.gu(1)
+//            anchors.left: yearViewPage.left
         }
     }
-
+    HDate{
+        id:hebrewDate
+    }
     PathViewBase {
         id: yearPathView
         objectName: "yearPathView"

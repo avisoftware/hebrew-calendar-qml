@@ -78,7 +78,7 @@ MainView {
                     objectName: "yearViewLoader"
                     source: tabs.selectedTab == yearTab ? Qt.resolvedUrl("YearView.qml"):""
                     onLoaded: {
-                        item.currentYear = tabs.currentDay.getFullYear();
+                        item.currentYear = hebrewDate.getYear(tabs.currentDay);
                     }
 
                     anchors{
@@ -90,12 +90,13 @@ MainView {
                     Connections{
                         target: yearViewLoader.item
                         onMonthSelected: {
-                            var now = DateExt.today();
-                            if( date.getMonth() === now.getMonth()
-                                    && date.getFullYear() === now.getFullYear()) {
+                            var now = hebrewDate.today();
+                            if( hebrewDate.getMonth(date) === hebrewDate.getMonth(now)
+                                    && hebrewDate.getYear(date) === hebrewDate.getYear(now)) {
                                 tabs.currentDay = now;
                             } else {
-                                tabs.currentDay = date.midnight();
+                                //FIXME:
+                                tabs.currentDay = date;
                             }
                             tabs.selectedTabIndex = monthTab.index;
                         }

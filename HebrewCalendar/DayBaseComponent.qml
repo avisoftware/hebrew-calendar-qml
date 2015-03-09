@@ -34,55 +34,6 @@ Item {
     property alias contentInteractive: timeLineView.interactive
 
 
-    //visible hour
-    property int scrollHour;
-
-    function scrollToCurrentTime() {
-        var currentTime = new Date();
-        scrollHour = currentTime.getHours();
-
-        timeLineView.contentY = scrollHour * units.gu(8);
-        if(timeLineView.contentY >= timeLineView.contentHeight - timeLineView.height) {
-            timeLineView.contentY = timeLineView.contentHeight - timeLineView.height
-        }
-    }
-
-    Connections{
-        target: keyboardEventProvider
-        onScrollUp:{
-            scrollHour--;
-            if( scrollHour < 0) {
-                scrollHour =0;
-            }
-            scrollToHour();
-        }
-
-        onScrollDown:{
-            scrollHour++;
-            var visibleHour = root.height / units.gu(8);
-            if( scrollHour > (25 -visibleHour)) {
-                scrollHour = 25 - visibleHour;
-            }
-            scrollToHour();
-        }
-    }
-
-    function scrollToHour() {
-        timeLineView.contentY = scrollHour * units.gu(8);
-        if(timeLineView.contentY >= timeLineView.contentHeight - timeLineView.height) {
-            timeLineView.contentY = timeLineView.contentHeight - timeLineView.height
-        }
-    }
-
-
-    ActivityIndicator {
-        visible: running
-        objectName : "activityIndicator"
-        running: mainModel.isLoading
-        anchors.centerIn: parent
-        z:2
-    }
-
 
 
     Flickable {
@@ -126,12 +77,7 @@ Item {
                         sourceComponent: undefined
                     }
 
-                    Connections{
-                        target: mainModel
-                        onStartPeriodChanged:{
-                            destroyAllChildren();
-                        }
-                    }
+
                 }
             }
         }

@@ -3,7 +3,7 @@
 HDate::HDate(QObject *parent) :
     QObject(parent)
 {
-    init =0;
+
 }
 
 HDate::~HDate() {
@@ -75,12 +75,24 @@ int HDate::daysInMonth(hdate_struct h)
     default:
         break;
     }
+    return 0;
 }
 
 QString HDate::intToHebStr(int n)
 {
     return (hdate_get_int_string(n));
+}
 
+hdate_struct HDate::setHebDate(int y, int m, int d)
+{
+    hdate_struct h;
+    hdate_set_hdate (&h, d, m, y);
+    return h;
+}
+
+QString HDate::getHebMonthStr(int m)
+{
+    return hdate_get_hebrew_month_string(m,1);
 }
 
 hdate_struct HDate::nextMonth()
@@ -103,7 +115,6 @@ hdate_struct HDate::nextMonth()
     hdate_set_hdate(&h_t,1,m,y);
     current_h=h_t;
 
-    emit currentMonthStrChanged();
     return(h_t);
 }
 
@@ -127,20 +138,13 @@ hdate_struct HDate::previousMonth()
     hdate_set_hdate(&h_t,1,m,y);
     current_h=h_t;
 
-    emit currentMonthStrChanged();
     return(h_t);
 }
 
-QString HDate::currentMonthStr()
+QString HDate::currentMonthStr(hdate_struct h)
 {
-    if(!init){
-        today();
-        init=1;
-    }
-
-    QString m =hdate_get_hebrew_month_string(current_h.hd_mon,0);
-    QString y =hdate_get_int_string(current_h.hd_year);
-
+    QString m =hdate_get_hebrew_month_string(h.hd_mon,0);
+    QString y =hdate_get_int_string(h.hd_year);
     return m + " "+y;
 }
 
@@ -152,18 +156,15 @@ hdate_struct HDate::today()
     return today_h;
 }
 
-hdate_struct HDate::currentDate()
-{
-    return current_h;
-}
-int HDate::is_leap_year(int year){
+
+bool HDate::is_leap_year(int year){
     int length_of_year;
     int days_from_3744;
 
     days_from_3744 = hdate_days_from_3744 (year);
     length_of_year = hdate_days_from_3744 (year + 1) - days_from_3744;
     if (length_of_year>365){
-        return 1;
+        return true;
     }
-    return 0;
+    return false;
 }

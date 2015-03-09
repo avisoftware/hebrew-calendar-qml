@@ -27,7 +27,7 @@ Item{
         id: dateLabel
         anchors.centerIn: parent
 //        text: date
-        text: hebrewDate.intToHebStr(date)+"\n"+date
+        text: isYearView ? hebrewDate.intToHebStr(date) : hebrewDate.intToHebStr(date)+"\n"+date
         fontSize: root.dateLabelFontSize
         horizontalAlignment:Text.AlignHCenter
         color: {
@@ -79,9 +79,9 @@ Item{
             pageStack.push(Qt.resolvedUrl("NewEvent.qml"), {"date":selectedDate, "model":eventModel});
         }
         onClicked: {
-            var selectedDate = new Date(intern.monthStartYear,
+            var selectedDate = hebrewDate.setHebDate(intern.monthStartYear,
                                         intern.monthStartMonth,
-                                        intern.monthStartDate + index, 0, 0, 0, 0)
+                                        intern.monthStartDate )
             //If monthView is clicked then open selected DayView
             if ( isYearView === false ) {
                 root.dateSelected(selectedDate);

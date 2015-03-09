@@ -17,7 +17,6 @@
  */
 import QtQuick 2.3
 import Ubuntu.Components 1.1
-import "dateExt.js" as DateExt
 import "colorUtils.js" as Color
 import HebrewCalendar 1.0
 
@@ -56,7 +55,7 @@ Page {
             // see http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid expressions.
             // It's used in the header of the month and week views
 //            text: i18n.tr(currentMonth.toLocaleString(Qt.locale(),i18n.tr("MMMM yyyy")))
-           text: hebrewDate.currentMonthStr
+           text: hebrewDate.currentMonthStr(currentMonth)
             font.capitalization: Font.Capitalize
            //to anchors it to right side
             anchors{right: parent.right; rightMargin: units.gu(2) }
@@ -85,12 +84,12 @@ Page {
 
         function nextMonth() {
 //            currentMonth = addMonth(currentMonth, 1);
-             currentMonth = hebrewDate.nextMonth
+             currentMonth = hebrewDate.nextMonth()
         }
 
         function previousMonth() {
 //            currentMonth = addMonth(currentMonth, -1);
-            currentMonth= hebrewDate.previousMonth
+            currentMonth= hebrewDate.previousMonth()
         }
 
 //        function addMonth(date,month) {

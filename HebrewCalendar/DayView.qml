@@ -18,14 +18,15 @@
 
 import QtQuick 2.3
 import Ubuntu.Components 1.1
-import "dateExt.js" as DateExt
+//import "dateExt.js" as DateExt
 import "ViewType.js" as ViewType
+import HebrewCalendar 1.0
 
 Page{
     id: dayViewPage
     objectName: "dayViewPage"
 
-    property var currentDay: new Date()
+    property var currentDay: hebrewDate.today()
     property bool isCurrentPage: false
 
     signal dateSelected(var date);
@@ -39,7 +40,7 @@ Page{
         iconName: "calendar-today"
         text: i18n.tr("Today")
         onTriggered: {
-            currentDay = new Date()
+            currentDay = hebrewDate.today()
         }
     }
 
@@ -52,46 +53,19 @@ Page{
             id:monthYear
             objectName:"monthYearLabel"
             fontSize: "x-large"
-            text: i18n.tr(currentDay.toLocaleString(Qt.locale(),i18n.tr("MMMM yyyy")))
+            text: hebrewDate.intToHebStr(hebrewDate.getDay(currentDay)) + " " +
+                  hebrewDate.getHebMonthStr(hebrewDate.getMonth(currentDay))+" " +
+                  hebrewDate.intToHebStr(hebrewDate.getYear(currentDay))
             font.capitalization: Font.Capitalize
         }
     }
-
+    HDate{
+        id:hebrewDate
+    }
     Column {
         anchors.fill: parent
         anchors.topMargin: units.gu(1)
         spacing: units.gu(1)
-// chang it to empty page for day times
-        TimeLineHeader{
-            id: dayHeader
-            objectName: "dayHeader"
-            type: ViewType.ViewTypeDay
-            currentDay: dayViewPage.currentDay
-
-            onDateSelected: {
-                dayViewPage.currentDay = date;
-                dayViewPage.dateSelected(date);
-            }
-
-            onCurrentDayChanged: {
-                date = dayViewPage.currentDay.weekStart(Qt.locale().firstDayOfWeek);
-            }
-
-            function nextDay() {
-                if(currentDay >= date.addDays(7)) {
-                    date = dayViewPage.currentDay.weekStart(Qt.locale().firstDayOfWeek);
-                    dayHeader.incrementCurrentIndex();
-                }
-            }
-
-            function previousDay() {
-                if( currentDay < date) {
-                    date = dayViewPage.currentDay.weekStart(Qt.locale().firstDayOfWeek);
-                    dayHeader.decrementCurrentIndex();
-                }
-            }
-        }
-
         PathViewBase{
             id: dayViewPath
             objectName: "dayViewPath"
@@ -106,13 +80,11 @@ Page{
             onNextItemHighlighted: {
                 //next day
                 currentDay = currentDay.addDays(1);
-                dayHeader.nextDay();
-            }
+                }
 
             onPreviousItemHighlighted: {
                 //previous day
-                currentDay = currentDay.addDays(-1);
-                dayHeader.previousDay();
+                currentDay = currentDay.addDays(-1);               
             }
 
             delegate: Loader {
@@ -128,28 +100,14 @@ Page{
                         id: timeLineView
                         objectName: "DayComponent-"+index
 
-                        type: ViewType.ViewTypeDay
+//                        type: ViewType.ViewTypeDay
                         anchors.fill: parent
 
                         isActive: parent.PathView.isCurrentItem
                         contentInteractive: parent.PathView.isCurrentItem
-                        startDay: dayViewPath.startDay.addDays(dayViewPath.indexType(index))
+//                        startDay: dayViewPath.startDay.addDays(dayViewPath.indexType(index))
+                        startDay:currentDay
                         keyboardEventProvider: dayViewPath
-
-                        Component.onCompleted: {
-                            if(dayViewPage.isCurrentPage){
-                                timeLineView.scrollToCurrentTime();
-                            }
-                        }
-
-                        Connections{
-                            target: dayViewPage
-                            onIsCurrentPageChanged:{
-                                if(dayViewPage.isCurrentPage){
-                                    timeLineView.scrollToCurrentTime();
-                                }
-                            }
-                        }
 
                         //get contentY value from PathView, if its not current Item
                         Binding{
