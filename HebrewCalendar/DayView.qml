@@ -19,7 +19,6 @@
 import QtQuick 2.3
 import Ubuntu.Components 1.1
 //import "dateExt.js" as DateExt
-import "ViewType.js" as ViewType
 import HebrewCalendar 1.0
 
 Page{
@@ -66,6 +65,37 @@ Page{
         anchors.fill: parent
         anchors.topMargin: units.gu(1)
         spacing: units.gu(1)
+
+        TimeLineHeader{
+            id: dayHeader
+            objectName: "dayHeader"
+//            type: ViewType.ViewTypeDay
+            currentDay: dayViewPage.currentDay
+
+            onDateSelected: {
+                dayViewPage.currentDay = date;
+                dayViewPage.dateSelected(date);
+            }
+
+            onCurrentDayChanged: {
+                date = hebrewDate.weekStart(dayViewPage.currentDay);
+            }
+
+            function nextDay() {
+                if(bigOrEquel(currentDay,hebrewDate.addDays(date,7))) {
+                   date = hebrewDate.weekStart(dayViewPage.currentDay);
+                    dayHeader.incrementCurrentIndex();
+                }
+            }
+
+            function previousDay() {
+                if( hebrewDate.smallTo(currentDay,date) ) {
+                    date = hebrewDate.weekStart(dayViewPage.currentDay);
+                    dayHeader.decrementCurrentIndex();
+                }
+            }
+        }
+
         PathViewBase{
             id: dayViewPath
             objectName: "dayViewPath"
@@ -79,12 +109,14 @@ Page{
 
             onNextItemHighlighted: {
                 //next day
-                currentDay = currentDay.addDays(1);
+                currentDay = hebrewDate.addDays(currentDay,1);
+                 dayHeader.nextDay();
                 }
 
             onPreviousItemHighlighted: {
                 //previous day
-                currentDay = currentDay.addDays(-1);               
+                currentDay = hebrewDate.addDays(currentDay,-1);
+                  dayHeader.previousDay();
             }
 
             delegate: Loader {
@@ -95,7 +127,6 @@ Page{
 
                 Component {
                     id: delegateComponent
-// replace it
                     DayBaseComponent {
                         id: timeLineView
                         objectName: "DayComponent-"+index
@@ -105,8 +136,8 @@ Page{
 
                         isActive: parent.PathView.isCurrentItem
                         contentInteractive: parent.PathView.isCurrentItem
-//                        startDay: dayViewPath.startDay.addDays(dayViewPath.indexType(index))
-                        startDay:currentDay
+                        startDay: hebrewDate.addDays(dayViewPath.startDay,dayViewPath.indexType(index))
+
                         keyboardEventProvider: dayViewPath
 
                         //get contentY value from PathView, if its not current Item

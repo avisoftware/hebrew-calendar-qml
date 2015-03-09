@@ -20,22 +20,24 @@ import QtQuick 2.3
 import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.1
 import Ubuntu.Components.Popups 1.0
-import "dateExt.js" as DateExt
-import "ViewType.js" as ViewType
+
+import HebrewCalendar 1.0
 
 Item {
     id: root
 
     property var keyboardEventProvider;
 
-    property var startDay: DateExt.today();
+    property var startDay: hebrewDate.today();
     property bool isActive: false
     property alias contentY: timeLineView.contentY
     property alias contentInteractive: timeLineView.interactive
 
 
 
-
+    HDate{
+        id:hebrewDate
+    }
     Flickable {
         id: timeLineView
 
@@ -69,7 +71,7 @@ Item {
 
 
                     height: parent.height
-//                    day: startDay.addDays(index)
+//                   day: hebrewDate.addDays(startDay,index)
                     Loader{
                         objectName: "weekdevider"
                         height: parent.height

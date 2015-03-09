@@ -19,32 +19,30 @@
 import QtQuick 2.3
 import Ubuntu.Components 1.1
 import "dateExt.js" as DateExt
-import "ViewType.js" as ViewType
+import HebrewCalendar 1.0
 
 Row{
     id: header
 
-    property int type: ViewType.ViewTypeWeek
-
-    property var startDay: DateExt.today();
+    property var startDay: hebrewDate.today();
     property bool isCurrentItem: false
     property var currentDay
 
     signal dateSelected(var date);
 
     width: parent.width
-
+    HDate{
+        id:hebrewDate
+    }
     Repeater{
         model: 7
 
         delegate: HeaderDateComponent{
-            date: startDay.addDays(index);
+            date: hebrewDate.addDays(startDay,index);
             dayFormat: Locale.ShortFormat
 
             dayColor: {
-                if( type == ViewType.ViewTypeWeek && date.isSameDay(DateExt.today())){
-                    UbuntuColors.orange
-                } else if( type == ViewType.ViewTypeDay && date.isSameDay(currentDay) ) {
+                if(  date === currentDay ) {
                     UbuntuColors.orange
                 } else {
                     UbuntuColors.darkGrey

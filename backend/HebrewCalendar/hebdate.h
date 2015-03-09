@@ -23,12 +23,17 @@ public:
     Q_INVOKABLE int getDay(hdate_struct h){return h.hd_day;}
     Q_INVOKABLE int getMonth(hdate_struct h){return h.hd_mon;}
     Q_INVOKABLE int getYear(hdate_struct h){return h.hd_year;}
+    Q_INVOKABLE int getDayInWeek(hdate_struct h){return h.hd_dw;}
     Q_INVOKABLE hdate_struct weekStart(hdate_struct h);
     Q_INVOKABLE int daysInMonth(hdate_struct h);
     Q_INVOKABLE QString intToHebStr(int n);
     Q_INVOKABLE hdate_struct setHebDate(int y,int m,int d);
     Q_INVOKABLE QString getHebMonthStr(int m);
     Q_INVOKABLE bool is_leap_year(int year);
+    Q_INVOKABLE hdate_struct addDays(hdate_struct h,int n);
+
+     Q_INVOKABLE bool smallTo(hdate_struct from, hdate_struct to);
+    Q_INVOKABLE bool bigOrEquel(hdate_struct from, hdate_struct to);
 public slots:
      QString currentMonthStr(hdate_struct h);
 signals:

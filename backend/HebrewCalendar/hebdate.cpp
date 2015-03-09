@@ -1,5 +1,5 @@
 #include "hebdate.h"
-
+#include <QDate>
 HDate::HDate(QObject *parent) :
     QObject(parent)
 {
@@ -167,4 +167,28 @@ bool HDate::is_leap_year(int year){
         return true;
     }
     return false;
+}
+
+hdate_struct HDate::addDays(hdate_struct h, int n)
+{
+    hdate_struct h1;
+   QDate d(h.gd_year,h.gd_mon,h.gd_day);
+   d =d.addDays(n);
+   hdate_set_gdate (&h1, d.day(), d.month(),d.year());
+   return h1;
+}
+
+bool HDate::smallTo(hdate_struct from, hdate_struct to)
+{
+    QDate toD (from.gd_year,from.gd_mon,from.gd_day);
+    QDate fromD (to.gd_year,to.gd_mon,to.gd_day);
+    return (fromD<toD);
+
+}
+
+bool HDate::bigOrEquel(hdate_struct from, hdate_struct to)
+{
+    QDate toD (from.gd_year,from.gd_mon,from.gd_day);
+    QDate fromD (to.gd_year,to.gd_mon,to.gd_day);
+    return (fromD>=toD);
 }

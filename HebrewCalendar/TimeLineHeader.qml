@@ -18,12 +18,12 @@
 
 import QtQuick 2.3
 import Ubuntu.Components 1.1
-import "ViewType.js" as ViewType
+import HebrewCalendar 1.0
 
 PathViewBase {
     id: header
 
-    property int type: ViewType.ViewTypeWeek
+//    property int type: ViewType.ViewTypeWeek
 
     interactive: false
     model:3
@@ -35,16 +35,18 @@ PathViewBase {
     property var currentDay;
 
     signal dateSelected(var date);
-
+    HDate{
+        id:hebrewDate
+    }
     delegate: TimeLineHeaderComponent{
-        type: header.type
+//        type: header.type
 
         isCurrentItem: index == header.currentIndex
         currentDay: header.currentDay
 
         width: parent.width
 
-        startDay: date.addDays(7*header.indexType(index))
+        startDay:hebrewDate.addDays( date,7*header.indexType(index))
 
         onDateSelected: {
             header.dateSelected(date);

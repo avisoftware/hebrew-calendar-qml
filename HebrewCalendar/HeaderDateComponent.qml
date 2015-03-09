@@ -18,6 +18,7 @@
 
 import QtQuick 2.3
 import Ubuntu.Components 1.1
+import HebrewCalendar 1.0
 
 Item {
     id: root
@@ -36,7 +37,9 @@ Item {
 
     width: dayLabel.paintedWidth
     height: dateContainer.height
-
+    HDate{
+        id:hebrewDate
+    }
     Column {
         id: dateContainer
 
@@ -48,13 +51,14 @@ Item {
         Label{
             id: dayLabel
             objectName: "dayLabel"
-            text: Qt.locale().standaloneDayName(date.getDay(), dayFormat)
+           text: Qt.locale().standaloneDayName(hebrewDate.getDayInWeek(date)-1, dayFormat)
+//              text:hebrewDate
         }
 
         Label{
             id: dateLabel
             objectName: "dateLabel"
-            text: date.getDate();
+            text: hebrewDate.intToHebStr(hebrewDate.getDay(date));
             color: dayLabel.color
             anchors.horizontalCenter: dayLabel.horizontalCenter
         }
