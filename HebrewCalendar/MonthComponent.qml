@@ -70,7 +70,7 @@ Item{
 //        property int monthStartMonth: monthStart.getMonth()
 //        property int monthStartYear: monthStart.getFullYear()
 
-        property var monthStart: hebrewDate.weekStart( currentMonth)
+        property var monthStart: hebrewDate.weekStartMonth( currentMonth)
         property int monthStartDate: hebrewDate.getDay(monthStart)
         property int monthStartMonth: hebrewDate.getMonth(monthStart)
         property int monthStartYear: hebrewDate.getYear(monthStart)
@@ -183,7 +183,7 @@ Item{
                     if( temp > intern.daysInCurMonth ) {
                         temp = temp - intern.daysInCurMonth
                     }
-                }
+                }                
                 return temp;
             }
 

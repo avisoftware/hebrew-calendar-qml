@@ -25,6 +25,8 @@ public:
     Q_INVOKABLE int getYear(hdate_struct h){return h.hd_year;}
     Q_INVOKABLE int getDayInWeek(hdate_struct h){return h.hd_dw;}
     Q_INVOKABLE hdate_struct weekStart(hdate_struct h);
+    Q_INVOKABLE hdate_struct weekStartMonth(hdate_struct h);
+
     Q_INVOKABLE int daysInMonth(hdate_struct h);
     Q_INVOKABLE QString intToHebStr(int n);
     Q_INVOKABLE hdate_struct setHebDate(int y,int m,int d);

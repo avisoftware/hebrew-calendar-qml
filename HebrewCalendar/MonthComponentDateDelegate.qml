@@ -70,18 +70,14 @@ Item{
 
     MouseArea {
         anchors.fill: parent
-        onPressAndHold: {
-            var selectedDate = new Date();
-            selectedDate.setFullYear(intern.monthStartYear)
-            selectedDate.setMonth(intern.monthStartMonth + 1)
-            selectedDate.setDate(date)
-            selectedDate.setMinutes(60, 0, 0)
-            pageStack.push(Qt.resolvedUrl("NewEvent.qml"), {"date":selectedDate, "model":eventModel});
-        }
+
         onClicked: {
-            var selectedDate = hebrewDate.setHebDate(intern.monthStartYear,
-                                        intern.monthStartMonth,
-                                        intern.monthStartDate )
+//            var selectedDate = hebrewDate.setHebDate(intern.monthStartYear,
+//                                        intern.monthStartMonth+1,
+//                                         hebrewDate.getDay(hebrewDate.addDays(intern.monthStart,index)))
+
+            var selectedDate = hebrewDate.addDays(intern.monthStart,index);
+
             //If monthView is clicked then open selected DayView
             if ( isYearView === false ) {
                 root.dateSelected(selectedDate);

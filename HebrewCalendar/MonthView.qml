@@ -92,9 +92,9 @@ Page {
             currentMonth= hebrewDate.previousMonth()
         }
 
-//        function addMonth(date,month) {
-//           return  new Date(date.getFullYear(), date.getMonth() + month, 1, 0, 0, 0);
-//          }
+        function addMonth(date,month) {
+         //  return  hebrewDate.setHebDate(hebrewDate.getYear(date), hebrewDate.getMonth(date) + month, 1);
+          }
 
         delegate: Loader {
             width: parent.width - units.gu(4)
@@ -112,8 +112,8 @@ Page {
 
                     anchors.fill: parent
 
-//                    currentMonth: monthViewPath.addMonth(monthViewPath.startMonth,
-//                                                         monthViewPath.indexType(index));
+                   //currentMonth: monthViewPath.addMonth(monthViewPath.startMonth,
+                                                        //monthViewPath.indexType(index));
                     currentMonth:monthViewPage.currentMonth
 
                     isYearView: false
