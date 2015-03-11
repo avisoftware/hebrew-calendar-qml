@@ -108,10 +108,10 @@ QString HDate::getHebMonthStr(int m)
     return hdate_get_hebrew_month_string(m,1);
 }
 
-hdate_struct HDate::nextMonth()
+hdate_struct HDate::nextMonth(hdate_struct h)
 {
-    int m =current_h.hd_mon;
-    int y=current_h.hd_year;
+    int m =h.hd_mon;
+    int y=h.hd_year;
     hdate_struct h_t;
     if(m==12){
         y=y+1;
@@ -131,10 +131,10 @@ hdate_struct HDate::nextMonth()
     return(h_t);
 }
 
-hdate_struct HDate::previousMonth()
+hdate_struct HDate::previousMonth(hdate_struct h)
 {
-   int  m =current_h.hd_mon;
-   int  y=current_h.hd_year;
+   int  m =h.hd_mon;
+   int  y=h.hd_year;
     hdate_struct h_t;
     if(m==1){
         y=y-1;
@@ -152,6 +152,21 @@ hdate_struct HDate::previousMonth()
     current_h=h_t;
 
     return(h_t);
+}
+
+hdate_struct HDate::addMonths(hdate_struct h, int n)
+{
+    hdate_struct h1 = h;
+    if(n>0){
+        for(int i =0; i<n;i++){
+            h1 = nextMonth(h1);
+        }
+    }else if(n<0){
+        for(int i =0; i>n;i--){
+            h1 = previousMonth(h1);
+        }
+    }
+    return h1;
 }
 
 QString HDate::currentMonthStr(hdate_struct h)
@@ -193,15 +208,16 @@ hdate_struct HDate::addDays(hdate_struct h, int n)
 
 bool HDate::smallTo(hdate_struct from, hdate_struct to)
 {
-    QDate toD (from.gd_year,from.gd_mon,from.gd_day);
-    QDate fromD (to.gd_year,to.gd_mon,to.gd_day);
+    QDate fromD (from.gd_year,from.gd_mon,from.gd_day);
+    QDate toD (to.gd_year,to.gd_mon,to.gd_day);
     return (fromD<toD);
 
 }
 
 bool HDate::bigOrEquel(hdate_struct from, hdate_struct to)
 {
-    QDate toD (from.gd_year,from.gd_mon,from.gd_day);
-    QDate fromD (to.gd_year,to.gd_mon,to.gd_day);
+    QDate fromD (from.gd_year,from.gd_mon,from.gd_day);
+    QDate toD (to.gd_year,to.gd_mon,to.gd_day);
+
     return (fromD>=toD);
 }

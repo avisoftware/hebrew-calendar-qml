@@ -82,9 +82,10 @@ Page{
             }
 
             function nextDay() {
-                if(bigOrEquel(currentDay,hebrewDate.addDays(date,7))) {
+                if(hebrewDate.bigOrEquel(currentDay,hebrewDate.addDays(date,7))) {
                    date = hebrewDate.weekStart(dayViewPage.currentDay);
                     dayHeader.incrementCurrentIndex();
+                    console.log("1")
                 }
             }
 

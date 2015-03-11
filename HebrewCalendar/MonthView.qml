@@ -83,17 +83,17 @@ Page {
         }
 
         function nextMonth() {
-//            currentMonth = addMonth(currentMonth, 1);
-             currentMonth = hebrewDate.nextMonth()
+           currentMonth = addMonth(currentMonth, 1);
+//             currentMonth = hebrewDate.nextMonth()
         }
 
         function previousMonth() {
-//            currentMonth = addMonth(currentMonth, -1);
-            currentMonth= hebrewDate.previousMonth()
+          currentMonth = addMonth(currentMonth, -1);
+//            currentMonth= hebrewDate.previousMonth()
         }
 
         function addMonth(date,month) {
-         //  return  hebrewDate.setHebDate(hebrewDate.getYear(date), hebrewDate.getMonth(date) + month, 1);
+            return hebrewDate.addMonths(date,month)
           }
 
         delegate: Loader {
@@ -112,9 +112,9 @@ Page {
 
                     anchors.fill: parent
 
-                   //currentMonth: monthViewPath.addMonth(monthViewPath.startMonth,
-                                                        //monthViewPath.indexType(index));
-                    currentMonth:monthViewPage.currentMonth
+                   currentMonth: monthViewPath.addMonth(monthViewPath.startMonth,
+                                                        monthViewPath.indexType(index));
+//                    currentMonth:monthViewPage.currentMonth
 
                     isYearView: false
 

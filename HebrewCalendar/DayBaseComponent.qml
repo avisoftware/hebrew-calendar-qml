@@ -17,9 +17,8 @@
  */
 
 import QtQuick 2.3
-import QtQuick.Layouts 1.1
 import Ubuntu.Components 1.1
-import Ubuntu.Components.Popups 1.0
+import Ubuntu.Components.ListItems 1.0 as ListItem
 
 import HebrewCalendar 1.0
 
@@ -38,52 +37,74 @@ Item {
     HDate{
         id:hebrewDate
     }
-    Flickable {
+   Flickable {
         id: timeLineView
 
-        contentHeight: units.gu(8) * 24
-        contentWidth: width
-        anchors.fill: parent
-
-        clip: true
-
-        Row {
-            width: parent.width
-            height: timeLineView.contentHeight
-        }
-
-        Row {
-            id: week
-
-            anchors {
-                fill: parent
-                leftMargin: units.gu(6)
-
-                rightMargin:units.gu(3)
-            }
-
-            Repeater {
-                model: 1
-
-                delegate: Item {
-                    anchors.top: parent.top
-                    width: parent.width
+       contentHeight: units.gu(8) * 24
+       contentWidth: width
+       anchors.fill: parent
+       clip: true
 
 
-                    height: parent.height
-//                   day: hebrewDate.addDays(startDay,index)
-                    Loader{
-                        objectName: "weekdevider"
-                        height: parent.height
-                        width: units.gu(0.15)
-                        sourceComponent: undefined
-                    }
-
-
+        Column {
+            anchors.fill: parent
+            anchors.topMargin: units.gu(1)
+            spacing: units.gu(1)
+            Label {
+                    id: dateLabel
+                    anchors.horizontalCenter:  parent.horizontalCenter
+                    text: i18n.tr("Day Times")
+                    fontSize: "large"
+                    horizontalAlignment:Text.horizontalCenter
+                    color:"#5D5D5D"
                 }
+            ListItem.SingleValue {
+                text: "Label"
+                value: "Status"
+            }
+            ListItem.SingleValue {
+                text: "Label"
+                value: "Parameter"
             }
         }
-    }
+
+//        Row {
+//            width: parent.width
+//            height: timeLineView.contentHeight
+//        }
+
+//        Row {
+//            id: week
+
+//            anchors {
+//                fill: parent
+//                leftMargin: units.gu(6)
+
+//                rightMargin:units.gu(3)
+//            }
+
+//            Repeater {
+//                model: 1
+
+//                delegate: Item {
+//                    anchors.top: parent.top
+//                    width: parent.width
+
+
+//                    height: parent.height
+////                   day: hebrewDate.addDays(startDay,index)
+//                    Loader{
+//                        objectName: "weekdevider"
+//                        height: parent.height
+//                        width: units.gu(0.15)
+//                        sourceComponent: undefined
+//                    }
+
+
+//                }
+//            }
+//        }
+   }
 
 
 }

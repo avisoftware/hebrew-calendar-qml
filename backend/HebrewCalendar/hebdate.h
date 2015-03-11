@@ -17,8 +17,8 @@ public:
     explicit HDate(QObject *parent = 0);
     ~HDate();
 
-    Q_INVOKABLE hdate_struct nextMonth();
-    Q_INVOKABLE hdate_struct previousMonth();
+
+    Q_INVOKABLE hdate_struct addMonths(hdate_struct h,int n);
     Q_INVOKABLE hdate_struct today();
     Q_INVOKABLE int getDay(hdate_struct h){return h.hd_day;}
     Q_INVOKABLE int getMonth(hdate_struct h){return h.hd_mon;}
@@ -43,6 +43,8 @@ signals:
 protected:
 
 private:
+     hdate_struct nextMonth(hdate_struct h);
+     hdate_struct previousMonth(hdate_struct h);
     int init;
     hdate_struct today_h;
     hdate_struct current_h;
