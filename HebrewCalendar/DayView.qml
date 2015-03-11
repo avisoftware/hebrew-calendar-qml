@@ -66,7 +66,7 @@ Page{
         anchors.topMargin: units.gu(1)
         spacing: units.gu(1)
 
-        TimeLineHeader{
+        DayHeader{
             id: dayHeader
             objectName: "dayHeader"
 //            type: ViewType.ViewTypeDay
@@ -78,7 +78,7 @@ Page{
             }
 
             onCurrentDayChanged: {
-                date = hebrewDate.weekStart(dayViewPage.currentDay);
+                date = hebrewDate.weekStart(dayViewPage.currentDay);                
             }
 
             function nextDay() {

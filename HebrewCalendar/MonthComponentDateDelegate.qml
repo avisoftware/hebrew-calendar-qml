@@ -42,25 +42,6 @@ Item{
             }
         }
     }
-
-    Loader{
-        width: units.gu(1)
-        height: width
-        anchors.horizontalCenter: parent.horizontalCenter
-        anchors.top: dateLabel.bottom
-        anchors.topMargin: dateRootItem.height/4
-        sourceComponent: showEvent ? eventIndicatorComp : undefined
-    }
-
-    Component{
-        id: eventIndicatorComp
-        Rectangle {
-            anchors.fill: parent
-            radius: height/2
-            color:"#5E2750"
-        }
-    }
-
     Component{
         id: highLightComp
         UbuntuShape{
@@ -72,10 +53,6 @@ Item{
         anchors.fill: parent
 
         onClicked: {
-//            var selectedDate = hebrewDate.setHebDate(intern.monthStartYear,
-//                                        intern.monthStartMonth+1,
-//                                         hebrewDate.getDay(hebrewDate.addDays(intern.monthStart,index)))
-
             var selectedDate = hebrewDate.addDays(intern.monthStart,index);
 
             //If monthView is clicked then open selected DayView

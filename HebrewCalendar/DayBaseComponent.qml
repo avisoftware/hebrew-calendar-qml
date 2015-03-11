@@ -19,12 +19,11 @@
 import QtQuick 2.3
 import Ubuntu.Components 1.1
 import Ubuntu.Components.ListItems 1.0 as ListItem
-
 import HebrewCalendar 1.0
+import "timeCalc.js" as TimeCalc
 
 Item {
-    id: root
-
+    id: root    
     property var keyboardEventProvider;
 
     property var startDay: hebrewDate.today();
@@ -32,7 +31,21 @@ Item {
     property alias contentY: timeLineView.contentY
     property alias contentInteractive: timeLineView.interactive
 
+    property string firstLigthMga;
+    property string firstLigth;
+    property string talit;
+    property string sunrise;
+    property string sunset
 
+   onStartDayChanged: {
+       hebrewDate.calcTimes(startDay);
+       firstLigthMga= TimeCalc.timeString(hebrewDate.getFirstLightMga());
+       firstLigth= TimeCalc.timeString(hebrewDate.getFirstLight());
+       talit= TimeCalc.timeString(hebrewDate.getTalit());
+       sunrise = TimeCalc.timeString(hebrewDate.getSunrise());
+       sunset=TimeCalc.timeString(hebrewDate.getSunset());
+
+   }
 
     HDate{
         id:hebrewDate
@@ -47,64 +60,46 @@ Item {
 
 
         Column {
+
             anchors.fill: parent
             anchors.topMargin: units.gu(1)
             spacing: units.gu(1)
+
+
+
+
             Label {
                     id: dateLabel
                     anchors.horizontalCenter:  parent.horizontalCenter
-                    text: i18n.tr("Day Times")
+                    text: i18n.tr("Day times")
                     fontSize: "large"
                     horizontalAlignment:Text.horizontalCenter
                     color:"#5D5D5D"
                 }
             ListItem.SingleValue {
-                text: "Label"
-                value: "Status"
+                text: i18n.tr("First ligth (mga)")
+                value: firstLigthMga
+
             }
             ListItem.SingleValue {
-                text: "Label"
-                value: "Parameter"
+                text: i18n.tr("First light")
+                value: firstLigth
+
+            }
+            ListItem.SingleValue {
+                text: i18n.tr("Talit")
+                value: talit
+
+            }
+            ListItem.SingleValue {
+                text: i18n.tr("Sunrise")
+                value: sunrise
+
+            }
+            ListItem.SingleValue {
+               text: i18n.tr("Sunset")
+                value: sunset
             }
         }
-
-//        Row {
-//            width: parent.width
-//            height: timeLineView.contentHeight
-//        }
-
-//        Row {
-//            id: week
-
-//            anchors {
-//                fill: parent
-//                leftMargin: units.gu(6)
-
-//                rightMargin:units.gu(3)
-//            }
-
-//            Repeater {
-//                model: 1
-
-//                delegate: Item {
-//                    anchors.top: parent.top
-//                    width: parent.width
-
-
-//                    height: parent.height
-////                   day: hebrewDate.addDays(startDay,index)
-//                    Loader{
-//                        objectName: "weekdevider"
-//                        height: parent.height
-//                        width: units.gu(0.15)
-//                        sourceComponent: undefined
-//                    }
-
-
-//                }
-//            }
-//        }
    }
-
-
 }

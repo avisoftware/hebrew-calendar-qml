@@ -3,7 +3,8 @@
 HDate::HDate(QObject *parent) :
     QObject(parent)
 {
-
+     longitude =34.82;
+     latitude=32.08;
 }
 
 HDate::~HDate() {
@@ -183,6 +184,23 @@ hdate_struct HDate::today()
     init =1;
     return today_h;
 }
+
+void HDate::calcTimes(hdate_struct h)
+{
+    sun_hour=0, first_light=0, talit=0, sunrise=0;
+    midday=0, sunset=0, first_stars=0, three_stars=0;
+    first_light_mga=0,first_stars_mga=0;
+    three_stars_czhish=0;
+    int place_holder;
+
+    hdate_get_utc_sun_time_full (h.gd_day, h.gd_mon, h.gd_year, latitude, longitude,/*height,*/
+                                 &sun_hour, &first_light, &talit, &sunrise,
+                                 &midday, &sunset, &first_stars, &three_stars);
+    hdate_get_utc_sun_time_deg (h.gd_day, h.gd_mon, h.gd_year, latitude, longitude, 99.28, &place_holder, &three_stars_czhish);
+    /* first light and first stars by the magen avraham*/
+    hdate_get_utc_sun_time_deg (h.gd_day, h.gd_mon, h.gd_year, latitude, longitude,109.75, &first_light_mga, &first_stars_mga);
+}
+
 
 
 bool HDate::is_leap_year(int year){

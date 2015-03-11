@@ -94,7 +94,6 @@ MainView {
                                     && hebrewDate.getYear(date) === hebrewDate.getYear(now)) {
                                 tabs.currentDay = now;
                             } else {
-                                //FIXME:
                                 tabs.currentDay = date;
                             }
                             tabs.selectedTabIndex = monthTab.index;

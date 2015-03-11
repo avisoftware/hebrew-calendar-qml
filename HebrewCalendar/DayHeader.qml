@@ -38,7 +38,7 @@ PathViewBase {
     HDate{
         id:hebrewDate
     }
-    delegate: TimeLineHeaderComponent{
+    delegate: DayHeaderComponent{
 //        type: header.type
 
         isCurrentItem: index == header.currentIndex
