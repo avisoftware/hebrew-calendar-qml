@@ -23,7 +23,7 @@ import HebrewCalendar 1.0
 import "timeCalc.js" as TimeCalc
 
 Item {
-    id: root    
+    id: root
     property var keyboardEventProvider;
 
     property var startDay: hebrewDate.today();
@@ -35,71 +35,156 @@ Item {
     property string firstLigth;
     property string talit;
     property string sunrise;
-    property string sunset
 
-   onStartDayChanged: {
-       hebrewDate.calcTimes(startDay);
-       firstLigthMga= TimeCalc.timeString(hebrewDate.getFirstLightMga());
-       firstLigth= TimeCalc.timeString(hebrewDate.getFirstLight());
-       talit= TimeCalc.timeString(hebrewDate.getTalit());
-       sunrise = TimeCalc.timeString(hebrewDate.getSunrise());
-       sunset=TimeCalc.timeString(hebrewDate.getSunset());
+    property string endShemaMga;
+    property string endShema;
+    property string endTefilaMga;
+    property string endTefila;
 
-   }
+    property string midday;
+
+    property string bigMincha;
+    property string littleMincha;
+    property string plugMincha;
+
+    property string sunset;
+
+    property bool isHoliday: false;
+    property bool isTomorrowHoliday: false;
+
+    property string firstStars;
+    property string threeStars;
+    property string threeStarsCzhish;
+
+
+    onStartDayChanged: {
+        hebrewDate.calcTimes(startDay);
+        firstLigthMga= TimeCalc.timeString(hebrewDate.getFirstLightMga());
+        firstLigth= TimeCalc.timeString(hebrewDate.getFirstLight());
+        talit= TimeCalc.timeString(hebrewDate.getTalit());
+        sunrise = TimeCalc.timeString(hebrewDate.getSunrise());
+
+        endShemaMga= TimeCalc.timeString(hebrewDate.getFirstLightMga()+ (3 * getSunHouerMga()));
+        function getSunHouerMga(){
+            return (hebrewDate.getFirstStarsMga() - hebrewDate.getFirstLightMga()) / 12;
+        }
+
+        endShema= TimeCalc.timeString(hebrewDate.getSunrise()+(3*hebrewDate.getSunHour()));
+        endTefilaMga= TimeCalc.timeString(hebrewDate.getFirstLightMga()+ (4 * getSunHouerMga()));
+        endTefila= TimeCalc.timeString(hebrewDate.getSunrise()+(4*hebrewDate.getSunHour()));
+
+        midday=TimeCalc.timeString(hebrewDate.getMidday());
+
+        bigMincha= TimeCalc.timeString(hebrewDate.getSunrise()+(6.5*hebrewDate.getSunHour()));
+        littleMincha= TimeCalc.timeString(hebrewDate.getSunrise()+(9.5*hebrewDate.getSunHour()));
+        plugMincha= TimeCalc.timeString(hebrewDate.getSunrise()+(10.75*hebrewDate.getSunHour()));
+
+        sunset=TimeCalc.timeString(hebrewDate.getSunset());
+        if(hebrewDate.isDateBeforeHoliday(startDay)){
+            isTomorrowHoliday=true;
+        }
+        if(hebrewDate.isDateHoliday(startDay)){
+            isHoliday=true;
+        }
+
+        firstStars=TimeCalc.timeString(hebrewDate.getFirstStars());
+        threeStars=TimeCalc.timeString(hebrewDate.getThreeStars());
+        threeStarsCzhish=TimeCalc.timeString(hebrewDate.getThreeStarsCzhish());
+
+    }
 
     HDate{
         id:hebrewDate
     }
-   Flickable {
+    Flickable {
         id: timeLineView
-
-       contentHeight: units.gu(8) * 24
-       contentWidth: width
-       anchors.fill: parent
-       clip: true
-
-
+        contentHeight: units.gu(8) * 16
+        contentWidth: width
+        anchors.fill: parent
+        clip: true
+        boundsBehavior:Flickable.StopAtBounds
         Column {
-
             anchors.fill: parent
             anchors.topMargin: units.gu(1)
             spacing: units.gu(1)
 
 
-
-
             Label {
-                    id: dateLabel
-                    anchors.horizontalCenter:  parent.horizontalCenter
-                    text: i18n.tr("Day times")
-                    fontSize: "large"
-                    horizontalAlignment:Text.horizontalCenter
-                    color:"#5D5D5D"
-                }
+                id: dateLabel
+                anchors.horizontalCenter:  parent.horizontalCenter
+                text: i18n.tr("Day times")
+                fontSize: "large"
+                horizontalAlignment:Text.horizontalCenter
+                color:"#5D5D5D"
+            }
             ListItem.SingleValue {
                 text: i18n.tr("First ligth (mga)")
                 value: firstLigthMga
-
             }
             ListItem.SingleValue {
                 text: i18n.tr("First light")
                 value: firstLigth
-
             }
             ListItem.SingleValue {
                 text: i18n.tr("Talit")
                 value: talit
-
             }
             ListItem.SingleValue {
                 text: i18n.tr("Sunrise")
                 value: sunrise
-
             }
             ListItem.SingleValue {
-               text: i18n.tr("Sunset")
+                text: i18n.tr("End shema (mga)")
+                value: endShemaMga
+            }
+            ListItem.SingleValue {
+                text: i18n.tr("End shema")
+                value: endShema
+            }
+            ListItem.SingleValue {
+                text: i18n.tr("End tefila mga")
+                value: endTefilaMga
+            }
+            ListItem.SingleValue {
+                text: i18n.tr("End tefila")
+                value: endTefila
+            }
+            ListItem.SingleValue {
+                text: i18n.tr("Midday")
+                value: midday
+            }
+            ListItem.SingleValue {
+                text: i18n.tr("Big mincha")
+                value: bigMincha
+            }
+            ListItem.SingleValue {
+                text: i18n.tr("Little mincha")
+                value: littleMincha
+            }
+            ListItem.SingleValue {
+                text: i18n.tr("Plug mincha")
+                value: plugMincha
+            }
+            ListItem.SingleValue {
+                text: i18n.tr("Sunset")
                 value: sunset
             }
+
+                ListItem.SingleValue {
+                    text: i18n.tr("First stars")
+                    value: firstStars
+                    visible:isHoliday
+                }
+                ListItem.SingleValue {
+                    text: i18n.tr("Three stars")
+                    value: threeStars
+                     visible:isHoliday
+                }
+                ListItem.SingleValue {
+                    text: i18n.tr("Three stars czhish")
+                    value: threeStarsCzhish
+                     visible:isHoliday
+                }
         }
-   }
+    }
 }

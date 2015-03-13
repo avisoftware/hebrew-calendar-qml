@@ -52,6 +52,10 @@ public:
     Q_INVOKABLE int getFirstLightMga(){return first_light_mga;}
     Q_INVOKABLE int getFirstStarsMga(){return first_stars_mga;}
     Q_INVOKABLE int getThreeStarsCzhish(){return three_stars_czhish;}
+    //check if the given date is before shabat or holiday. for times like candel light
+     Q_INVOKABLE bool isDateBeforeHoliday(hdate_struct h);
+    //check if the given date is  shabat or holiday. for times like candel light
+    Q_INVOKABLE bool isDateHoliday(hdate_struct h);
 public slots:
      QString currentMonthStr(hdate_struct h);
 signals:

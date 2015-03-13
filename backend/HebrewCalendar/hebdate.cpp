@@ -201,6 +201,28 @@ void HDate::calcTimes(hdate_struct h)
     hdate_get_utc_sun_time_deg (h.gd_day, h.gd_mon, h.gd_year, latitude, longitude,109.75, &first_light_mga, &first_stars_mga);
 }
 
+bool HDate::isDateBeforeHoliday(hdate_struct h)
+{
+    hdate_struct  h1 = addDays(h,1);
+    int hol_tomorow = hdate_get_holyday(&h1, 0);
+    if(h.hd_dw==6)
+        return true;
+    else if(hol_tomorow>1)
+        return true;
+
+    return false;
+}
+
+bool HDate::isDateHoliday(hdate_struct h)
+{
+    if(h.hd_dw==7)
+        return true;
+    else if(hdate_get_holyday(&h, 0)>1)
+        return true;
+
+    return false;
+}
+
 
 
 bool HDate::is_leap_year(int year){
