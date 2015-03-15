@@ -132,13 +132,13 @@ Page{
                         id: timeLineView
                         objectName: "DayComponent-"+index
 
-//                        type: ViewType.ViewTypeDay
                         anchors.fill: parent
 
-                        isActive: parent.PathView.isCurrentItem
+//                        isActive: parent.PathView.isCurrentItem
                         contentInteractive: parent.PathView.isCurrentItem
                         startDay: hebrewDate.addDays(dayViewPath.startDay,dayViewPath.indexType(index))
-
+                        isHoliday:hebrewDate.isDateHoliday(currentDay)
+                        isTomorrowHoliday:hebrewDate.isDateBeforeHoliday(currentDay)
                         keyboardEventProvider: dayViewPath
 
                         //get contentY value from PathView, if its not current Item

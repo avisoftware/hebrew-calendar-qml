@@ -27,7 +27,7 @@ Item {
     property var keyboardEventProvider;
 
     property var startDay: hebrewDate.today();
-    property bool isActive: false
+    //    property bool isActive: false
     property alias contentY: timeLineView.contentY
     property alias contentInteractive: timeLineView.interactive
 
@@ -58,6 +58,7 @@ Item {
 
 
     onStartDayChanged: {
+        //TODO: move it to dayview?
         hebrewDate.calcTimes(startDay);
         firstLigthMga= TimeCalc.timeString(hebrewDate.getFirstLightMga());
         firstLigth= TimeCalc.timeString(hebrewDate.getFirstLight());
@@ -80,16 +81,11 @@ Item {
         plugMincha= TimeCalc.timeString(hebrewDate.getSunrise()+(10.75*hebrewDate.getSunHour()));
 
         sunset=TimeCalc.timeString(hebrewDate.getSunset());
-        if(hebrewDate.isDateBeforeHoliday(startDay)){
-            isTomorrowHoliday=true;
-        }
-        if(hebrewDate.isDateHoliday(startDay)){
-            isHoliday=true;
-        }
 
         firstStars=TimeCalc.timeString(hebrewDate.getFirstStars());
         threeStars=TimeCalc.timeString(hebrewDate.getThreeStars());
         threeStarsCzhish=TimeCalc.timeString(hebrewDate.getThreeStarsCzhish());
+
 
     }
 
@@ -109,13 +105,9 @@ Item {
             spacing: units.gu(1)
 
 
-            Label {
-                id: dateLabel
-                anchors.horizontalCenter:  parent.horizontalCenter
+
+            ListItem.Header  {
                 text: i18n.tr("Day times")
-                fontSize: "large"
-                horizontalAlignment:Text.horizontalCenter
-                color:"#5D5D5D"
             }
             ListItem.SingleValue {
                 text: i18n.tr("First ligth (mga)")
@@ -170,21 +162,25 @@ Item {
                 value: sunset
             }
 
-                ListItem.SingleValue {
-                    text: i18n.tr("First stars")
-                    value: firstStars
-                    visible:isHoliday
-                }
-                ListItem.SingleValue {
-                    text: i18n.tr("Three stars")
-                    value: threeStars
-                     visible:isHoliday
-                }
-                ListItem.SingleValue {
-                    text: i18n.tr("Three stars czhish")
-                    value: threeStarsCzhish
-                     visible:isHoliday
-                }
+            ListItem.Header  {
+                text: i18n.tr("Shabat Times")
+                visible:isHoliday
+            }
+            ListItem.SingleValue {
+                text: i18n.tr("First stars")
+                value: firstStars
+                visible:isHoliday
+            }
+            ListItem.SingleValue {
+                text: i18n.tr("Three stars")
+                value: threeStars
+                visible:isHoliday
+            }
+            ListItem.SingleValue {
+                text: i18n.tr("Three stars czhish")
+                value: threeStarsCzhish
+                visible:isHoliday
+            }
         }
     }
 }

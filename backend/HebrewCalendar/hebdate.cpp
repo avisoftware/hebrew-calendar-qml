@@ -205,9 +205,7 @@ bool HDate::isDateBeforeHoliday(hdate_struct h)
 {
     hdate_struct  h1 = addDays(h,1);
     int hol_tomorow = hdate_get_holyday(&h1, 0);
-    if(h.hd_dw==6)
-        return true;
-    else if(hol_tomorow>1)
+    if(h.hd_dw==6||hdate_get_holyday_type(hol_tomorow)==1)
         return true;
 
     return false;
@@ -215,9 +213,8 @@ bool HDate::isDateBeforeHoliday(hdate_struct h)
 
 bool HDate::isDateHoliday(hdate_struct h)
 {
-    if(h.hd_dw==7)
-        return true;
-    else if(hdate_get_holyday(&h, 0)>1)
+    int hol = hdate_get_holyday(&h, 0);
+    if(h.hd_dw==7||(hdate_get_holyday_type(hol)==1))
         return true;
 
     return false;

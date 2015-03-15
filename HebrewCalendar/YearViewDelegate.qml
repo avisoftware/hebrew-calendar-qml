@@ -76,7 +76,19 @@ GridView{
                     id: monthComponent
                     objectName: "monthComponent" + index
 
-                    currentMonth: hebrewDate.setHebDate(yearView.year, index+1, 1)
+                    currentMonth: {
+                        var realIndex =index+1;
+                                if(hebrewDate.is_leap_year(yearView.year)){
+                                    if(realIndex===6)
+                                        realIndex=13;
+                                    else if(realIndex===7)
+                                        realIndex=14;
+                                    else if (realIndex>7)
+                                        realIndex= realIndex-1;
+                                }
+                            return  hebrewDate.setHebDate(yearView.year, realIndex, 1);
+
+                    }
 
                     isCurrentItem: yearView.focus
 
