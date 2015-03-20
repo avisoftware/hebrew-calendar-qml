@@ -214,7 +214,7 @@ bool HDate::isDateBeforeHoliday(hdate_struct h)
 bool HDate::isDateHoliday(hdate_struct h)
 {
     int hol = hdate_get_holyday(&h, 0);
-    if(h.hd_dw==7||(hdate_get_holyday_type(hol)==1))
+    if(h.hd_dw==7||(hdate_get_holyday_type(hol)>0))
         return true;
 
     return false;

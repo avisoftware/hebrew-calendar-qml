@@ -186,6 +186,13 @@ Item{
                 }                
                 return temp;
             }
+            isHoliday:{
+
+                var h = hebrewDate.setHebDate(intern.curMonthYear,intern.curMonth,date)
+                var a = hebrewDate.isDateHoliday(h)
+                return  a
+
+            }
 
             isCurrentMonth: {
                 //remove offset from index

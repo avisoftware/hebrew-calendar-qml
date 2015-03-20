@@ -8,14 +8,23 @@ Item{
     property int date;
     property bool isCurrentMonth;
     property bool isToday;
-    property bool showEvent;
+    property bool isHoliday:false
     property alias fontSize: dateLabel.font.pixelSize
     HDate{
         id:hebrewDate
     }
 
     Loader {
-        sourceComponent: isToday && isCurrentMonth ? highLightComp : undefined
+        sourceComponent: {
+            if(isToday && isCurrentMonth ){
+                 highLightComp
+            }else if(isHoliday && isCurrentMonth ){
+            holidayComp
+        }else{
+                  undefined
+            }
+
+        }
         onSourceComponentChanged: {
             width = Qt.binding( function() { return ( dateRootItem.height / 1.5 ); });
             height = Qt.binding ( function() { return width} );
@@ -26,15 +35,17 @@ Item{
     Label {
         id: dateLabel
         anchors.centerIn: parent
-//        text: date
-        text: isYearView ? hebrewDate.intToHebStr(date) : hebrewDate.intToHebStr(date)+"\n"+date
+        text: isYearView ? hebrewDate.intToHebStr(date) : hebrewDate.intToHebStr(date)+"<br>"+"<span style='font-size:10px'>"+date+"</span>"
+        textFormat: Text.RichText
         fontSize: root.dateLabelFontSize
         horizontalAlignment:Text.AlignHCenter
         color: {
             if( isCurrentMonth ) {
                 if(isToday) {
                     "white"
-                } else {
+                } else if(isHoliday){
+                       "purple"
+                }else {
                     "#5D5D5D"
                 }
             } else {
@@ -42,10 +53,17 @@ Item{
             }
         }
     }
+
     Component{
         id: highLightComp
         UbuntuShape{
             color: "#DD4814"
+        }
+    }
+    Component{
+        id: holidayComp
+        UbuntuShape{
+            color: "lightblue"
         }
     }
 

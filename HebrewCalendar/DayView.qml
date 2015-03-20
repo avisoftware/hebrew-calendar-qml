@@ -20,7 +20,7 @@ import QtQuick 2.3
 import Ubuntu.Components 1.1
 //import "dateExt.js" as DateExt
 import HebrewCalendar 1.0
-
+import "timeCalc.js" as TimeCalc
 Page{
     id: dayViewPage
     objectName: "dayViewPage"
@@ -69,7 +69,7 @@ Page{
         DayHeader{
             id: dayHeader
             objectName: "dayHeader"
-//            type: ViewType.ViewTypeDay
+            //            type: ViewType.ViewTypeDay
             currentDay: dayViewPage.currentDay
 
             onDateSelected: {
@@ -78,12 +78,13 @@ Page{
             }
 
             onCurrentDayChanged: {
-                date = hebrewDate.weekStart(dayViewPage.currentDay);                
+                date = hebrewDate.weekStart(dayViewPage.currentDay);
+                hebrewDate.calcTimes(dayViewPage.currentDay);
             }
 
             function nextDay() {
                 if(hebrewDate.bigOrEquel(currentDay,hebrewDate.addDays(date,7))) {
-                   date = hebrewDate.weekStart(dayViewPage.currentDay);
+                    date = hebrewDate.weekStart(dayViewPage.currentDay);
                     dayHeader.incrementCurrentIndex();
                     console.log("1")
                 }
@@ -111,13 +112,13 @@ Page{
             onNextItemHighlighted: {
                 //next day
                 currentDay = hebrewDate.addDays(currentDay,1);
-                 dayHeader.nextDay();
-                }
+                dayHeader.nextDay();
+            }
 
             onPreviousItemHighlighted: {
                 //previous day
                 currentDay = hebrewDate.addDays(currentDay,-1);
-                  dayHeader.previousDay();
+                dayHeader.previousDay();
             }
 
             delegate: Loader {
@@ -134,11 +135,38 @@ Page{
 
                         anchors.fill: parent
 
-//                        isActive: parent.PathView.isCurrentItem
+                        //                        isActive: parent.PathView.isCurrentItem
                         contentInteractive: parent.PathView.isCurrentItem
                         startDay: hebrewDate.addDays(dayViewPath.startDay,dayViewPath.indexType(index))
+
+                        firstLigthMga: TimeCalc.timeString(hebrewDate.getFirstLightMga())
+                        firstLigth:TimeCalc.timeString(hebrewDate.getFirstLight())
+                        talit:TimeCalc.timeString(hebrewDate.getTalit())
+                        sunrise:TimeCalc.timeString(hebrewDate.getSunrise())
+
+                        endShemaMga:TimeCalc.timeString(hebrewDate.getFirstLightMga()+ (3 * getSunHouerMga()))
+                        function getSunHouerMga(){
+                            return (hebrewDate.getFirstStarsMga() - hebrewDate.getFirstLightMga()) / 12;
+                        }
+                        endShema:TimeCalc.timeString(hebrewDate.getSunrise()+(3*hebrewDate.getSunHour()))
+                        endTefilaMga:TimeCalc.timeString(hebrewDate.getFirstLightMga()+ (4 * getSunHouerMga()))
+                        endTefila:TimeCalc.timeString(hebrewDate.getSunrise()+(4*hebrewDate.getSunHour()))
+                        midday:TimeCalc.timeString(hebrewDate.getMidday())
+                        bigMincha:TimeCalc.timeString(hebrewDate.getSunrise()+(6.5*hebrewDate.getSunHour()))
+                        littleMincha:TimeCalc.timeString(hebrewDate.getSunrise()+(9.5*hebrewDate.getSunHour()))
+                        plugMincha:TimeCalc.timeString(hebrewDate.getSunrise()+(10.75*hebrewDate.getSunHour()))
+                        //TODO: candel ligth for location
+                        candelLight:TimeCalc.timeString(hebrewDate.getSunset()-22)
+                        sunset:TimeCalc.timeString(hebrewDate.getSunset())
+
+                        firstStars:TimeCalc.timeString(hebrewDate.getFirstStars())
+                        threeStars:TimeCalc.timeString(hebrewDate.getThreeStars())
+                        threeStarsCzhish:TimeCalc.timeString(hebrewDate.getThreeStarsCzhish())
+                        shabatEndRT:TimeCalc.timeString(hebrewDate.getSunset()+72)
+
                         isHoliday:hebrewDate.isDateHoliday(currentDay)
                         isTomorrowHoliday:hebrewDate.isDateBeforeHoliday(currentDay)
+
                         keyboardEventProvider: dayViewPath
 
                         //get contentY value from PathView, if its not current Item

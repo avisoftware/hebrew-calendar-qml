@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-03-15 09:36+0200\n"
+"POT-Creation-Date: 2015-03-20 09:43+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,76 +17,84 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:122
-msgid "Day times"
-msgstr ""
-
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:125
-msgid "First ligth (mga)"
-msgstr ""
-
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:129
-msgid "First light"
-msgstr ""
-
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:133
-msgid "Talit"
-msgstr ""
-
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:137
-msgid "Sunrise"
-msgstr ""
-
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:141
-msgid "End shema (mga)"
-msgstr ""
-
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:145
-msgid "End shema"
-msgstr ""
-
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:149
-msgid "End tefila mga"
-msgstr ""
-
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:153
-msgid "End tefila"
-msgstr ""
-
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:157
-msgid "Midday"
-msgstr ""
-
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:161
-msgid "Big mincha"
-msgstr ""
-
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:165
-msgid "Little mincha"
-msgstr ""
-
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:169
-msgid "Plug mincha"
-msgstr ""
-
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:173
-msgid "Sunset"
-msgstr ""
-
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:178
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:78
 msgid "Shabat Times"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:182
-msgid "First stars"
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:82
+msgid "Candel light"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:187
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:88
 msgid "Three stars"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:192
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:93
 msgid "Three stars czhish"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:98
+msgid "Shabat end RT (72 minute)"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:105
+msgid "Day times"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:108
+msgid "First ligth (mga)"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:112
+msgid "First light"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:116
+msgid "Talit"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:120
+msgid "Sunrise"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:124
+msgid "End shema (mga)"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:128
+msgid "End shema"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:132
+msgid "End tefila mga"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:136
+msgid "End tefila"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:140
+msgid "Midday"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:144
+msgid "Big mincha"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:148
+msgid "Little mincha"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:152
+msgid "Plug mincha"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:156
+msgid "Sunset"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:160
+msgid "First stars"
 msgstr ""
 
 #: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayView.qml:40
