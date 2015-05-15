@@ -18,6 +18,7 @@
 
 import QtQuick 2.3
 import Ubuntu.Components 1.1
+import Ubuntu.Components.Popups 1.0
 import Ubuntu.Components.ListItems 1.0 as ListItem
 import HebrewCalendar 1.0
 
@@ -27,34 +28,35 @@ Item {
     property var keyboardEventProvider;
 
     property var startDay: hebrewDate.today();
-    //    property bool isActive: false
+    property string dayFullStr;
+    property string dayHolidayStr;
+    property string dayParashaStr;
+    property string dayOmerStr;
+    property int dayOmer;
+
     property alias contentY: timeLineView.contentY
     property alias contentInteractive: timeLineView.interactive
-
+    // times
     property string firstLigthMga;
     property string firstLigth;
     property string talit;
     property string sunrise;
-
     property string endShemaMga;
     property string endShema;
     property string endTefilaMga;
     property string endTefila;
-
     property string midday;
-
     property string bigMincha;
     property string littleMincha;
     property string plugMincha;
     property string candelLight;
     property string sunset;
-
     property string firstStars;
     property string threeStars;
     property string threeStarsCzhish;
     property string shabatEndRT;
 
-    property bool isHoliday: false;
+    property int isHoliday: 0;
     property bool isTomorrowHoliday: false;
 
 
@@ -64,7 +66,7 @@ Item {
     }
     Flickable {
         id: timeLineView
-        contentHeight: units.gu(8) * 14
+        contentHeight: units.gu(8) * 15
         contentWidth: width
         anchors.fill: parent
         clip: true
@@ -75,6 +77,34 @@ Item {
             spacing: units.gu(0)
 
             ListItem.Header  {
+                text: i18n.tr("Day details")
+            }
+            ListItem.Standard {
+                   text:i18n.tr("Day ")+dayFullStr
+            }
+            ListItem.Standard {
+                   text:dayHolidayStr
+                   visible:dayHolidayStr!=""
+            }
+            ListItem.Standard {
+                   text:i18n.tr("Parashat ")+dayParashaStr
+                   visible:dayParashaStr!=""
+            }
+            Component {
+                   id: popoverComponent
+                   OmerPopUp{
+                    dayInOmer: dayOmer
+                   }
+               }
+            ListItem.Standard {
+                id:popoverButton
+                   text:dayOmerStr +" "+ i18n.tr("(click to expand)")
+                   visible:dayOmerStr!=""
+                   onClicked: {
+                        PopupUtils.open(popoverComponent, popoverButton)
+                   }
+            }
+            ListItem.Header  {
                 text: i18n.tr("Shabat Times")
                 visible:isHoliday||isTomorrowHoliday
             }
@@ -83,7 +113,6 @@ Item {
                 value: candelLight
                 visible:isTomorrowHoliday
             }
-
             ListItem.SingleValue {
                 text: i18n.tr("Three stars")
                 value: threeStars
@@ -99,8 +128,6 @@ Item {
                 value: shabatEndRT
                 visible:isHoliday
             }
-
-
             ListItem.Header  {
                 text: i18n.tr("Day times")
             }
@@ -160,8 +187,6 @@ Item {
                 text: i18n.tr("First stars")
                 value: firstStars
             }
-
-
         }
     }
 }

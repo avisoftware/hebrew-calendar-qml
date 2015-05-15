@@ -86,7 +86,6 @@ Page{
                 if(hebrewDate.bigOrEquel(currentDay,hebrewDate.addDays(date,7))) {
                     date = hebrewDate.weekStart(dayViewPage.currentDay);
                     dayHeader.incrementCurrentIndex();
-                    console.log("1")
                 }
             }
 
@@ -135,10 +134,13 @@ Page{
 
                         anchors.fill: parent
 
-                        //                        isActive: parent.PathView.isCurrentItem
                         contentInteractive: parent.PathView.isCurrentItem
                         startDay: hebrewDate.addDays(dayViewPath.startDay,dayViewPath.indexType(index))
-
+                        dayFullStr:hebrewDate.getDayFullStr(dayViewPage.currentDay)
+                         dayHolidayStr:hebrewDate.getDayHolidayStr(dayViewPage.currentDay)
+                         dayParashaStr:hebrewDate.getDayParashaStr(dayViewPage.currentDay)
+                         dayOmerStr:hebrewDate.getDayOmerStr(dayViewPage.currentDay)
+                        dayOmer:hebrewDate.getDayOmer(dayViewPage.currentDay)
                         firstLigthMga: TimeCalc.timeString(hebrewDate.getFirstLightMga())
                         firstLigth:TimeCalc.timeString(hebrewDate.getFirstLight())
                         talit:TimeCalc.timeString(hebrewDate.getTalit())

@@ -10,11 +10,13 @@ TARGET = $$qtLibraryTarget($$TARGET)
 # Input
 SOURCES += \
     backend.cpp \
-    hebdate.cpp
+    hebdate.cpp \
+    omerFullStr.cpp
 
 HEADERS += \
     backend.h \
-    hebdate.h
+    hebdate.h \
+    omerFullStr.h
 
 OTHER_FILES = qmldir
 

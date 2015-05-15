@@ -6,13 +6,6 @@
 class HDate : public QObject
 {
     Q_OBJECT
-
-//    Q_PROPERTY( QString currentMonthStr READ currentMonthStr NOTIFY currentMonthStrChanged)
-
-//    Q_PROPERTY( hdate_struct currentDate READ currentDate NOTIFY currentDateChanged)
-//    Q_PROPERTY( hdate_struct nextMonth READ nextMonth )
-//    Q_PROPERTY( hdate_struct previousMonth READ previousMonth )
-
 public:
     explicit HDate(QObject *parent = 0);
     ~HDate();
@@ -32,6 +25,12 @@ public:
     Q_INVOKABLE QString intToHebStr(int n);
     Q_INVOKABLE hdate_struct setHebDate(int y,int m,int d);
     Q_INVOKABLE QString getHebMonthStr(int m);
+    Q_INVOKABLE QString getDayFullStr(hdate_struct h);
+    Q_INVOKABLE QString getDayHolidayStr(hdate_struct h);
+    Q_INVOKABLE QString getDayParashaStr(hdate_struct h);
+    Q_INVOKABLE QString getDayOmerStr(hdate_struct h);
+    Q_INVOKABLE QString getDayOmerFullStr(int n, int nosach);
+    Q_INVOKABLE int getDayOmer(hdate_struct h);
     Q_INVOKABLE bool is_leap_year(int year);
     Q_INVOKABLE hdate_struct addDays(hdate_struct h,int n);
 
@@ -55,7 +54,7 @@ public:
     //check if the given date is before shabat or holiday. for times like candel light
      Q_INVOKABLE bool isDateBeforeHoliday(hdate_struct h);
     //check if the given date is  shabat or holiday. for times like candel light
-    Q_INVOKABLE bool isDateHoliday(hdate_struct h);
+    Q_INVOKABLE int isDateHoliday(hdate_struct h);
 public slots:
      QString currentMonthStr(hdate_struct h);
 signals:

@@ -1,5 +1,7 @@
-#include "hebdate.h"
 #include <QDate>
+
+#include "hebdate.h"
+#include "omerFullStr.h"
 HDate::HDate(QObject *parent) :
     QObject(parent)
 {
@@ -109,6 +111,39 @@ QString HDate::getHebMonthStr(int m)
     return hdate_get_hebrew_month_string(m,1);
 }
 
+QString HDate::getDayFullStr(hdate_struct h)
+{
+    return (QString(hdate_get_day_string(h.hd_dw,0))+" "+QString(hdate_get_int_string(h.hd_day))+" "+
+           QString( hdate_get_hebrew_month_string(h.hd_mon,1))+" "+QString(hdate_get_int_string(h.hd_year))+" "+
+            QString::number(h.gd_day)+"."+QString::number(h.gd_mon)+"."+QString::number(h.gd_year));
+}
+
+QString HDate::getDayHolidayStr(hdate_struct h)
+{
+    int hol = hdate_get_holyday(&h, 0);
+    return(hdate_get_holyday_string(hol,0));
+}
+
+QString HDate::getDayParashaStr(hdate_struct h)
+{
+    int p=hdate_get_parasha(&h,0);
+    return hdate_get_parasha_string(p,0);
+}
+ int HDate::getDayOmer(hdate_struct h){
+    return(hdate_get_omer_day(&h));
+}
+
+QString HDate::getDayOmerStr(hdate_struct h)
+{
+    int o=hdate_get_omer_day(&h);
+    return hdate_get_omer_string(o);
+}
+
+QString HDate::getDayOmerFullStr(int n,int nosach)
+{
+    return (getOmerFullString(n,nosach));
+}
+
 hdate_struct HDate::nextMonth(hdate_struct h)
 {
     int m =h.hd_mon;
@@ -211,13 +246,19 @@ bool HDate::isDateBeforeHoliday(hdate_struct h)
     return false;
 }
 
-bool HDate::isDateHoliday(hdate_struct h)
+int HDate::isDateHoliday(hdate_struct h)
 {
     int hol = hdate_get_holyday(&h, 0);
-    if(h.hd_dw==7||(hdate_get_holyday_type(hol)>0))
-        return true;
-
-    return false;
+    int hol_t=hdate_get_holyday_type(hol);
+    if(h.hd_dw==7||(hol_t>0)){
+        //return 10 if it is shabat instead of separated this function.
+        if(hol_t>0){
+          return hol_t;
+        }else if(h.hd_dw==7){
+            return 10;
+        }
+    }
+    return 0;
 }
 
 

@@ -8,7 +8,7 @@ Item{
     property int date;
     property bool isCurrentMonth;
     property bool isToday;
-    property bool isHoliday:false
+    property int isHoliday:0
     property alias fontSize: dateLabel.font.pixelSize
     HDate{
         id:hebrewDate
@@ -18,7 +18,7 @@ Item{
         sourceComponent: {
             if(isToday && isCurrentMonth ){
                  highLightComp
-            }else if(isHoliday && isCurrentMonth ){
+            }else if((isHoliday>0 && isHoliday<10) && isCurrentMonth ){
             holidayComp
         }else{
                   undefined
