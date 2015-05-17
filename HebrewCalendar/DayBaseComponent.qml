@@ -17,7 +17,7 @@
  */
 
 import QtQuick 2.3
-import Ubuntu.Components 1.1
+import Ubuntu.Components 1.2
 import Ubuntu.Components.Popups 1.0
 import Ubuntu.Components.ListItems 1.0 as ListItem
 import HebrewCalendar 1.0
@@ -59,50 +59,76 @@ Item {
     property int isHoliday: 0;
     property bool isTomorrowHoliday: false;
 
-
-
-    HDate{
-        id:hebrewDate
-    }
     Flickable {
         id: timeLineView
-        contentHeight: units.gu(8) * 15
+        contentHeight: column.height
         contentWidth: width
+
         anchors.fill: parent
         clip: true
         boundsBehavior:Flickable.StopAtBounds
         Column {
-            anchors.fill: parent
+            id: column
             anchors.topMargin: units.gu(0)
             spacing: units.gu(0)
+            anchors {
+                left: parent.left;
+                right: parent.right;
+            }
 
             ListItem.Header  {
                 text: i18n.tr("Day details")
             }
             ListItem.Standard {
-                   text:i18n.tr("Day ")+dayFullStr
+                text:i18n.tr("Day ")+dayFullStr
             }
             ListItem.Standard {
-                   text:dayHolidayStr
-                   visible:dayHolidayStr!=""
+                text:dayHolidayStr
+                visible:dayHolidayStr!=""
             }
             ListItem.Standard {
-                   text:i18n.tr("Parashat ")+dayParashaStr
-                   visible:dayParashaStr!=""
+                text:i18n.tr("Parashat ")+dayParashaStr
+                visible:dayParashaStr!=""
             }
-            Component {
-                   id: popoverComponent
-                   OmerPopUp{
-                    dayInOmer: dayOmer
-                   }
-               }
-            ListItem.Standard {
-                id:popoverButton
-                   text:dayOmerStr +" "+ i18n.tr("(click to expand)")
-                   visible:dayOmerStr!=""
-                   onClicked: {
-                        PopupUtils.open(popoverComponent, popoverButton)
-                   }
+
+            ListItem.Expandable {
+                id: omerExpandItem
+                expandedHeight: content.height + units.gu(1)
+                collapseOnClick: true
+                visible:dayOmerStr!=""
+                onClicked: {
+                    expanded = true;
+                }
+                Column {
+                    id: content
+                    anchors { left: parent.left; right: parent.right }
+                    Item {
+                        anchors { left: parent.left; right: parent.right}
+                        height: omerExpandItem.collapsedHeight
+                        Label {
+                            anchors { left: parent.left; right: parent.right; verticalCenter: parent.verticalCenter}
+                            text: dayOmerStr  +  i18n.tr("(click to expand)")
+                        }
+                    }
+
+                    UbuntuShape {
+                        id:borderOmer
+                        anchors { left: parent.left; right: parent.right }
+                        height: fullStrOmerL.height +units.gu(1)
+                        color: "khaki"
+                        Label {
+                            id:fullStrOmerL
+                            anchors.centerIn:borderOmer
+                            horizontalAlignment:Text.AlignHCenter
+                            // anchors { left: parent.left; right: parent.right; }
+                            text: hebrewDate.getDayOmerFullStr(dayOmer,settings.nosach)
+
+                        }
+
+                    }
+
+
+                }
             }
             ListItem.Header  {
                 text: i18n.tr("Shabat Times")
