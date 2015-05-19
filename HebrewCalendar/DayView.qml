@@ -18,7 +18,6 @@
 
 import QtQuick 2.3
 import Ubuntu.Components 1.1
-//import "dateExt.js" as DateExt
 import HebrewCalendar 1.0
 import "timeCalc.js" as TimeCalc
 Page{
@@ -58,9 +57,7 @@ Page{
             font.capitalization: Font.Capitalize
         }
     }
-    HDate{
-        id:hebrewDate
-    }
+
     Column {
         anchors.fill: parent
         anchors.topMargin: units.gu(1)

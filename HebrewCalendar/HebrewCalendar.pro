@@ -13,7 +13,8 @@ CONF_FILES +=  HebrewCalendar.apparmor \
 OTHER_FILES += $${CONF_FILES} \
                $${QML_FILES} \
     timeCalc.js \
-    Settings.qml
+    Settings.qml \
+    SettingsView.qml
 
 #specify where the qml/js files are installed to
 qml_files.path = /HebrewCalendar

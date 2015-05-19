@@ -58,7 +58,9 @@ Item {
 
     property int isHoliday: 0;
     property bool isTomorrowHoliday: false;
-
+    Settings{
+        id:settings
+    }
     Flickable {
         id: timeLineView
         contentHeight: column.height

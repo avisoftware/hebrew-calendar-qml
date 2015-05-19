@@ -6,8 +6,8 @@ import HebrewCalendar 1.0
 MainView {
     // objectName for functional testing purposes (autopilot-qt5)
     objectName: "mainView"
-//    Qt.application.name: "hebrew-calender"
-//    Qt.application.organization:"avisoftware"
+    //    Qt.application.name: "hebrew-calender"
+    //    Qt.application.organization:"avisoftware"
     // Note! applicationName needs to match the "name" field of the click manifest
     applicationName: "hebrew-calender.avisoftware"
 
@@ -164,6 +164,26 @@ MainView {
                         onDateSelected: {
                             tabs.currentDay = date;
                         }
+                    }
+                }
+            }
+
+            Tab{
+                id: settingsTab
+                objectName: "settingsTab"
+                title: i18n.tr("Settings")
+                page: Loader{
+                    id: settingsViewLoader
+                    objectName: "settingsViewLoader"
+                    source: tabs.selectedTab == settingsTab ? Qt.resolvedUrl("SettingsView.qml"):""
+                    onLoaded: {
+                        item.isCurrentPage= Qt.binding(function() { return tabs.selectedTab == settingsTab })
+                    }
+
+                    anchors{
+                        left: parent.left
+                        right: parent.right
+                        bottom: parent.bottom
                     }
                 }
             }
