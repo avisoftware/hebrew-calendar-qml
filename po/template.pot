@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-20 09:18+0300\n"
+"POT-Creation-Date: 2015-05-20 16:13+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,121 +17,121 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:82
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:85
 msgid "Day details"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:85
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:88
 msgid "Day "
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:92
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:95
 msgid "Parashat "
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:112
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:115
 msgid "(click to expand)"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:136
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:139
 msgid "Shabat Times"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:140
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:143
 msgid "Candel light"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:145
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:148
 msgid "Three stars"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:150
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:153
 msgid "Three stars czhish"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:155
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:158
 msgid "Shabat end RT (72 minute)"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:160
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:163
 msgid "Day times"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:163
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:166
 msgid "First ligth (mga)"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:167
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:170
 msgid "First light"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:171
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:174
 msgid "Talit"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:175
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:178
 msgid "Sunrise"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:179
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:182
 msgid "End shema (mga)"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:183
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:186
 msgid "End shema"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:187
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:190
 msgid "End tefila mga"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:191
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:194
 msgid "End tefila"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:195
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:198
 msgid "Midday"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:199
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:202
 msgid "Big mincha"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:203
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:206
 msgid "Little mincha"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:207
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:210
 msgid "Plug mincha"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:211
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:214
 msgid "Sunset"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:215
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayBaseComponent.qml:218
 msgid "First stars"
 msgstr ""
 
 #: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayView.qml:39
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/MonthView.qml:40
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/MonthView.qml:44
 #: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/YearView.qml:35
 msgid "Today"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/Main.qml:79
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/Main.qml:73
 msgid "Year"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/Main.qml:113
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/Main.qml:107
 msgid "Month"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/Main.qml:142
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/Main.qml:136
 msgid "Day"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/Main.qml:174
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/Main.qml:168
 msgid "Settings"
 msgstr ""
 

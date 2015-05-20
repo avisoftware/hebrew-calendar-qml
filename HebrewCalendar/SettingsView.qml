@@ -6,8 +6,6 @@ Page {
     id: settingsViewPage
     objectName: "settingsViewPage"
     property bool isCurrentPage: false
-    //    Keys.forwardTo: [dayViewPath]
-    //    flickable: null
     Action {
         id: settingsReset
         objectName:"settingsReset"
@@ -49,15 +47,8 @@ Page {
                 checked: settings.diaspora
                 onTriggered:  {
                     settings.diaspora = diasporaCheckBox.checked;
-                    needRestartLabel.visible =true;
                 }
             }
-            Label {
-                id: needRestartLabel
-                text: i18n.tr("This Change will be affected after restart")
-                visible:false
-            }
-
         }
         ListItem.Header  {
             text: i18n.tr("Sefirat HaOmer")

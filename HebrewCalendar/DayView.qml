@@ -57,7 +57,12 @@ Page{
             font.capitalization: Font.Capitalize
         }
     }
-
+    HDate{
+        id:hebrewDate
+    }
+    Settings{
+        id:settings
+    }
     Column {
         anchors.fill: parent
         anchors.topMargin: units.gu(1)
@@ -122,6 +127,7 @@ Page{
                 height: parent.height
                 asynchronous: index !== dayViewPath.currentIndex
                 sourceComponent: delegateComponent
+
 
                 Component {
                     id: delegateComponent

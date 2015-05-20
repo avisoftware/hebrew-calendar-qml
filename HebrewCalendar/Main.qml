@@ -6,8 +6,7 @@ import HebrewCalendar 1.0
 MainView {
     // objectName for functional testing purposes (autopilot-qt5)
     objectName: "mainView"
-    //    Qt.application.name: "hebrew-calender"
-    //    Qt.application.organization:"avisoftware"
+
     // Note! applicationName needs to match the "name" field of the click manifest
     applicationName: "hebrew-calender.avisoftware"
 
@@ -41,16 +40,11 @@ MainView {
         Tabs{
             id: tabs
             Keys.forwardTo: [tabs.currentPage.item]
-
             property var currentDay: hebrewDate.today();
-
-
             selectedTabIndex: monthTab.index
-
             Component.onCompleted: {
                 tabs.selectedTabIndex= 1;
             }
-
             Keys.onTabPressed: {
                 if( event.modifiers & Qt.ControlModifier) {
                     var currentTab = tabs.selectedTabIndex;
@@ -179,7 +173,6 @@ MainView {
                     onLoaded: {
                         item.isCurrentPage= Qt.binding(function() { return tabs.selectedTab == settingsTab })
                     }
-
                     anchors{
                         left: parent.left
                         right: parent.right

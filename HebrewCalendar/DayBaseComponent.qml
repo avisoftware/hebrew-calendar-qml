@@ -58,6 +58,9 @@ Item {
 
     property int isHoliday: 0;
     property bool isTomorrowHoliday: false;
+    HDate{
+        id:hebrewDate
+    }
     Settings{
         id:settings
     }

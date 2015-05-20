@@ -31,6 +31,10 @@ Page {
     HDate{
         id:hebrewDate
     }
+    Settings{
+        id:settings
+    }
+
     Keys.forwardTo: [monthViewPath]
 
     Action {

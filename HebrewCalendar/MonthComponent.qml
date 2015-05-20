@@ -43,6 +43,9 @@ Item{
     HDate{
         id:hebrewDate
     }
+    Settings{
+        id:settings
+    }
     QtObject{
         id: intern
 
@@ -110,6 +113,7 @@ Item{
             width: parent.width
             height: isYearView ? FontUtils.sizeToPixels(root.monthLabelFontSize) : 0;
             sourceComponent: isYearView ? headerComp : undefined
+
             Component{
                 id: headerComp
                 ViewHeader{
@@ -220,7 +224,8 @@ Item{
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: intern.dayFontSize
             font.bold: true
-            color: "black"            
+            color: "black"
+
         }
     }
 }
