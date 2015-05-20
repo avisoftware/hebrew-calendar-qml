@@ -134,8 +134,8 @@ Page{
                         contentInteractive: parent.PathView.isCurrentItem
                         startDay: hebrewDate.addDays(dayViewPath.startDay,dayViewPath.indexType(index))
                         dayFullStr:hebrewDate.getDayFullStr(dayViewPage.currentDay)
-                         dayHolidayStr:hebrewDate.getDayHolidayStr(dayViewPage.currentDay)
-                         dayParashaStr:hebrewDate.getDayParashaStr(dayViewPage.currentDay)
+                         dayHolidayStr:hebrewDate.getDayHolidayStr(dayViewPage.currentDay,settings.diaspora)
+                         dayParashaStr:hebrewDate.getDayParashaStr(dayViewPage.currentDay,settings.diaspora)
                          dayOmerStr:hebrewDate.getDayOmerStr(dayViewPage.currentDay)
                         dayOmer:hebrewDate.getDayOmer(dayViewPage.currentDay)
                         firstLigthMga: TimeCalc.timeString(hebrewDate.getFirstLightMga())
@@ -163,8 +163,8 @@ Page{
                         threeStarsCzhish:TimeCalc.timeString(hebrewDate.getThreeStarsCzhish())
                         shabatEndRT:TimeCalc.timeString(hebrewDate.getSunset()+72)
 
-                        isHoliday:hebrewDate.isDateHoliday(currentDay)
-                        isTomorrowHoliday:hebrewDate.isDateBeforeHoliday(currentDay)
+                        isHoliday:hebrewDate.isDateHoliday(currentDay,settings.diaspora)
+                        isTomorrowHoliday:hebrewDate.isDateBeforeHoliday(currentDay,settings.diaspora)
 
                         keyboardEventProvider: dayViewPath
 

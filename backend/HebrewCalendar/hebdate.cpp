@@ -118,16 +118,16 @@ QString HDate::getDayFullStr(hdate_struct h)
             QString::number(h.gd_day)+"."+QString::number(h.gd_mon)+"."+QString::number(h.gd_year));
 }
 
-QString HDate::getDayHolidayStr(hdate_struct h)
+QString HDate::getDayHolidayStr(hdate_struct h,int d)
 {
-    int hol = hdate_get_holyday(&h, 0);
-    return(hdate_get_holyday_string(hol,0));
+    int hol = hdate_get_holyday(&h, d);
+    return(hdate_get_holyday_string(hol,d));
 }
 
-QString HDate::getDayParashaStr(hdate_struct h)
+QString HDate::getDayParashaStr(hdate_struct h,int d)
 {
-    int p=hdate_get_parasha(&h,0);
-    return hdate_get_parasha_string(p,0);
+    int p=hdate_get_parasha(&h,d);
+    return hdate_get_parasha_string(p,d);
 }
  int HDate::getDayOmer(hdate_struct h){
     return(hdate_get_omer_day(&h));
@@ -236,19 +236,19 @@ void HDate::calcTimes(hdate_struct h)
     hdate_get_utc_sun_time_deg (h.gd_day, h.gd_mon, h.gd_year, latitude, longitude,109.75, &first_light_mga, &first_stars_mga);
 }
 
-bool HDate::isDateBeforeHoliday(hdate_struct h)
+bool HDate::isDateBeforeHoliday(hdate_struct h,int d)
 {
     hdate_struct  h1 = addDays(h,1);
-    int hol_tomorow = hdate_get_holyday(&h1, 0);
+    int hol_tomorow = hdate_get_holyday(&h1, d);
     if(h.hd_dw==6||hdate_get_holyday_type(hol_tomorow)==1)
         return true;
 
     return false;
 }
 
-int HDate::isDateHoliday(hdate_struct h)
+int HDate::isDateHoliday(hdate_struct h,int d)
 {
-    int hol = hdate_get_holyday(&h, 0);
+    int hol = hdate_get_holyday(&h, d);
     int hol_t=hdate_get_holyday_type(hol);
     if(h.hd_dw==7||(hol_t>0)){
         //return 10 if it is shabat instead of separated this function.

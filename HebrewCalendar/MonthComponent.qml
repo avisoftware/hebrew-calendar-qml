@@ -188,7 +188,7 @@ Item{
             }
             isHoliday:{
                 var h = hebrewDate.setHebDate(intern.curMonthYear,intern.curMonth,date)
-                var a = hebrewDate.isDateHoliday(h)
+                var a = hebrewDate.isDateHoliday(h,settings.diaspora)
                return  a
             }
 

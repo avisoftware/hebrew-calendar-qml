@@ -26,8 +26,8 @@ public:
     Q_INVOKABLE hdate_struct setHebDate(int y,int m,int d);
     Q_INVOKABLE QString getHebMonthStr(int m);
     Q_INVOKABLE QString getDayFullStr(hdate_struct h);
-    Q_INVOKABLE QString getDayHolidayStr(hdate_struct h);
-    Q_INVOKABLE QString getDayParashaStr(hdate_struct h);
+    Q_INVOKABLE QString getDayHolidayStr(hdate_struct h, int d);
+    Q_INVOKABLE QString getDayParashaStr(hdate_struct h, int d);
     Q_INVOKABLE QString getDayOmerStr(hdate_struct h);
     Q_INVOKABLE QString getDayOmerFullStr(int n, int nosach);
     Q_INVOKABLE int getDayOmer(hdate_struct h);
@@ -52,9 +52,9 @@ public:
     Q_INVOKABLE int getFirstStarsMga(){return first_stars_mga;}
     Q_INVOKABLE int getThreeStarsCzhish(){return three_stars_czhish;}
     //check if the given date is before shabat or holiday. for times like candel light
-     Q_INVOKABLE bool isDateBeforeHoliday(hdate_struct h);
+     Q_INVOKABLE bool isDateBeforeHoliday(hdate_struct h, int d);
     //check if the given date is  shabat or holiday. for times like candel light
-    Q_INVOKABLE int isDateHoliday(hdate_struct h);
+    Q_INVOKABLE int isDateHoliday(hdate_struct h, int d);
 public slots:
      QString currentMonthStr(hdate_struct h);
 signals:
@@ -75,11 +75,6 @@ private:
     int midday, sunset, first_stars, three_stars;
     int first_light_mga,first_stars_mga;
     int three_stars_czhish;
-
-
-
-
-
 };
 #endif // MYTYPE_H
 
