@@ -5,8 +5,7 @@
 HDate::HDate(QObject *parent) :
     QObject(parent)
 {
-     longitude =34.82;
-     latitude=32.08;
+
 }
 
 HDate::~HDate() {
@@ -220,7 +219,7 @@ hdate_struct HDate::today()
     return today_h;
 }
 
-void HDate::calcTimes(hdate_struct h)
+void HDate::calcTimes(hdate_struct h,double longitude, double latitude)
 {
     sun_hour=0, first_light=0, talit=0, sunrise=0;
     midday=0, sunset=0, first_stars=0, three_stars=0;

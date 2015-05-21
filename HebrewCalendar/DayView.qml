@@ -81,7 +81,7 @@ Page{
 
             onCurrentDayChanged: {
                 date = hebrewDate.weekStart(dayViewPage.currentDay);
-                hebrewDate.calcTimes(dayViewPage.currentDay);
+                hebrewDate.calcTimes(dayViewPage.currentDay,settings.locationLongitude,settings.locationLatitude);
             }
 
             function nextDay() {
@@ -144,30 +144,47 @@ Page{
                          dayParashaStr:hebrewDate.getDayParashaStr(dayViewPage.currentDay,settings.diaspora)
                          dayOmerStr:hebrewDate.getDayOmerStr(dayViewPage.currentDay)
                         dayOmer:hebrewDate.getDayOmer(dayViewPage.currentDay)
-                        firstLigthMga: TimeCalc.timeString(hebrewDate.getFirstLightMga())
-                        firstLigth:TimeCalc.timeString(hebrewDate.getFirstLight())
-                        talit:TimeCalc.timeString(hebrewDate.getTalit())
-                        sunrise:TimeCalc.timeString(hebrewDate.getSunrise())
+                        firstLigthMga: TimeCalc.timeString(hebrewDate.getGYear(dayViewPage.currentDay),hebrewDate.getGMonth(dayViewPage.currentDay),hebrewDate.getGDay(dayViewPage.currentDay),
+                                                           hebrewDate.getFirstLightMga(),settings.locationTimeZone)
+                        firstLigth:TimeCalc.timeString(hebrewDate.getGYear(dayViewPage.currentDay),hebrewDate.getGMonth(dayViewPage.currentDay),hebrewDate.getGDay(dayViewPage.currentDay),
+                                                       hebrewDate.getFirstLight(),settings.locationTimeZone)
+                        talit:TimeCalc.timeString(hebrewDate.getGYear(dayViewPage.currentDay),hebrewDate.getGMonth(dayViewPage.currentDay),hebrewDate.getGDay(dayViewPage.currentDay),
+                                                  hebrewDate.getTalit(),settings.locationTimeZone)
+                        sunrise:TimeCalc.timeString(hebrewDate.getGYear(dayViewPage.currentDay),hebrewDate.getGMonth(dayViewPage.currentDay),hebrewDate.getGDay(dayViewPage.currentDay),
+                                                    hebrewDate.getSunrise(),settings.locationTimeZone)
 
-                        endShemaMga:TimeCalc.timeString(hebrewDate.getFirstLightMga()+ (3 * getSunHouerMga()))
+                        endShemaMga:TimeCalc.timeString(hebrewDate.getGYear(dayViewPage.currentDay),hebrewDate.getGMonth(dayViewPage.currentDay),hebrewDate.getGDay(dayViewPage.currentDay),
+                                                        hebrewDate.getFirstLightMga()+ (3 * getSunHouerMga()),settings.locationTimeZone)
                         function getSunHouerMga(){
                             return (hebrewDate.getFirstStarsMga() - hebrewDate.getFirstLightMga()) / 12;
                         }
-                        endShema:TimeCalc.timeString(hebrewDate.getSunrise()+(3*hebrewDate.getSunHour()))
-                        endTefilaMga:TimeCalc.timeString(hebrewDate.getFirstLightMga()+ (4 * getSunHouerMga()))
-                        endTefila:TimeCalc.timeString(hebrewDate.getSunrise()+(4*hebrewDate.getSunHour()))
-                        midday:TimeCalc.timeString(hebrewDate.getMidday())
-                        bigMincha:TimeCalc.timeString(hebrewDate.getSunrise()+(6.5*hebrewDate.getSunHour()))
-                        littleMincha:TimeCalc.timeString(hebrewDate.getSunrise()+(9.5*hebrewDate.getSunHour()))
-                        plugMincha:TimeCalc.timeString(hebrewDate.getSunrise()+(10.75*hebrewDate.getSunHour()))
-                        //TODO: candel ligth for location
-                        candelLight:TimeCalc.timeString(hebrewDate.getSunset()-22)
-                        sunset:TimeCalc.timeString(hebrewDate.getSunset())
+                        endShema:TimeCalc.timeString(hebrewDate.getGYear(dayViewPage.currentDay),hebrewDate.getGMonth(dayViewPage.currentDay),hebrewDate.getGDay(dayViewPage.currentDay),
+                                                     hebrewDate.getSunrise()+(3*hebrewDate.getSunHour()),settings.locationTimeZone)
+                        endTefilaMga:TimeCalc.timeString(hebrewDate.getGYear(dayViewPage.currentDay),hebrewDate.getGMonth(dayViewPage.currentDay),hebrewDate.getGDay(dayViewPage.currentDay),
+                                                         hebrewDate.getFirstLightMga()+ (4 * getSunHouerMga()),settings.locationTimeZone)
+                        endTefila:TimeCalc.timeString(hebrewDate.getGYear(dayViewPage.currentDay),hebrewDate.getGMonth(dayViewPage.currentDay),hebrewDate.getGDay(dayViewPage.currentDay),
+                                                      hebrewDate.getSunrise()+(4*hebrewDate.getSunHour()),settings.locationTimeZone)
+                        midday:TimeCalc.timeString(hebrewDate.getGYear(dayViewPage.currentDay),hebrewDate.getGMonth(dayViewPage.currentDay),hebrewDate.getGDay(dayViewPage.currentDay),
+                                                   hebrewDate.getMidday(),settings.locationTimeZone)
+                        bigMincha:TimeCalc.timeString(hebrewDate.getGYear(dayViewPage.currentDay),hebrewDate.getGMonth(dayViewPage.currentDay),hebrewDate.getGDay(dayViewPage.currentDay),
+                                                      hebrewDate.getSunrise()+(6.5*hebrewDate.getSunHour()),settings.locationTimeZone)
+                        littleMincha:TimeCalc.timeString(hebrewDate.getGYear(dayViewPage.currentDay),hebrewDate.getGMonth(dayViewPage.currentDay),hebrewDate.getGDay(dayViewPage.currentDay),
+                                                         hebrewDate.getSunrise()+(9.5*hebrewDate.getSunHour()),settings.locationTimeZone)
+                        plugMincha:TimeCalc.timeString(hebrewDate.getGYear(dayViewPage.currentDay),hebrewDate.getGMonth(dayViewPage.currentDay),hebrewDate.getGDay(dayViewPage.currentDay),
+                                                       hebrewDate.getSunrise()+(10.75*hebrewDate.getSunHour()),settings.locationTimeZone)
+                        candelLight:TimeCalc.timeString(hebrewDate.getGYear(dayViewPage.currentDay),hebrewDate.getGMonth(dayViewPage.currentDay),hebrewDate.getGDay(dayViewPage.currentDay),
+                                                        hebrewDate.getSunset()-settings.candelLight,settings.locationTimeZone)
+                        sunset:TimeCalc.timeString(hebrewDate.getGYear(dayViewPage.currentDay),hebrewDate.getGMonth(dayViewPage.currentDay),hebrewDate.getGDay(dayViewPage.currentDay),
+                                                   hebrewDate.getSunset(),settings.locationTimeZone)
 
-                        firstStars:TimeCalc.timeString(hebrewDate.getFirstStars())
-                        threeStars:TimeCalc.timeString(hebrewDate.getThreeStars())
-                        threeStarsCzhish:TimeCalc.timeString(hebrewDate.getThreeStarsCzhish())
-                        shabatEndRT:TimeCalc.timeString(hebrewDate.getSunset()+72)
+                        firstStars:TimeCalc.timeString(hebrewDate.getGYear(dayViewPage.currentDay),hebrewDate.getGMonth(dayViewPage.currentDay),hebrewDate.getGDay(dayViewPage.currentDay),
+                                                       hebrewDate.getFirstStars(),settings.locationTimeZone)
+                        threeStars:TimeCalc.timeString(hebrewDate.getGYear(dayViewPage.currentDay),hebrewDate.getGMonth(dayViewPage.currentDay),hebrewDate.getGDay(dayViewPage.currentDay),
+                                                       hebrewDate.getThreeStars(),settings.locationTimeZone)
+                        threeStarsCzhish:TimeCalc.timeString(hebrewDate.getGYear(dayViewPage.currentDay),hebrewDate.getGMonth(dayViewPage.currentDay),hebrewDate.getGDay(dayViewPage.currentDay),
+                                                             hebrewDate.getThreeStarsCzhish(),settings.locationTimeZone)
+                        shabatEndRT:TimeCalc.timeString(hebrewDate.getGYear(dayViewPage.currentDay),hebrewDate.getGMonth(dayViewPage.currentDay),hebrewDate.getGDay(dayViewPage.currentDay),
+                                                        hebrewDate.getSunset()+72,settings.locationTimeZone)
 
                         isHoliday:hebrewDate.isDateHoliday(currentDay,settings.diaspora)
                         isTomorrowHoliday:hebrewDate.isDateBeforeHoliday(currentDay,settings.diaspora)

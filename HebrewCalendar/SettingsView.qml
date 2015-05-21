@@ -1,7 +1,8 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.2
 import Ubuntu.Components.ListItems 1.0 as ListItem
-
+import Ubuntu.Components.Pickers 1.0
+import U1db 1.0 as U1db
 Page {
     id: settingsViewPage
     objectName: "settingsViewPage"
@@ -27,10 +28,42 @@ Page {
     Settings{
         id:settings
     }
+    U1db.Database {
+                   id: loacationDatabase
+                   path: "lU1DbDatabase"
+    }
+    U1db.Document {
+                    id: nameDocument
+                    database: loacationDatabase
+                    docId: 'name'
+                    create: true
+                    defaults: { "name":["jerusalem","tel-aviv"]}
+    }
+    U1db.Document {
+                    id: latitudeDocument
+                    database: loacationDatabase
+                    docId: 'latitude'
+                    create: true
+                    defaults: { "latitude": [31.78,32.06]}
+    }
+    U1db.Document {
+                    id: longitudeDocument
+                    database: loacationDatabase
+                    docId: 'longitude'
+                    create: true
+                    defaults: { "longitude": [35.22,34.77]}
+    }
+    U1db.Document {
+                    id: timeZoneDocument
+                    database: loacationDatabase
+                    docId: 'timeZone'
+                    create: true
+                    defaults: { "timeZone": [2,2]}
+    }
     Column {
         anchors.fill: parent
         anchors.margins:  units.gu(3)
-        spacing: units.gu(3)
+        spacing: units.gu(2)
         ListItem.Header  {
             text: i18n.tr("Global")
         }
@@ -48,6 +81,56 @@ Page {
                 onTriggered:  {
                     settings.diaspora = diasporaCheckBox.checked;
                 }
+            }
+        }
+        ListItem.Header  {
+            text: i18n.tr("Location")
+        }
+
+        OptionSelector {
+            id:locationSelector
+
+            text: i18n.tr("")
+            model: nameDocument.contents.name
+            selectedIndex:model.indexOf(settings.locationName.toString())
+            containerHeight: itemHeight * 4
+            onSelectedIndexChanged: {
+                settings.locationName =model[selectedIndex];
+                settings.locationLongitude=longitudeDocument.contents.longitude[selectedIndex];
+                settings.locationLatitude=latitudeDocument.contents.latitude[selectedIndex];
+                settings.locationTimeZone=timeZoneDocumentcontents.timeZone[selectedIndex];
+            }
+        }
+        Row {
+            anchors.left: parent.left
+            anchors.right: parent.right
+            spacing: units.gu(2)
+            Button {
+                iconName: "edit"
+                text: i18n.tr("Edit location")
+                onClicked:{
+
+                }
+            }
+            Button {
+                iconName: "add"
+                text: i18n.tr("New loaction")
+                onClicked:{
+
+                }
+            }
+        }
+        ListItem.Header  {
+            text: i18n.tr("Times Of Day")
+        }
+        OptionSelector {
+            id:candelLightSelector
+            text: i18n.tr("Candel Light")
+            model: ["15", "18", "20", "22", "30", "40", "50", "60"]
+            selectedIndex:model.indexOf(settings.candelLight.toString())
+            containerHeight: itemHeight * 4
+            onSelectedIndexChanged: {
+                settings.candelLight =model[selectedIndex];
             }
         }
         ListItem.Header  {

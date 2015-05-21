@@ -18,7 +18,6 @@
 
 import QtQuick 2.3
 import Ubuntu.Components 1.1
-import "dateExt.js" as DateExt
 import HebrewCalendar 1.0
 
 Row{

@@ -17,7 +17,6 @@
  */
 import QtQuick 2.3
 import Ubuntu.Components 1.1
-import "colorUtils.js" as Color
 import HebrewCalendar 1.0
 
 
