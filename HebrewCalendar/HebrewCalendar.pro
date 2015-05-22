@@ -14,7 +14,8 @@ OTHER_FILES += $${CONF_FILES} \
                $${QML_FILES} \
     timeCalc.js \
     Settings.qml \
-    SettingsView.qml
+    SettingsView.qml \
+    LocationDialog.qml
 
 #specify where the qml/js files are installed to
 qml_files.path = /HebrewCalendar

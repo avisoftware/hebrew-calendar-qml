@@ -1,7 +1,7 @@
 import QtQuick 2.4
 import Ubuntu.Components 1.2
 import Ubuntu.Components.ListItems 1.0 as ListItem
-import Ubuntu.Components.Pickers 1.0
+import Ubuntu.Components.Popups 1.0
 import U1db 1.0 as U1db
 Page {
     id: settingsViewPage
@@ -53,12 +53,13 @@ Page {
                     create: true
                     defaults: { "longitude": [35.22,34.77]}
     }
+    // http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
     U1db.Document {
                     id: timeZoneDocument
                     database: loacationDatabase
                     docId: 'timeZone'
                     create: true
-                    defaults: { "timeZone": [2,2]}
+                    defaults: { "timeZone": ["Asia/Jerusalem","Asia/Tel_Aviv"]}
     }
     Column {
         anchors.fill: parent
@@ -90,7 +91,7 @@ Page {
         OptionSelector {
             id:locationSelector
 
-            text: i18n.tr("")
+           // text: i18n.tr("")
             model: nameDocument.contents.name
             selectedIndex:model.indexOf(settings.locationName.toString())
             containerHeight: itemHeight * 4
@@ -98,7 +99,7 @@ Page {
                 settings.locationName =model[selectedIndex];
                 settings.locationLongitude=longitudeDocument.contents.longitude[selectedIndex];
                 settings.locationLatitude=latitudeDocument.contents.latitude[selectedIndex];
-                settings.locationTimeZone=timeZoneDocumentcontents.timeZone[selectedIndex];
+                settings.locationTimeZone=timeZoneDocument.contents.timeZone[selectedIndex];
             }
         }
         Row {
@@ -109,17 +110,20 @@ Page {
                 iconName: "edit"
                 text: i18n.tr("Edit location")
                 onClicked:{
-
+                  PopupUtils.open(Qt.resolvedUrl("LocationDialog.qml"),parent, {
+                                        locationName: locationSelector.model[locationSelector.selectedIndex]})
                 }
             }
             Button {
                 iconName: "add"
                 text: i18n.tr("New loaction")
                 onClicked:{
-
+                    PopupUtils.open(Qt.resolvedUrl("LocationDialog.qml"),parent)
                 }
             }
         }
+
+
         ListItem.Header  {
             text: i18n.tr("Times Of Day")
         }
