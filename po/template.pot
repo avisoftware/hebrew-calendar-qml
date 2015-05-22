@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-22 09:43+0300\n"
+"POT-Creation-Date: 2015-05-22 09:46+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -113,10 +113,18 @@ msgstr ""
 msgid "First stars"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayView.qml:39
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/DayView.qml:38
 #: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/MonthView.qml:43
 #: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/YearView.qml:35
 msgid "Today"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/LocationDialog.qml:13
+msgid "Edit Location"
+msgstr ""
+
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/LocationDialog.qml:13
+msgid "New Location"
 msgstr ""
 
 #: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/Main.qml:73

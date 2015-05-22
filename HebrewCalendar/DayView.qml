@@ -19,7 +19,6 @@
 import QtQuick 2.3
 import Ubuntu.Components 1.1
 import HebrewCalendar 1.0
-import "timeCalc.js" as TimeCalc
 Page{
     id: dayViewPage
     objectName: "dayViewPage"
