@@ -2,6 +2,8 @@
 
 #include "hebdate.h"
 #include "omerFullStr.h"
+#include <qdatetime.h>
+#include <time.h>
 HDate::HDate(QObject *parent) :
     QObject(parent)
 {
@@ -233,6 +235,33 @@ void HDate::calcTimes(hdate_struct h,double longitude, double latitude)
     hdate_get_utc_sun_time_deg (h.gd_day, h.gd_mon, h.gd_year, latitude, longitude, 99.28, &place_holder, &three_stars_czhish);
     /* first light and first stars by the magen avraham*/
     hdate_get_utc_sun_time_deg (h.gd_day, h.gd_mon, h.gd_year, latitude, longitude,109.75, &first_light_mga, &first_stars_mga);
+}
+
+QString HDate::getTimeString(hdate_struct h, int min, QString tz)
+{
+    struct tm tm;
+       time_t timenum;
+
+       //mktime has the side effect of normalizing tm
+       tm.tm_min=min;
+       tm.tm_hour=0;
+       tm.tm_sec=0;
+       tm.tm_mon=h.gd_mon-1;
+       tm.tm_mday=h.gd_day;
+       tm.tm_year=h.gd_year-1900;
+       tm.tm_isdst=0;
+       //tm.tm_gmtoff=0;
+
+       //Get timenum for the UTC time.
+       putenv("TZ=UTC");
+       tzset();
+       timenum=mktime(&tm);
+       //Convert back to the requested local timezone
+       setenv("TZ",tz.toLatin1(),1);
+       tzset();
+       localtime_r(&timenum,&tm);
+
+       return (QTime (tm.tm_hour,tm.tm_min).toString("hh:mm"));
 }
 
 bool HDate::isDateBeforeHoliday(hdate_struct h,int d)

@@ -16,9 +16,9 @@ public:
     Q_INVOKABLE int getDay(hdate_struct h){return h.hd_day;}
     Q_INVOKABLE int getMonth(hdate_struct h){return h.hd_mon;}
     Q_INVOKABLE int getYear(hdate_struct h){return h.hd_year;}
-    Q_INVOKABLE int getGDay(hdate_struct h){return h.gd_day;}
-    Q_INVOKABLE int getGMonth(hdate_struct h){return h.gd_mon;}
-    Q_INVOKABLE int getGYear(hdate_struct h){return h.gd_year;}
+//    Q_INVOKABLE int getGDay(hdate_struct h){return h.gd_day;}
+//    Q_INVOKABLE int getGMonth(hdate_struct h){return h.gd_mon;}
+//    Q_INVOKABLE int getGYear(hdate_struct h){return h.gd_year;}
     Q_INVOKABLE int getDayInWeek(hdate_struct h){return h.hd_dw;}
 
     Q_INVOKABLE hdate_struct weekStart(hdate_struct h);
@@ -41,7 +41,7 @@ public:
     Q_INVOKABLE bool bigOrEquel(hdate_struct from, hdate_struct to);
 // get times
 // first you should calculate them
-    Q_INVOKABLE void calcTimes(hdate_struct hdouble, double longitude, double latitude);
+    Q_INVOKABLE void calcTimes(hdate_struct h, double longitude, double latitude);
 
     Q_INVOKABLE int getSunHour(){return sun_hour;}
     Q_INVOKABLE int getFirstLight(){return first_light;}
@@ -54,6 +54,9 @@ public:
     Q_INVOKABLE int getFirstLightMga(){return first_light_mga;}
     Q_INVOKABLE int getFirstStarsMga(){return first_stars_mga;}
     Q_INVOKABLE int getThreeStarsCzhish(){return three_stars_czhish;}
+
+    Q_INVOKABLE QString getTimeString(hdate_struct h,int min,QString tz);
+
     //check if the given date is before shabat or holiday. for times like candel light
      Q_INVOKABLE bool isDateBeforeHoliday(hdate_struct h, int d);
     //check if the given date is  shabat or holiday. for times like candel light

@@ -12,7 +12,6 @@ CONF_FILES +=  HebrewCalendar.apparmor \
 
 OTHER_FILES += $${CONF_FILES} \
                $${QML_FILES} \
-    timeCalc.js \
     Settings.qml \
     SettingsView.qml \
     LocationDialog.qml
