@@ -29,38 +29,39 @@ Page {
         id:settings
     }
     U1db.Database {
-                   id: loacationDatabase
-                   path: "lU1DbDatabase"
+        id: loacationDatabase
+        path: "lU1DbDatabase"
     }
     U1db.Document {
-                    id: nameDocument
-                    database: loacationDatabase
-                    docId: 'name'
-                    create: true
-                    defaults: { "name":["jerusalem","tel-aviv"]}
+        id: locationTemplate1
+        database: loacationDatabase
+        docId: 'firstRun1'
+        create: true
+        defaults: { "name":["Jerusalem"],
+                    "latitude":["31.78"],
+                    "longitude":["35.22"],
+                    "timeZone":["Asia/Jerusalem"]}
     }
     U1db.Document {
-                    id: latitudeDocument
-                    database: loacationDatabase
-                    docId: 'latitude'
-                    create: true
-                    defaults: { "latitude": [31.78,32.06]}
+        id: locationTemplate2
+        database: loacationDatabase
+        docId: 'firstRun2'
+        create: true
+        defaults: { "name":["Tel-Aviv"],
+                    "latitude":["32.06"],
+                    "longitude":["34.77"],
+                    "timeZone":["Asia/Tel_Aviv"]}
     }
-    U1db.Document {
-                    id: longitudeDocument
-                    database: loacationDatabase
-                    docId: 'longitude'
-                    create: true
-                    defaults: { "longitude": [35.22,34.77]}
+    U1db.Index{
+        database: loacationDatabase
+        id: loacationIndex
+        expression: [["name"],["latitude"],["longitude"],["timeZone"]]
     }
-    // http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-    U1db.Document {
-                    id: timeZoneDocument
-                    database: loacationDatabase
-                    docId: 'timeZone'
-                    create: true
-                    defaults: { "timeZone": ["Asia/Jerusalem","Asia/Tel_Aviv"]}
+    U1db.Query{
+        id: allQuery
+        index: loacationIndex
     }
+
     Column {
         anchors.fill: parent
         anchors.margins:  units.gu(3)
@@ -87,38 +88,77 @@ Page {
         ListItem.Header  {
             text: i18n.tr("Location")
         }
-
         OptionSelector {
             id:locationSelector
+            model:allQuery
+            delegate: OptionSelectorDelegate {
+                                text: i18n.tr(contents.name)
+                            }
+            Component.onCompleted: {
+                selectedIndex=getIndexOf(settings.locationName.toString())
+            }
+            //get the index of settings from results
+            function getIndexOf(text){
+                var model1=model;
+                for(var i=0;i<model.results.length;i++){
+                        if(model.results[i].name[0]===text)
+                            return i;
+                }
+                return 0;
+            }
 
-           // text: i18n.tr("")
-            model: nameDocument.contents.name
-            selectedIndex:model.indexOf(settings.locationName.toString())
             containerHeight: itemHeight * 4
+
             onSelectedIndexChanged: {
-                settings.locationName =model[selectedIndex];
-                settings.locationLongitude=longitudeDocument.contents.longitude[selectedIndex];
-                settings.locationLatitude=latitudeDocument.contents.latitude[selectedIndex];
-                settings.locationTimeZone=timeZoneDocument.contents.timeZone[selectedIndex];
+                    updateSettings("");
+            }
+            function updateSettings(select){
+                //if we add new entry we should update the selected index
+                if(select!==""){
+                    locationSelector.selectedIndex=getIndexOf(select);
+                }
+                var selectedIndex = locationSelector.selectedIndex
+                var m = model;
+                var s =locationSelector.selectedIndex;
+                settings.locationName =locationSelector.model.results[selectedIndex].name[0]
+                settings.locationLongitude=locationSelector.model.results[selectedIndex].longitude[0]
+                settings.locationLatitude=locationSelector.model.results[selectedIndex].latitude[0]
+                settings.locationTimeZone=locationSelector.model.results[selectedIndex].timeZone[0]
+                console.log(settings.locationName+" "+settings.locationLongitude+" "+settings.locationLatitude+" "
+                            +settings.locationTimeZone)
             }
         }
+
         Row {
             anchors.left: parent.left
             anchors.right: parent.right
             spacing: units.gu(2)
             Button {
                 iconName: "edit"
-                text: i18n.tr("Edit location")
+              //  text: i18n.tr("Edit location")
                 onClicked:{
-                  PopupUtils.open(Qt.resolvedUrl("LocationDialog.qml"),parent, {
-                                        locationName: locationSelector.model[locationSelector.selectedIndex]})
+                    PopupUtils.open(Qt.resolvedUrl("LocationDialog.qml"),parent, {
+                                        locationDocId:locationSelector.model.documents[locationSelector.selectedIndex],
+                                        locationName: locationSelector.model.results[locationSelector.selectedIndex].name[0],
+                                        locationLongitude:locationSelector.model.results[locationSelector.selectedIndex].longitude[0],
+                                        locationLatitude:locationSelector.model.results[locationSelector.selectedIndex].longitude[0],
+                                        locationTimeZone:locationSelector.model.results[locationSelector.selectedIndex].timeZone[0]})
+
                 }
             }
             Button {
                 iconName: "add"
-                text: i18n.tr("New loaction")
+               // text: i18n.tr("New loaction")
                 onClicked:{
                     PopupUtils.open(Qt.resolvedUrl("LocationDialog.qml"),parent)
+                }
+            }
+            Button {
+                iconName: "delete"
+                //text: i18n.tr("Delete loaction")
+                onClicked:{
+                        loacationDatabase.deleteDoc(locationSelector.model.documents[locationSelector.selectedIndex]);
+                        locationSelector.updateSettings("")
                 }
             }
         }
