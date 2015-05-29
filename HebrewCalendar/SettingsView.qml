@@ -162,8 +162,6 @@ Page {
                 }
             }
         }
-
-
         ListItem.Header  {
             text: i18n.tr("Times Of Day")
         }
@@ -171,10 +169,12 @@ Page {
             id:candelLightSelector
             text: i18n.tr("Candel Light")
             model: ["15", "18", "20", "22", "30", "40", "50", "60"]
-            selectedIndex:model.indexOf(settings.candelLight.toString())
             containerHeight: itemHeight * 4
             onSelectedIndexChanged: {
                 settings.candelLight =model[selectedIndex];
+            }
+            Component.onCompleted:{
+                selectedIndex=model.indexOf(settings.candelLight.toString())
             }
         }
         ListItem.Header  {
@@ -186,10 +186,12 @@ Page {
             text: i18n.tr("Nosach Sefirat HaOmer:")
             model: [i18n.tr("Ashkenazi"),
                 i18n.tr("Hasidic"),
-                i18n.tr("Mizrachi")]
-            selectedIndex:settings.nosach
+                i18n.tr("Mizrachi")]            
             onSelectedIndexChanged: {
                 settings.nosach = nosachSelector.selectedIndex;
+            }
+            Component.onCompleted:{
+                selectedIndex=settings.nosach
             }
         }
     }
