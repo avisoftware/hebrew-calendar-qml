@@ -15,7 +15,6 @@ Dialog {
     property double locationLatitude;
 
     title: locationName !="" ? i18n.tr("Edit Location"):i18n.tr("New Location")
-    //text: "??"
     TextField {
         id: nameTextFiled
         placeholderText: i18n.tr("Some Place")

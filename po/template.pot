@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-05-29 12:41+0300\n"
+"POT-Creation-Date: 2015-06-01 08:52+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -127,40 +127,40 @@ msgstr ""
 msgid "New Location"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/LocationDialog.qml:21
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/LocationDialog.qml:20
 msgid "Some Place"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/LocationDialog.qml:26
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/LocationDialog.qml:25
 msgid ""
 "You can find long and lat <a href='http://www.latlong.net/'>here</a><br>if "
 "you get wrong times, check this."
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/LocationDialog.qml:32
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/LocationDialog.qml:31
 msgid "use you GPS"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/LocationDialog.qml:61
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/LocationDialog.qml:60
 msgid ""
 "You can find TimeZone <a href='http://en.wikipedia.org/wiki/"
 "List_of_tz_database_time_zones'>here</a><br>if you get wrong times, check "
 "this."
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/LocationDialog.qml:82
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/LocationDialog.qml:81
 msgid "Dont leave empty fileds!"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/LocationDialog.qml:87
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/LocationDialog.qml:86
 msgid "save"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/LocationDialog.qml:108
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/LocationDialog.qml:107
 msgid "Location Name already exist"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/LocationDialog.qml:148
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/LocationDialog.qml:147
 msgid "cancel"
 msgstr ""
 
@@ -177,51 +177,46 @@ msgid "Day"
 msgstr ""
 
 #: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/Main.qml:168
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:25
 msgid "Settings"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:14
-msgid "Reset"
-msgstr ""
-
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:70
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:83
 msgid "Global"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:78
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:91
 msgid "Second Yom Tov:"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:89
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:102
 msgid "Location"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:168
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:180
 msgid "Times Of Day"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:172
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:184
 msgid "Candel Light"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:183
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:195
 msgid "Sefirat HaOmer"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:188
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:200
 msgid "Nosach Sefirat HaOmer:"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:189
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:201
 msgid "Ashkenazi"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:190
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:202
 msgid "Hasidic"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:191
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:203
 msgid "Mizrachi"
 msgstr ""
 
