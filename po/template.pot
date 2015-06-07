@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-01 08:52+0300\n"
+"POT-Creation-Date: 2015-06-07 09:18+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -177,46 +177,47 @@ msgid "Day"
 msgstr ""
 
 #: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/Main.qml:168
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:14
 msgid "Settings"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:83
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:100
 msgid "Global"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:91
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:108
 msgid "Second Yom Tov:"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:102
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:119
 msgid "Location"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:180
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:197
 msgid "Times Of Day"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:184
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:201
 msgid "Candel Light"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:195
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:212
 msgid "Sefirat HaOmer"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:200
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:217
 msgid "Nosach Sefirat HaOmer:"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:201
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:218
 msgid "Ashkenazi"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:202
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:219
 msgid "Hasidic"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:203
+#: /home/avi/qt/ubuntu-touch/hebrew-calendar-qml/HebrewCalendar/SettingsView.qml:220
 msgid "Mizrachi"
 msgstr ""
 

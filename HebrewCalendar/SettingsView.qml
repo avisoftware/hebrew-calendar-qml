@@ -7,7 +7,14 @@ Page {
     id: settingsViewPage
     objectName: "settingsViewPage"
     property bool isCurrentPage: false
-
+    flickable: null
+    head {
+        contents: Label {
+            fontSize: "x-large"
+            text: i18n.tr("Settings")
+            font.capitalization: Font.Capitalize
+        }
+    }
     Settings{
         id:settings
     }
@@ -74,138 +81,149 @@ Page {
         id: allQuery
         index: loacationIndex
     }
-
-    Column {
+    Flickable{
+        contentWidth: width
         anchors.fill: parent
-        anchors.margins: units.gu(2)
-        spacing: units.gu(2)
-        ListItem.Header  {
-            text: i18n.tr("Global")
-        }
+        clip: true
+        boundsBehavior:Flickable.StopAtBounds
+         Component.onCompleted: {
+             contentHeight= column.height
+         }
 
-        Row {
-            anchors.left: parent.left
-            anchors.right: parent.right
-            spacing: units.gu(2)
-            Label {
-                text: i18n.tr("Second Yom Tov:")
-            }
-            CheckBox {
-                id: diasporaCheckBox
-                checked: settings.diaspora
-                onTriggered:  {
-                    settings.diaspora = diasporaCheckBox.checked;
-                }
-            }
-        }
-        ListItem.Header  {
-            text: i18n.tr("Location")
-        }
-        OptionSelector {
-            id:locationSelector
-            model:allQuery
-            delegate: OptionSelectorDelegate {
-                                text: i18n.tr(contents.name)
-                            }
-            Component.onCompleted: {
-                selectedIndex=getIndexOf(settings.locationName.toString())
-            }
-            //get the index of settings from results
-            function getIndexOf(text){
-                var model1=model;
-                for(var i=0;i<model.results.length;i++){
-                        if(model.results[i].name[0]===text)
-                            return i;
-                }
-                return 0;
-            }
-
-            containerHeight: itemHeight * 4
-
-            onSelectedIndexChanged: {
-                    updateSettings("");
-            }
-            function updateSettings(select){
-                //if we add new entry we should update the selected index
-                if(select!==""){
-                    locationSelector.selectedIndex=getIndexOf(select);
-                }
-                var selectedIndex = locationSelector.selectedIndex
-                if(selectedIndex>=locationSelector.model.results.length){
-                    selectedIndex=0;
-                }
-                settings.locationName =locationSelector.model.results[selectedIndex].name[0]
-                settings.locationLongitude=locationSelector.model.results[selectedIndex].longitude[0]
-                settings.locationLatitude=locationSelector.model.results[selectedIndex].latitude[0]
-                settings.locationTimeZone=locationSelector.model.results[selectedIndex].timeZone[0]
-            }
-        }
-
-        Row {
-            anchors.horizontalCenter:parent.horizontalCenter
+        Column {
+            id:column
+            anchors.fill: parent
+            anchors.margins: units.gu(2)
             spacing: units.gu(2)
 
-            Button {
-                iconName: "edit"
-                width: units.gu(10)
-                onClicked:{
-                    PopupUtils.open(Qt.resolvedUrl("LocationDialog.qml"),parent, {
-                                        locationDocId:locationSelector.model.documents[locationSelector.selectedIndex],
-                                        locationName: locationSelector.model.results[locationSelector.selectedIndex].name[0],
-                                        locationLongitude:locationSelector.model.results[locationSelector.selectedIndex].longitude[0],
-                                        locationLatitude:locationSelector.model.results[locationSelector.selectedIndex].latitude[0],
-                                        locationTimeZone:locationSelector.model.results[locationSelector.selectedIndex].timeZone[0]})
+            ListItem.Header  {
+                text: i18n.tr("Global")
+            }
 
+            Row {
+                anchors.left: parent.left
+                anchors.right: parent.right
+                spacing: units.gu(2)
+                Label {
+                    text: i18n.tr("Second Yom Tov:")
                 }
-            }
-            Button {
-                iconName: "add"
-                width: units.gu(10)
-                onClicked:{
-                    PopupUtils.open(Qt.resolvedUrl("LocationDialog.qml"),parent)
-                }
-            }
-            Button {
-                 width: units.gu(10)
-                iconName: "delete"
-                onClicked:{
-                    if(locationSelector.model.documents.length>1){
-                        loacationDatabase.deleteDoc(locationSelector.model.documents[locationSelector.selectedIndex]);
-                        locationSelector.updateSettings("")
+                CheckBox {
+                    id: diasporaCheckBox
+                    checked: settings.diaspora
+                    onTriggered:  {
+                        settings.diaspora = diasporaCheckBox.checked;
                     }
                 }
             }
-        }
-        ListItem.Header  {
-            text: i18n.tr("Times Of Day")
-        }
-        OptionSelector {
-            id:candelLightSelector
-            text: i18n.tr("Candel Light")
-            model: ["15", "18", "20", "22", "30", "40", "50", "60"]
-            containerHeight: itemHeight * 4
-            onSelectedIndexChanged: {
-                settings.candelLight =model[selectedIndex];
+            ListItem.Header  {
+                text: i18n.tr("Location")
             }
-            Component.onCompleted:{
-                selectedIndex=model.indexOf(settings.candelLight.toString())
-            }
-        }
-        ListItem.Header  {
-            text: i18n.tr("Sefirat HaOmer")
+            OptionSelector {
+                id:locationSelector
+                model:allQuery
+                delegate: OptionSelectorDelegate {
+                    text: i18n.tr(contents.name)
+                }
+                Component.onCompleted: {
+                    selectedIndex=getIndexOf(settings.locationName.toString())
+                }
+                //get the index of settings from results
+                function getIndexOf(text){
+                    var model1=model;
+                    for(var i=0;i<model.results.length;i++){
+                        if(model.results[i].name[0]===text)
+                            return i;
+                    }
+                    return 0;
+                }
 
-        }
-        OptionSelector {
-            id:nosachSelector
-            text: i18n.tr("Nosach Sefirat HaOmer:")
-            model: [i18n.tr("Ashkenazi"),
-                i18n.tr("Hasidic"),
-                i18n.tr("Mizrachi")]            
-            onSelectedIndexChanged: {
-                settings.nosach = nosachSelector.selectedIndex;
+                containerHeight: itemHeight * 4
+
+                onSelectedIndexChanged: {
+                    updateSettings("");
+                }
+                function updateSettings(select){
+                    //if we add new entry we should update the selected index
+                    if(select!==""){
+                        locationSelector.selectedIndex=getIndexOf(select);
+                    }
+                    var selectedIndex = locationSelector.selectedIndex
+                    if(selectedIndex>=locationSelector.model.results.length){
+                        selectedIndex=0;
+                    }
+                    settings.locationName =locationSelector.model.results[selectedIndex].name[0]
+                    settings.locationLongitude=locationSelector.model.results[selectedIndex].longitude[0]
+                    settings.locationLatitude=locationSelector.model.results[selectedIndex].latitude[0]
+                    settings.locationTimeZone=locationSelector.model.results[selectedIndex].timeZone[0]
+                }
             }
-            Component.onCompleted:{
-                selectedIndex=settings.nosach
+
+            Row {
+                anchors.horizontalCenter:parent.horizontalCenter
+                spacing: units.gu(2)
+
+                Button {
+                    iconName: "edit"
+                    width: units.gu(10)
+                    onClicked:{
+                        PopupUtils.open(Qt.resolvedUrl("LocationDialog.qml"),parent, {
+                                            locationDocId:locationSelector.model.documents[locationSelector.selectedIndex],
+                                            locationName: locationSelector.model.results[locationSelector.selectedIndex].name[0],
+                                            locationLongitude:locationSelector.model.results[locationSelector.selectedIndex].longitude[0],
+                                            locationLatitude:locationSelector.model.results[locationSelector.selectedIndex].latitude[0],
+                                            locationTimeZone:locationSelector.model.results[locationSelector.selectedIndex].timeZone[0]})
+
+                    }
+                }
+                Button {
+                    iconName: "add"
+                    width: units.gu(10)
+                    onClicked:{
+                        PopupUtils.open(Qt.resolvedUrl("LocationDialog.qml"),parent)
+                    }
+                }
+                Button {
+                    width: units.gu(10)
+                    iconName: "delete"
+                    onClicked:{
+                        if(locationSelector.model.documents.length>1){
+                            loacationDatabase.deleteDoc(locationSelector.model.documents[locationSelector.selectedIndex]);
+                            locationSelector.updateSettings("")
+                        }
+                    }
+                }
+            }
+            ListItem.Header  {
+                text: i18n.tr("Times Of Day")
+            }
+            OptionSelector {
+                id:candelLightSelector
+                text: i18n.tr("Candel Light")
+                model: ["15", "18", "20", "22", "30", "40", "50", "60"]
+                containerHeight: itemHeight * 4
+                onSelectedIndexChanged: {
+                    settings.candelLight =model[selectedIndex];
+                }
+                Component.onCompleted:{
+                    selectedIndex=model.indexOf(settings.candelLight.toString())
+                }
+            }
+            ListItem.Header  {
+                text: i18n.tr("Sefirat HaOmer")
+
+            }
+            OptionSelector {
+                id:nosachSelector
+                text: i18n.tr("Nosach Sefirat HaOmer:")
+                model: [i18n.tr("Ashkenazi"),
+                    i18n.tr("Hasidic"),
+                    i18n.tr("Mizrachi")]
+                onSelectedIndexChanged: {
+                    settings.nosach = nosachSelector.selectedIndex;
+                }
+                Component.onCompleted:{
+                    selectedIndex=settings.nosach
+                }
             }
         }
     }
