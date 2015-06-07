@@ -55,7 +55,7 @@ Item{
     }
 
     Component{
-        id: highLightComp
+        id: highLightComp        
         UbuntuShape{
             color: "#DD4814"
         }
