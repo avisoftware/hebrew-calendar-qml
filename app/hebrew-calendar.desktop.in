@@ -1,0 +1,11 @@
+[Desktop Entry]
+_Name=hebrew-calendar-qml-cmake
+Comment=My project description
+Exec=@EXEC@
+Icon=@ICON@
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
+
+
+
