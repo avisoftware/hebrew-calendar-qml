@@ -1,4 +1,4 @@
-project(hebrew-calendar-qml-cmake C CXX)
+project(hebrew-calendar-qml C CXX)
 cmake_minimum_required(VERSION 2.8.9)
 
 # Do not remove this line, its required for the correct functionality of the Ubuntu-SDK

@@ -1,6 +1,6 @@
 {
     "name": "hebrew-calendar-qml.avisoftware",
-    "description": "description of hebrew-calendar-qml",
+    "description": "hebrew calendar",
     "architecture": "@CLICK_ARCH@",
     "title": "hebrew-calendar-qml",
     "hooks": {
