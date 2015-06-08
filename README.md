@@ -3,18 +3,18 @@ hebrew-calender-qml
 
 CONTENTS
 ========
-1] Description
-2] Dependent
+Description  
+Dependencies
 
-1] Description
+Description
 ==============
-hebrew-calender-qml, It is ad Hebrew calendar.
+hebrew-calender-qml, It is an Hebrew calendar for Ubuntu Phone.  
 The calendar includes Hebrew dates, holidays, times, Parshiot Hashavua, and more.
 
 It is written QML and C++ by QT.
 
-2] Dependencies
+Dependencies
 ===============
-	* libhdate
-build-depend:
+	* libhdate  
+build-depend:  
 	* libhdate-dev
