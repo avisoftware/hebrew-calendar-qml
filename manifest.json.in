@@ -6,12 +6,10 @@
     "hooks": {
         "HebrewCalendar": {
             "apparmor": "HebrewCalendar/HebrewCalendar.apparmor",
-            "desktop":  "HebrewCalendar/HebrewCalendar.desktop"
+            "desktop": "HebrewCalendar/HebrewCalendar.desktop"
         }
     },
     "version": "0.1",
     "maintainer": "Avi Software <avisoftware123@gmail.com>",
-    "framework" : "ubuntu-core-15.04"
+    "framework": "ubuntu-sdk-14.04"
 }
-
-

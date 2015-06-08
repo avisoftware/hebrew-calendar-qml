@@ -1,5 +1,5 @@
 [Desktop Entry]
-_Name=hebrew-calendar-qml-cmake
+_Name=hebrew-calendar-qml
 Comment=My project description
 Exec=@EXEC@
 Icon=@ICON@
