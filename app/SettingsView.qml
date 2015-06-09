@@ -82,6 +82,7 @@ Page {
         index: loacationIndex
     }
     Flickable{
+        id:flick
         contentWidth: width
         anchors.fill: parent
         clip: true
@@ -94,7 +95,7 @@ Page {
             id:column
             anchors.fill: parent
             anchors.margins: units.gu(2)
-            spacing: units.gu(2)
+            spacing: units.gu(2)           
 
             ListItem.Header  {
                 text: i18n.tr("Global")
@@ -124,6 +125,7 @@ Page {
                 delegate: OptionSelectorDelegate {
                     text: i18n.tr(contents.name)
                 }
+
                 Component.onCompleted: {
                     selectedIndex=getIndexOf(settings.locationName.toString())
                 }
