@@ -36,7 +36,7 @@ set(ICON              "graphics/hebrew-calendar-qml.png")
 set(CMAKE_INSTALL_PREFIX /)
 set(DATA_DIR /)
 set(DESKTOP_DIR ${DATA_DIR})
-set(DESKTOP_FILE_NAME "hebrew-calendar.desktop")
+set(DESKTOP_FILE_NAME "hebrew-calendar-qml.desktop")
 
 set(EXEC "qmlscene $@ ${HEBREW-CALENDAR-QML-CMAKE_DIR}/${MAIN_QML}")
 
@@ -52,7 +52,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json
         DESTINATION ${CMAKE_INSTALL_PREFIX})
 
 install(DIRECTORY "app/graphics" DESTINATION ${DATA_DIR})
-install(FILES "hebrew-calendar.apparmor" DESTINATION ${DATA_DIR})
+install(FILES "hebrew-calendar-qml.apparmor" DESTINATION ${DATA_DIR})
 
 add_subdirectory(app)
 add_subdirectory(backend)
@@ -72,5 +72,5 @@ add_custom_target("run" /usr/bin/qmlscene -I ${CMAKE_BINARY_DIR}/backend  ${CMAK
                     WORKING_DIRECTORY ./app)
 
 # No op custom target for all not compiled files, so they show up in the QtCreator project tree
-add_custom_target("hebrew-calendar-qml_ClickFiles" ALL SOURCES "hebrew-calendar.apparmor" "manifest.json.in")
+add_custom_target("hebrew-calendar-qml_ClickFiles" ALL SOURCES "hebrew-calendar-qml.apparmor" "manifest.json.in")
 

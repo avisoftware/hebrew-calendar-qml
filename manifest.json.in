@@ -4,9 +4,9 @@
     "architecture": "@CLICK_ARCH@",
     "title": "hebrew-calendar-qml",
     "hooks": {
-        "HebrewCalendar": {
-            "apparmor": "HebrewCalendar/HebrewCalendar.apparmor",
-            "desktop": "HebrewCalendar/HebrewCalendar.desktop"
+        "hebrew-calendar-qml": {
+            "apparmor": "hebrew-calendar-qml.apparmor",
+            "desktop": "hebrew-calendar-qml.desktop"
         }
     },
     "version": "0.1",

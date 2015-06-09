@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=HebrewCalendar
-Exec=qmlscene $@ HebrewCalendar/Main.qml
-Icon=HebrewCalendar/HebrewCalendar.png
-Terminal=false
-Type=Application
-X-Ubuntu-Touch=true
-

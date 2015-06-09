@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-08 08:51+0300\n"
+"POT-Creation-Date: 2015-06-09 08:21+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -178,43 +178,43 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: ../app/SettingsView.qml:100
+#: ../app/SettingsView.qml:102
 msgid "Global"
 msgstr ""
 
-#: ../app/SettingsView.qml:108
+#: ../app/SettingsView.qml:110
 msgid "Second Yom Tov:"
 msgstr ""
 
-#: ../app/SettingsView.qml:119
+#: ../app/SettingsView.qml:121
 msgid "Location"
 msgstr ""
 
-#: ../app/SettingsView.qml:197
+#: ../app/SettingsView.qml:200
 msgid "Times Of Day"
 msgstr ""
 
-#: ../app/SettingsView.qml:201
+#: ../app/SettingsView.qml:204
 msgid "Candel Light"
 msgstr ""
 
-#: ../app/SettingsView.qml:212
+#: ../app/SettingsView.qml:215
 msgid "Sefirat HaOmer"
 msgstr ""
 
-#: ../app/SettingsView.qml:217
+#: ../app/SettingsView.qml:220
 msgid "Nosach Sefirat HaOmer:"
 msgstr ""
 
-#: ../app/SettingsView.qml:218
+#: ../app/SettingsView.qml:221
 msgid "Ashkenazi"
 msgstr ""
 
-#: ../app/SettingsView.qml:219
+#: ../app/SettingsView.qml:222
 msgid "Hasidic"
 msgstr ""
 
-#: ../app/SettingsView.qml:220
+#: ../app/SettingsView.qml:223
 msgid "Mizrachi"
 msgstr ""
 
@@ -223,6 +223,6 @@ msgstr ""
 msgid "Year %1"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/build-hebrew-calendar-qml-Desktop-Default/po/hebrew-calendar.desktop.in.h:1
+#: /home/avi/qt/ubuntu-touch/build-hebrew-calendar-qml-Desktop-Default/po/hebrew-calendar-qml.desktop.in.h:1
 msgid "hebrew-calendar-qml"
 msgstr ""
