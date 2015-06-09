@@ -217,8 +217,8 @@ Item{
         Label{
             id: weekDay
             width: parent.dayWidth
-            property var day :Qt.locale().standaloneDayName(( Qt.locale().firstDayOfWeek + index), Locale.NarrowFormat)
-            text: isYearView ? day.charAt(0) : day;
+            property var day : Qt.locale(Qt.locale().name).standaloneDayName(( Qt.locale().firstDayOfWeek + index), Locale.ShortFormat);
+            text: isYearView ? Qt.locale(Qt.locale().name).standaloneDayName(( Qt.locale().firstDayOfWeek + index), Locale.NarrowFormat) : day
             horizontalAlignment: Text.AlignHCenter
             font.pixelSize: intern.dayFontSize
             font.bold: true
