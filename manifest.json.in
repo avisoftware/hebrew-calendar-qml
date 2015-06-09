@@ -2,7 +2,7 @@
     "name": "hebrew-calendar.avisoftware",
     "description": "Hebrew Calendar",
     "architecture": "@CLICK_ARCH@",
-    "title": "hebrew-calendar-qml",
+    "title": "hebrew-calendar",
     "hooks": {
         "hebrew-calendar": {
             "apparmor": "hebrew-calendar.apparmor",
