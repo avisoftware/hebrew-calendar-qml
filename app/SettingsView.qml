@@ -83,17 +83,18 @@ Page {
     }
     Flickable{
         id:flick
+        contentHeight: column.height
         contentWidth: width
         anchors.fill: parent
         clip: true
         boundsBehavior:Flickable.StopAtBounds
-         Component.onCompleted: {
-             contentHeight= column.height
-         }
 
         Column {
             id:column
-            anchors.fill: parent
+            anchors {
+                left: parent.left;
+                right: parent.right;
+            }
             anchors.margins: units.gu(2)
             spacing: units.gu(2)           
 
