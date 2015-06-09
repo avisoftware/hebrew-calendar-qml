@@ -1,6 +1,6 @@
 [Desktop Entry]
 _Name=hebrew-calendar-qml
-Comment=My project description
+Comment=Hebrew Calendar
 Exec=@EXEC@
 Icon=@ICON@
 Terminal=false

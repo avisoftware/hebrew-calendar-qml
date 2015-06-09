@@ -24,7 +24,7 @@ find_path(HDATE_INCLUDE_DIR
           NAMES hdate.h
           HINTS /usr/include
           )
-find_library(HDATE_LIBRARIES NAMES hdate )
+find_library(HDATE_LIBRARIES NAMES hdate)
 message(STATUS "hdate include=${HDATE_INCLUDE_DIR}")
 message(STATUS "hdate lib=${HDATE_LIBRARIES}=${HDATE_LIBRARIES}")
 
