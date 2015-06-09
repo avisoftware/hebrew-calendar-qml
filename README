@@ -1,4 +1,4 @@
-hebrew-calender-qml
+hebrew-calender
 ===================
 
 CONTENTS
@@ -8,7 +8,7 @@ CONTENTS
 
 1] Description
 ==============
-hebrew-calender-qml, It is ad Hebrew calendar.
+hebrew-calender, It is ad Hebrew calendar.
 The calendar includes Hebrew dates, holidays, times, Parshiot Hashavua, and more.
 
 It is written QML and C++ by QT.

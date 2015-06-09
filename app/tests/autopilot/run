@@ -7,6 +7,6 @@ fi
 
 SCRIPTPATH=`dirname $0`
 pushd ${SCRIPTPATH}
-autopilot run hebrew-calendar-qml
+autopilot run hebrew-calendar
 popd
 

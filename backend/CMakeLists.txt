@@ -39,7 +39,7 @@ mark_as_advanced(HDATE_INCLUDE_DIR HDATE_LIBRARIES)
 ## end hdate confiuration
 
 # Copy qmldir file to build dir for running in QtCreator
-add_custom_target(HebrewCalendarbackend-qmldir ALL
+add_custom_target(HebrewCalendarbackenddir ALL
     COMMAND cp ${CMAKE_CURRENT_SOURCE_DIR}/modules/HebrewCalendar/qmldir ${CMAKE_CURRENT_BINARY_DIR}/HebrewCalendar
     DEPENDS ${QMLFILES}
 )

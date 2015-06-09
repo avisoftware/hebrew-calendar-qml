@@ -1,4 +1,4 @@
-project(hebrew-calendar-qml C CXX)
+project(hebrew-calendar C CXX)
 cmake_minimum_required(VERSION 2.8.9)
 
 # Do not remove this line, its required for the correct functionality of the Ubuntu-SDK
@@ -26,17 +26,17 @@ set(QT_IMPORTS_DIR "lib/${ARCH_TRIPLET}")
 
 option(INSTALL_TESTS "Install the tests on make install" on)
 
-set(APP_NAME          hebrew-calendar-qml)
-set(APP_ID            "hebrew-calendar-qml.avisoftware")
-set(HEBREW-CALENDAR-QML-CMAKE_DIR "share/qml/hebrew-calendar-qml")
+set(APP_NAME          hebrew-calendar)
+set(APP_ID            "hebrew-calendar.avisoftware")
+set(HEBREW-CALENDAR-QML-CMAKE_DIR "share/qml/hebrew-calendar")
 set(MAIN_QML          "Main.qml")
-set(ICON              "graphics/hebrew-calendar-qml.png")
+set(ICON              "graphics/hebrew-calendar.png")
 
 # Set install paths
 set(CMAKE_INSTALL_PREFIX /)
 set(DATA_DIR /)
 set(DESKTOP_DIR ${DATA_DIR})
-set(DESKTOP_FILE_NAME "hebrew-calendar-qml.desktop")
+set(DESKTOP_FILE_NAME "hebrew-calendar.desktop")
 
 set(EXEC "qmlscene $@ ${HEBREW-CALENDAR-QML-CMAKE_DIR}/${MAIN_QML}")
 
@@ -52,7 +52,7 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json
         DESTINATION ${CMAKE_INSTALL_PREFIX})
 
 install(DIRECTORY "app/graphics" DESTINATION ${DATA_DIR})
-install(FILES "hebrew-calendar-qml.apparmor" DESTINATION ${DATA_DIR})
+install(FILES "hebrew-calendar.apparmor" DESTINATION ${DATA_DIR})
 
 add_subdirectory(app)
 add_subdirectory(backend)
@@ -60,17 +60,17 @@ add_subdirectory(po)
 
 add_custom_target("autopilot" chmod +x ${CMAKE_SOURCE_DIR}/app/tests/autopilot/run
                     COMMAND ${CMAKE_SOURCE_DIR}/app/tests/autopilot/run
-                    DEPENDS hebrew-calendar-qmlbackend hebrew-calendar-qmlbackend-qmldir
+                    DEPENDS hebrew-calendarbackend hebrew-calendarbackend-qmldir
                     WORKING_DIRECTORY ./app)
 
 add_custom_target("check" /usr/bin/qmltestrunner -input ${CMAKE_SOURCE_DIR}/app/tests/unit -import ${CMAKE_BINARY_DIR}/backend
-                    DEPENDS hebrew-calendar-qmlbackend hebrew-calendar-qmlbackend-qmldir
+                    DEPENDS hebrew-calendarbackend hebrew-calendarbackend-qmldir
                     WORKING_DIRECTORY ./app)
 
 add_custom_target("run" /usr/bin/qmlscene -I ${CMAKE_BINARY_DIR}/backend  ${CMAKE_SOURCE_DIR}/app/hebrew-calendar-qml.qml
-                    DEPENDS hebrew-calendar-qmlbackend hebrew-calendar-qmlbackend-qmldir
+                    DEPENDS hebrew-calendarbackend hebrew-calendarbackend-qmldir
                     WORKING_DIRECTORY ./app)
 
 # No op custom target for all not compiled files, so they show up in the QtCreator project tree
-add_custom_target("hebrew-calendar-qml_ClickFiles" ALL SOURCES "hebrew-calendar-qml.apparmor" "manifest.json.in")
+add_custom_target("hebrew-calendar_ClickFiles" ALL SOURCES "hebrew-calendar.apparmor" "manifest.json.in")
 

@@ -230,6 +230,6 @@ msgstr "מזרחי"
 msgid "Year %1"
 msgstr "שנת%1 "
 
-#: /home/avi/qt/ubuntu-touch/build-hebrew-calendar-qml-Desktop-Default/po/hebrew-calendar.desktop.in.h:1
-msgid "hebrew-calendar-qml"
+#: /home/avi/qt/ubuntu-touch/build-hebrew-calendar-Desktop-Default/po/hebrew-calendar.desktop.in.h:1
+msgid "hebrew-calendar"
 msgstr "לוח שנה עברי"

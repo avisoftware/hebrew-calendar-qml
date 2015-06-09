@@ -1,12 +1,12 @@
 {
-    "name": "hebrew-calendar-qml.avisoftware",
-    "description": "hebrew calendar",
+    "name": "hebrew-calendar.avisoftware",
+    "description": "Hebrew Calendar",
     "architecture": "@CLICK_ARCH@",
     "title": "hebrew-calendar-qml",
     "hooks": {
-        "hebrew-calendar-qml": {
-            "apparmor": "hebrew-calendar-qml.apparmor",
-            "desktop": "hebrew-calendar-qml.desktop"
+        "hebrew-calendar": {
+            "apparmor": "hebrew-calendar.apparmor",
+            "desktop": "hebrew-calendar.desktop"
         }
     },
     "version": "0.1",
