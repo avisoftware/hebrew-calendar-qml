@@ -52,6 +52,11 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json
         DESTINATION ${CMAKE_INSTALL_PREFIX})
 
 install(DIRECTORY "app/graphics" DESTINATION ${DATA_DIR})
+# make sure to change this lines to fit the arch
+install(FILES "libhdate_${ARCH_TRIPLET}/usr/lib/${ARCH_TRIPLET}/libhdate.so.1"
+              "libhdate_${ARCH_TRIPLET}/usr/lib/${ARCH_TRIPLET}/libhdate.so.1.0.6"
+              DESTINATION ${QT_IMPORTS_DIR})
+message(STATUS "target arch=${ARCH_TRIPLET}")
 install(FILES "hebrew-calendar.apparmor" DESTINATION ${DATA_DIR})
 
 add_subdirectory(app)
