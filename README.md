@@ -14,9 +14,12 @@ It is written QML and C++ by QT.
 
 ##Dependencies
 `libhdate1`  
-	_Note: click packages not support on dependencies, so i have to ship the libhdate.so with the package_
+	_Note: click packages not support on dependencies, so i have to ship the libhdate.so with the package._
 ####build-depend:  
 `libhdate-dev`  
+##Compiling
+####Packaging note
+If you want to create multiarch click package [read this](http://www.theorangenotebook.com/2014/12/creating-mutli-arch-click-packages.html)
 ##Screenshots
 ![screen shot](https://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/screenshot0.png)
 ![screen shot1](https://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/screenshot1.png)
