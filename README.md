@@ -13,10 +13,10 @@ The calendar includes Hebrew dates, holidays, times, Parshiot Hashavua, and more
 It is written QML and C++ by QT.
 
 ##Dependencies
-		`libhdate1`
-	_Note: click packages not support on ependencies so i have shiped the libhdate.so with the package_
+`libhdate1`
+	_Note: click packages not support on dependencies, so i have to ship the libhdate.so with the package_
 ####build-depend:  
-	 `libhdate-dev`
+`libhdate-dev`  
 ##Screenshots
 ![screen shot](https://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/screenshot0.png)
 ![screen shot1](https://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/screenshot1.png)
