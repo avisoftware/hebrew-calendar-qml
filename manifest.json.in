@@ -2,14 +2,14 @@
     "name": "hebrew-calendar.avisoftware",
     "description": "Hebrew Calendar",
     "architecture": "@CLICK_ARCH@",
-    "title": "hebrew-calendar",
+    "title": "Hebrew Calendar",
     "hooks": {
         "hebrew-calendar": {
             "apparmor": "hebrew-calendar.apparmor",
             "desktop": "hebrew-calendar.desktop"
         }
     },
-    "version": "0.2",
+    "version": "0.2.1",
     "maintainer": "Avi Software <avisoftware123@gmail.com>",
     "framework": "ubuntu-sdk-14.04"
 }
