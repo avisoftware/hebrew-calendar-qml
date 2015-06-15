@@ -162,7 +162,7 @@ Page{
                         bigMincha:getTimeString(hebrewDate.getSunrise()+(6.5*hebrewDate.getSunHour()))
                         littleMincha:getTimeString(hebrewDate.getSunrise()+(9.5*hebrewDate.getSunHour()))
                         plugMincha:getTimeString(hebrewDate.getSunrise()+(10.75*hebrewDate.getSunHour()))
-                        candelLight:getTimeString(hebrewDate.getSunset()-settings.candelLight)
+                        candleLight:getTimeString(hebrewDate.getSunset()-settings.candleLight)
                         sunset:getTimeString(hebrewDate.getSunset())
 
                         firstStars:getTimeString(hebrewDate.getFirstStars())

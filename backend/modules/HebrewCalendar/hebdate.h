@@ -57,9 +57,9 @@ public:
 
     Q_INVOKABLE QString getTimeString(hdate_struct h,int min,QString tz);
 
-    //check if the given date is before shabat or holiday. for times like candel light
+    //check if the given date is before shabat or holiday. for times like candle light
      Q_INVOKABLE bool isDateBeforeHoliday(hdate_struct h, int d);
-    //check if the given date is  shabat or holiday. for times like candel light
+    //check if the given date is  shabat or holiday. for times like candle light
     Q_INVOKABLE int isDateHoliday(hdate_struct h, int d);
 public slots:
      QString currentMonthStr(hdate_struct h);

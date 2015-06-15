@@ -49,7 +49,7 @@ Item {
     property string bigMincha;
     property string littleMincha;
     property string plugMincha;
-    property string candelLight;
+    property string candleLight;
     property string sunset;
     property string firstStars;
     property string threeStars;
@@ -140,8 +140,8 @@ Item {
                 visible:isHoliday||isTomorrowHoliday
             }
             ListItem.SingleValue {
-                text: i18n.tr("Candel light")
-                value: candelLight
+                text: i18n.tr("Candle light")
+                value: candleLight
                 visible:isTomorrowHoliday
             }
             ListItem.SingleValue {

@@ -1,4 +1,4 @@
-#hebrew-calender-qml
+#hebrew-calendar-qml
 ![GitHub release](https://img.shields.io/github/tag/avi-software/hebrew-calendar-qml.svg?style=flat-square)
 ![GitHub stars](https://img.shields.io/github/stars/avi-software/hebrew-calendar-qml.svg?style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/avi-software/hebrew-calendar-qml.svg?style=flat-square)
@@ -7,7 +7,7 @@
 <img src =https://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/drawing2.png height="128" width="128"><icon>  
 
 ##Description
-hebrew-calender-qml, It is an Hebrew calendar for Ubuntu Phone.  
+hebrew-calendar-qml, It is an Hebrew calendar for Ubuntu Phone.  
 The calendar includes Hebrew dates, holidays, times, Parshiot Hashavua, and more.
 
 It is written QML and C++ by QT.
