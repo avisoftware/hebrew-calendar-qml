@@ -28,7 +28,7 @@ option(INSTALL_TESTS "Install the tests on make install" on)
 
 set(APP_NAME          hebrew-calendar)
 set(APP_ID            "hebrew-calendar.avisoftware")
-set(HEBREW-CALENDAR-QML-CMAKE_DIR "share/qml/hebrew-calendar")
+set(HEBREW-CALENDAR_DIR "share/qml/hebrew-calendar")
 set(MAIN_QML          "Main.qml")
 set(ICON              "graphics/hebrew-calendar.png")
 
@@ -38,7 +38,7 @@ set(DATA_DIR /)
 set(DESKTOP_DIR ${DATA_DIR})
 set(DESKTOP_FILE_NAME "hebrew-calendar.desktop")
 
-set(EXEC "qmlscene $@ ${HEBREW-CALENDAR-QML-CMAKE_DIR}/${MAIN_QML}")
+set(EXEC "qmlscene $@ ${HEBREW-CALENDAR_DIR}/${MAIN_QML}")
 
 # This command figures out the target architecture for use in the manifest file
 execute_process(
@@ -52,11 +52,11 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/manifest.json
         DESTINATION ${CMAKE_INSTALL_PREFIX})
 
 install(DIRECTORY "app/graphics" DESTINATION ${DATA_DIR})
-# make sure to change this lines to fit the arch
-install(FILES "libhdate_${ARCH_TRIPLET}/usr/lib/${ARCH_TRIPLET}/libhdate.so.1"
-              "libhdate_${ARCH_TRIPLET}/usr/lib/${ARCH_TRIPLET}/libhdate.so.1.0.6"
+install(FILES "libhdate/libhdate_${ARCH_TRIPLET}/usr/lib/${ARCH_TRIPLET}/libhdate.so.1"
+              "libhdate/libhdate_${ARCH_TRIPLET}/usr/lib/${ARCH_TRIPLET}/libhdate.so.1.0.6"
               DESTINATION ${QT_IMPORTS_DIR})
 message(STATUS "target arch=${ARCH_TRIPLET}")
+install(DIRECTORY "libhdate/locale" DESTINATION "${DATA_DIR}share/")
 install(FILES "hebrew-calendar.apparmor" DESTINATION ${DATA_DIR})
 
 add_subdirectory(app)
@@ -72,7 +72,7 @@ add_custom_target("check" /usr/bin/qmltestrunner -input ${CMAKE_SOURCE_DIR}/app/
                     DEPENDS hebrew-calendarbackend hebrew-calendarbackend-qmldir
                     WORKING_DIRECTORY ./app)
 
-add_custom_target("run" /usr/bin/qmlscene -I ${CMAKE_BINARY_DIR}/backend  ${CMAKE_SOURCE_DIR}/app/hebrew-calendar-qml.qml
+add_custom_target("run" /usr/bin/qmlscene -I ${CMAKE_BINARY_DIR}/backend  ${CMAKE_SOURCE_DIR}/app/hebrew-calendar.qml
                     DEPENDS hebrew-calendarbackend hebrew-calendarbackend-qmldir
                     WORKING_DIRECTORY ./app)
 
