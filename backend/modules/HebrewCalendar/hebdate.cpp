@@ -97,7 +97,10 @@ int HDate::daysInMonth(hdate_struct h)
 
 QString HDate::intToHebStr(int n)
 {
-    return (hdate_get_int_string(n));
+     if(hdate_is_hebrew_locale()==-1){
+        return (hdate_get_int_string(n));
+     }
+     return QString::number(n);
 }
 
 hdate_struct HDate::setHebDate(int y, int m, int d)
@@ -209,7 +212,12 @@ hdate_struct HDate::addMonths(hdate_struct h, int n)
 QString HDate::currentMonthStr(hdate_struct h)
 {
     QString m =hdate_get_hebrew_month_string(h.hd_mon,0);
-    QString y =hdate_get_int_string(h.hd_year);
+    QString y;
+    if(hdate_is_hebrew_locale()==-1){
+        y =hdate_get_int_string(h.hd_year);
+    }else{
+        y= QString::number(h.hd_year);
+    }
     return m + " "+y;
 }
 
