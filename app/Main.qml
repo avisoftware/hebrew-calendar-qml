@@ -31,6 +31,9 @@ MainView {
     footerColor: "#ECECEC"
     anchorToKeyboard: true
 
+    LayoutMirroring.enabled: Qt.locale().textDirection == Qt.RightToLeft
+    LayoutMirroring.childrenInherit: true
+
     PageStack {
         id: pageStack
         Component.onCompleted: push(tabs)

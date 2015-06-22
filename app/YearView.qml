@@ -47,7 +47,7 @@ Page {
             objectName:"yearLabel"
             fontSize: "x-large"
             text: i18n.tr("Year %1").arg(hebrewDate.intToHebStr(currentYear))
-            anchors.leftMargin: units.gu(1)
+           // anchors.leftMargin: units.gu(1)
         }
     }
     HDate{

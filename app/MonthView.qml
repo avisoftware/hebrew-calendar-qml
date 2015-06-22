@@ -54,14 +54,10 @@ Page {
 
         contents: Label {
             fontSize: "x-large"
-            // TRANSLATORS: this is a time formatting string,
-            // see http://qt-project.org/doc/qt-5/qml-qtqml-date.html#details for valid expressions.
-            // It's used in the header of the month and week views
-//            text: i18n.tr(currentMonth.toLocaleString(Qt.locale(),i18n.tr("MMMM yyyy")))
-           text: hebrewDate.currentMonthStr(currentMonth)
+            text: hebrewDate.currentMonthStr(currentMonth)
             font.capitalization: Font.Capitalize
            //to anchors it to right side
-            anchors{right: parent.right; rightMargin: units.gu(2) }
+          //  anchors{right: parent.right; rightMargin: units.gu(2) }
         }
     }
 

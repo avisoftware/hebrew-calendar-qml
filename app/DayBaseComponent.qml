@@ -58,6 +58,7 @@ Item {
 
     property int isHoliday: 0;
     property bool isTomorrowHoliday: false;
+    property bool mirror: Qt.locale().textDirection == Qt.RightToLeft
     HDate{
         id:hebrewDate
     }
@@ -65,6 +66,7 @@ Item {
         id:settings
     }
     Flickable {
+
         id: timeLineView
         contentHeight: column.height
         contentWidth: width
@@ -80,7 +82,6 @@ Item {
                 left: parent.left;
                 right: parent.right;
             }
-
             ListItem.Header  {
                 text: i18n.tr("Day details")
             }
@@ -127,12 +128,8 @@ Item {
                             horizontalAlignment:Text.AlignHCenter
                             // anchors { left: parent.left; right: parent.right; }
                             text: hebrewDate.getDayOmerFullStr(dayOmer,settings.nosach)
-
                         }
-
                     }
-
-
                 }
             }
             ListItem.Header  {
@@ -143,21 +140,25 @@ Item {
                 text: i18n.tr("Candle light")
                 value: candleLight
                 visible:isTomorrowHoliday
+                LayoutMirroring.enabled: mirror
             }
             ListItem.SingleValue {
                 text: i18n.tr("Three stars")
                 value: threeStars
                 visible:isHoliday
+                LayoutMirroring.enabled: mirror
             }
             ListItem.SingleValue {
                 text: i18n.tr("Three stars czhish")
                 value: threeStarsCzhish
                 visible:isHoliday
+                LayoutMirroring.enabled: mirror
             }
             ListItem.SingleValue {
                 text: i18n.tr("Shabat end RT (72 minute)")
                 value: shabatEndRT
                 visible:isHoliday
+                LayoutMirroring.enabled: mirror
             }
             ListItem.Header  {
                 text: i18n.tr("Day times")
@@ -165,58 +166,72 @@ Item {
             ListItem.SingleValue {
                 text: i18n.tr("First ligth (mga)")
                 value: firstLigthMga
+                LayoutMirroring.enabled: mirror
             }
             ListItem.SingleValue {
                 text: i18n.tr("First light")
                 value: firstLigth
+                LayoutMirroring.enabled: mirror
             }
             ListItem.SingleValue {
                 text: i18n.tr("Talit")
                 value: talit
+                LayoutMirroring.enabled: mirror
             }
             ListItem.SingleValue {
                 text: i18n.tr("Sunrise")
                 value: sunrise
+                LayoutMirroring.enabled: mirror
             }
             ListItem.SingleValue {
                 text: i18n.tr("End shema (mga)")
                 value: endShemaMga
+                LayoutMirroring.enabled: mirror
             }
             ListItem.SingleValue {
                 text: i18n.tr("End shema")
                 value: endShema
+                LayoutMirroring.enabled: mirror
             }
             ListItem.SingleValue {
                 text: i18n.tr("End tefila mga")
                 value: endTefilaMga
+                LayoutMirroring.enabled: mirror
             }
             ListItem.SingleValue {
                 text: i18n.tr("End tefila")
                 value: endTefila
+                LayoutMirroring.enabled: mirror
             }
             ListItem.SingleValue {
                 text: i18n.tr("Midday")
                 value: midday
+                LayoutMirroring.enabled: mirror
             }
             ListItem.SingleValue {
                 text: i18n.tr("Big mincha")
                 value: bigMincha
+                LayoutMirroring.enabled: mirror
             }
             ListItem.SingleValue {
                 text: i18n.tr("Little mincha")
                 value: littleMincha
+                LayoutMirroring.enabled: mirror
             }
             ListItem.SingleValue {
                 text: i18n.tr("Plug mincha")
                 value: plugMincha
+                LayoutMirroring.enabled: mirror
             }
             ListItem.SingleValue {
                 text: i18n.tr("Sunset")
                 value: sunset
+                LayoutMirroring.enabled: mirror
             }
             ListItem.SingleValue {
                 text: i18n.tr("First stars")
                 value: firstStars
+                LayoutMirroring.enabled: mirror
             }
         }
     }

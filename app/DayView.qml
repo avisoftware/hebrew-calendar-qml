@@ -45,7 +45,6 @@ Page{
         actions: [
             calendarTodayAction
         ]
-
         contents: Label {
             id:monthYear
             objectName:"monthYearLabel"

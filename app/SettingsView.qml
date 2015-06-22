@@ -7,6 +7,8 @@ Page {
     id: settingsViewPage
     objectName: "settingsViewPage"
     property bool isCurrentPage: false
+     property bool mirror: Qt.locale().textDirection == Qt.RightToLeft
+
     flickable: null
     head {
         contents: Label {
@@ -124,6 +126,7 @@ Page {
                 id:locationSelector
                 model:allQuery
                 delegate: OptionSelectorDelegate {
+                    LayoutMirroring.enabled: mirror
                     text: i18n.tr(contents.name)
                 }
 
@@ -215,6 +218,7 @@ Page {
                 text: i18n.tr("Sefirat HaOmer")
 
             }
+
             OptionSelector {
                 id:nosachSelector
                 text: i18n.tr("Nosach Sefirat HaOmer:")
