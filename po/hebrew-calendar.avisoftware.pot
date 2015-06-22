@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-12 09:49+0300\n"
+"POT-Creation-Date: 2015-06-22 09:36+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,35 +17,35 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/DayBaseComponent.qml:85
+#: ../app/DayBaseComponent.qml:86
 msgid "Day details"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:88
+#: ../app/DayBaseComponent.qml:89
 msgid "Day "
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:95
+#: ../app/DayBaseComponent.qml:96
 msgid "Parashat "
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:115
+#: ../app/DayBaseComponent.qml:116
 msgid "(click to expand)"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:139
+#: ../app/DayBaseComponent.qml:136
 msgid "Shabat Times"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:143
-msgid "Candel light"
+#: ../app/DayBaseComponent.qml:140
+msgid "Candle light"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:148
+#: ../app/DayBaseComponent.qml:146
 msgid "Three stars"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:153
+#: ../app/DayBaseComponent.qml:152
 msgid "Three stars czhish"
 msgstr ""
 
@@ -53,63 +53,63 @@ msgstr ""
 msgid "Shabat end RT (72 minute)"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:163
+#: ../app/DayBaseComponent.qml:164
 msgid "Day times"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:166
+#: ../app/DayBaseComponent.qml:167
 msgid "First ligth (mga)"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:170
+#: ../app/DayBaseComponent.qml:172
 msgid "First light"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:174
+#: ../app/DayBaseComponent.qml:177
 msgid "Talit"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:178
+#: ../app/DayBaseComponent.qml:182
 msgid "Sunrise"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:182
+#: ../app/DayBaseComponent.qml:187
 msgid "End shema (mga)"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:186
+#: ../app/DayBaseComponent.qml:192
 msgid "End shema"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:190
+#: ../app/DayBaseComponent.qml:197
 msgid "End tefila mga"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:194
+#: ../app/DayBaseComponent.qml:202
 msgid "End tefila"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:198
+#: ../app/DayBaseComponent.qml:207
 msgid "Midday"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:202
+#: ../app/DayBaseComponent.qml:212
 msgid "Big mincha"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:206
+#: ../app/DayBaseComponent.qml:217
 msgid "Little mincha"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:210
+#: ../app/DayBaseComponent.qml:222
 msgid "Plug mincha"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:214
+#: ../app/DayBaseComponent.qml:227
 msgid "Sunset"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:218
+#: ../app/DayBaseComponent.qml:232
 msgid "First stars"
 msgstr ""
 
@@ -162,59 +162,59 @@ msgstr ""
 msgid "cancel"
 msgstr ""
 
-#: ../app/Main.qml:73
+#: ../app/Main.qml:76
 msgid "Year"
 msgstr ""
 
-#: ../app/Main.qml:107
+#: ../app/Main.qml:110
 msgid "Month"
 msgstr ""
 
-#: ../app/Main.qml:136
+#: ../app/Main.qml:139
 msgid "Day"
 msgstr ""
 
-#: ../app/Main.qml:168 ../app/SettingsView.qml:14
+#: ../app/Main.qml:171 ../app/SettingsView.qml:16
 msgid "Settings"
 msgstr ""
 
-#: ../app/SettingsView.qml:102
+#: ../app/SettingsView.qml:104
 msgid "Global"
 msgstr ""
 
-#: ../app/SettingsView.qml:110
+#: ../app/SettingsView.qml:112
 msgid "Second Yom Tov:"
 msgstr ""
 
-#: ../app/SettingsView.qml:121
+#: ../app/SettingsView.qml:123
 msgid "Location"
 msgstr ""
 
-#: ../app/SettingsView.qml:200
+#: ../app/SettingsView.qml:203
 msgid "Times Of Day"
 msgstr ""
 
-#: ../app/SettingsView.qml:204
-msgid "Candel Light"
+#: ../app/SettingsView.qml:207
+msgid "Candle Light"
 msgstr ""
 
-#: ../app/SettingsView.qml:215
+#: ../app/SettingsView.qml:218
 msgid "Sefirat HaOmer"
 msgstr ""
 
-#: ../app/SettingsView.qml:220
+#: ../app/SettingsView.qml:224
 msgid "Nosach Sefirat HaOmer:"
 msgstr ""
 
-#: ../app/SettingsView.qml:221
+#: ../app/SettingsView.qml:225
 msgid "Ashkenazi"
 msgstr ""
 
-#: ../app/SettingsView.qml:222
+#: ../app/SettingsView.qml:226
 msgid "Hasidic"
 msgstr ""
 
-#: ../app/SettingsView.qml:223
+#: ../app/SettingsView.qml:227
 msgid "Mizrachi"
 msgstr ""
 
@@ -224,5 +224,5 @@ msgid "Year %1"
 msgstr ""
 
 #: /home/avi/qt/ubuntu-touch/build-hebrew-calendar-qml-UbuntuSDK_for_i386_GCC_ubuntu_sdk_14_10_utopic_2-Default/po/hebrew-calendar.desktop.in.h:1
-msgid "hebrew-calendar"
+msgid "Hebrew Calendar"
 msgstr ""

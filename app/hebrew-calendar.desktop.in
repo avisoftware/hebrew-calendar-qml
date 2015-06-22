@@ -1,11 +1,11 @@
 [Desktop Entry]
-_Name=hebrew-calendar
+_Name=Hebrew Calendar
 Comment=Hebrew Calendar
 Exec=@EXEC@
 Icon=@ICON@
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
-
+X-Ubuntu-Splash-Show-Header=true
 
 
