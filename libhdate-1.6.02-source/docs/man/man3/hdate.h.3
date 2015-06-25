@@ -1,0 +1,1027 @@
+.TH "src/hdate.h" 3 "Sun Jan 8 2012" "Version 1.4" "libhdate C language" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+src/hdate.h \- 
+.PP
+libhdate C language header\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBhdate_struct\fP"
+.br
+.RI "\fIlibhdate Hebrew date struct \fP"
+.in -1c
+.SS "Defines"
+
+.in +1c
+.ti -1c
+.RI "#define \fBHDATE_DIASPORA_FLAG\fP   -1"
+.br
+.RI "\fIuse diaspora dates and holydays flag \fP"
+.ti -1c
+.RI "#define \fBHDATE_ISRAEL_FLAG\fP   0"
+.br
+.RI "\fIuse israel dates and holydays flag \fP"
+.ti -1c
+.RI "#define \fBHDATE_SHORT_FLAG\fP   -1"
+.br
+.RI "\fIuse short strings flag \fP"
+.ti -1c
+.RI "#define \fBHDATE_LONG_FLAG\fP   0"
+.br
+.RI "\fIuse long strings flag \fP"
+.ti -1c
+.RI "#define \fBHEBREW_NUMBER_BUFFER_SIZE\fP   17"
+.br
+.RI "\fIfor hdate_get_int_string_ and hdate_get_int_wstring \fP"
+.ti -1c
+.RI "#define \fBHEBREW_WNUMBER_BUFFER_SIZE\fP   9"
+.br
+.ti -1c
+.RI "#define \fBHDATE_STRING_INT\fP   0"
+.br
+.RI "\fIfor function hdate_string: identifies string type: integer \fP"
+.ti -1c
+.RI "#define \fBHDATE_STRING_DOW\fP   1"
+.br
+.RI "\fIfor function hdate_string: identifies string type: day of week \fP"
+.ti -1c
+.RI "#define \fBHDATE_STRING_PARASHA\fP   2"
+.br
+.RI "\fIfor function hdate_string: identifies string type: parasha \fP"
+.ti -1c
+.RI "#define \fBHDATE_STRING_HMONTH\fP   3"
+.br
+.RI "\fIfor function hdate_string: identifies string type: hebrew_month \fP"
+.ti -1c
+.RI "#define \fBHDATE_STRING_GMONTH\fP   4"
+.br
+.RI "\fIfor function hdate_string: identifies string type: gregorian_month \fP"
+.ti -1c
+.RI "#define \fBHDATE_STRING_HOLIDAY\fP   5"
+.br
+.RI "\fIfor function hdate_string: identifies string type: holiday \fP"
+.ti -1c
+.RI "#define \fBHDATE_STRING_OMER\fP   6"
+.br
+.ti -1c
+.RI "#define \fBHDATE_STRING_SHORT\fP   1"
+.br
+.RI "\fIfor function hdate_string: use short form, if one exists \fP"
+.ti -1c
+.RI "#define \fBHDATE_STRING_LONG\fP   0"
+.br
+.RI "\fIfor function hdate_string: use long form \fP"
+.ti -1c
+.RI "#define \fBHDATE_STRING_HEBREW\fP   1"
+.br
+.RI "\fIfor function hdate_string: use embedded hebrew string \fP"
+.ti -1c
+.RI "#define \fBHDATE_STRING_LOCAL\fP   0"
+.br
+.RI "\fIfor function hdate_string: use local locale string \fP"
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBhdate_struct\fP * \fBhdate_set_gdate\fP (\fBhdate_struct\fP *h, int d, int m, int y)"
+.br
+.RI "\fIcompute date structure from the Gregorian date \fP"
+.ti -1c
+.RI "\fBhdate_struct\fP * \fBhdate_set_hdate\fP (\fBhdate_struct\fP *h, int d, int m, int y)"
+.br
+.RI "\fIcompute date structure from the Hebrew date \fP"
+.ti -1c
+.RI "\fBhdate_struct\fP * \fBhdate_set_jd\fP (\fBhdate_struct\fP *h, int jd)"
+.br
+.RI "\fIcompute date structure from the Julian day \fP"
+.ti -1c
+.RI "char * \fBhdate_get_format_date\fP (\fBhdate_struct\fP const *h, int diaspora, int s)"
+.br
+.RI "\fIReturn a string, with the hebrew date\&. \fP"
+.ti -1c
+.RI "int \fBhdate_get_parasha\fP (\fBhdate_struct\fP const *h, int diaspora)"
+.br
+.RI "\fIget the number of hebrew parasha\&. \fP"
+.ti -1c
+.RI "int \fBhdate_get_holyday\fP (\fBhdate_struct\fP const *h, int diaspora)"
+.br
+.RI "\fIget the number of hebrew holiday\&. \fP"
+.ti -1c
+.RI "char * \fBhdate_get_int_string\fP (int n)"
+.br
+.RI "\fIconvert an integer to hebrew string\&. \fP"
+.ti -1c
+.RI "char * \fBhdate_get_day_string\fP (int day, int s)"
+.br
+.RI "\fIReturn a static string, with name of week day\&. \fP"
+.ti -1c
+.RI "char * \fBhdate_get_month_string\fP (int month, int s)"
+.br
+.RI "\fIReturn a static string, with name of month\&. \fP"
+.ti -1c
+.RI "char * \fBhdate_get_hebrew_month_string\fP (int month, int s)"
+.br
+.RI "\fIReturn a static string, with name of hebrew month\&. \fP"
+.ti -1c
+.RI "char * \fBhdate_get_holyday_string\fP (int holyday, int s)"
+.br
+.RI "\fIName of hebrew holiday\&. \fP"
+.ti -1c
+.RI "char * \fBhdate_get_parasha_string\fP (int parasha, int s)"
+.br
+.RI "\fIName of Parasha\&. \fP"
+.ti -1c
+.RI "char * \fBhdate_get_omer_string\fP (int omer_day)"
+.br
+.RI "\fIReturn a static string, with the day in the omer\&. \fP"
+.ti -1c
+.RI "int \fBhdate_get_omer_day\fP (\fBhdate_struct\fP const *h)"
+.br
+.RI "\fIReturn the day in the omer of the given date\&. \fP"
+.ti -1c
+.RI "int \fBhdate_get_holyday_type\fP (int holyday)"
+.br
+.RI "\fIReturn number of hebrew holyday type\&. \fP"
+.ti -1c
+.RI "int \fBhdate_get_size_of_hebrew_year\fP (int hebrew_year)"
+.br
+.RI "\fIsize of hebrew year in days\&. \fP"
+.ti -1c
+.RI "int \fBhdate_days_from_3744\fP (int hebrew_year)"
+.br
+.RI "\fIDays since Tishrey 3744\&. \fP"
+.ti -1c
+.RI "int \fBhdate_get_year_type\fP (int size_of_year, int new_year_dw)"
+.br
+.RI "\fIReturn Hebrew year type based on size and first week day of year\&. \fP"
+.ti -1c
+.RI "int \fBhdate_gdate_to_jd\fP (int day, int month, int year)"
+.br
+.RI "\fICompute Julian day from Gregorian date\&. \fP"
+.ti -1c
+.RI "int \fBhdate_hdate_to_jd\fP (int day, int month, int year, int *jd_tishrey1, int *jd_tishrey1_next_year)"
+.br
+.RI "\fICompute Julian day from Hebrew day, month and year\&. \fP"
+.ti -1c
+.RI "void \fBhdate_jd_to_gdate\fP (int jd, int *day, int *month, int *year)"
+.br
+.RI "\fIConverting from the Julian day to the Gregorian date\&. \fP"
+.ti -1c
+.RI "void \fBhdate_jd_to_hdate\fP (int jd, int *day, int *month, int *year, int *jd_tishrey1, int *jd_tishrey1_next_year)"
+.br
+.RI "\fIConverting from the Julian day to the Hebrew day\&. \fP"
+.ti -1c
+.RI "int \fBhdate_get_day_of_year\fP (int day, int month, int year)"
+.br
+.RI "\fIdays from 1 january \fP"
+.ti -1c
+.RI "void \fBhdate_get_utc_sun_time_deg\fP (int day, int month, int year, double latitude, double longitude, double deg, int *sunrise, int *sunset)"
+.br
+.RI "\fIutc sun times for altitude at a gregorian date \fP"
+.ti -1c
+.RI "void \fBhdate_get_utc_sun_time\fP (int day, int month, int year, double latitude, double longitude, int *sunrise, int *sunset)"
+.br
+.RI "\fIutc sunrise/set time for a gregorian date \fP"
+.ti -1c
+.RI "void \fBhdate_get_utc_sun_time_full\fP (int day, int month, int year, double latitude, double longitude, int *sun_hour, int *first_light, int *talit, int *sunrise, int *midday, int *sunset, int *first_stars, int *three_stars)"
+.br
+.RI "\fIutc sunrise/set time for a gregorian date \fP"
+.ti -1c
+.RI "int \fBhdate_get_gday\fP (\fBhdate_struct\fP const *h)"
+.br
+.RI "\fIget the Gregorian day of the month \fP"
+.ti -1c
+.RI "int \fBhdate_get_gmonth\fP (\fBhdate_struct\fP const *h)"
+.br
+.RI "\fIget the Gregorian month \fP"
+.ti -1c
+.RI "int \fBhdate_get_gyear\fP (\fBhdate_struct\fP const *h)"
+.br
+.RI "\fIget the Gregorian year \fP"
+.ti -1c
+.RI "int \fBhdate_get_hday\fP (\fBhdate_struct\fP const *h)"
+.br
+.RI "\fIget the Hebrew day of the month \fP"
+.ti -1c
+.RI "int \fBhdate_get_hmonth\fP (\fBhdate_struct\fP const *h)"
+.br
+.RI "\fIget the Hebrew month \fP"
+.ti -1c
+.RI "int \fBhdate_get_hyear\fP (\fBhdate_struct\fP const *h)"
+.br
+.RI "\fIget the Hebrew year \fP"
+.ti -1c
+.RI "int \fBhdate_get_day_of_the_week\fP (\fBhdate_struct\fP const *h)"
+.br
+.RI "\fIget the day of the week \fP"
+.ti -1c
+.RI "int \fBhdate_get_size_of_year\fP (\fBhdate_struct\fP const *h)"
+.br
+.RI "\fIget the size of the hebrew year \fP"
+.ti -1c
+.RI "int \fBhdate_get_new_year_day_of_the_week\fP (\fBhdate_struct\fP const *h)"
+.br
+.RI "\fIget the new year day of the week \fP"
+.ti -1c
+.RI "int \fBhdate_get_julian\fP (\fBhdate_struct\fP const *h)"
+.br
+.RI "\fIget the Julian day number \fP"
+.ti -1c
+.RI "int \fBhdate_get_days\fP (\fBhdate_struct\fP const *h)"
+.br
+.RI "\fIget the number of days passed since 1 tishrey \fP"
+.ti -1c
+.RI "int \fBhdate_get_weeks\fP (\fBhdate_struct\fP const *h)"
+.br
+.RI "\fIget the number of weeks passed since 1 tishrey \fP"
+.ti -1c
+.RI "\fBhdate_struct\fP * \fBnew_hdate\fP ()"
+.br
+.RI "\fIcreat a new hdate struct object, must be deleted using delete_hdate\&. \fP"
+.ti -1c
+.RI "\fBhdate_struct\fP * \fBdelete_hdate\fP (\fBhdate_struct\fP *h)"
+.br
+.RI "\fIdelete an hdate struct object\&. \fP"
+.ti -1c
+.RI "char * \fBhdate_get_version_string\fP ()"
+.br
+.RI "\fIReturn a static string, with the package name and version\&. \fP"
+.ti -1c
+.RI "char * \fBhdate_get_translator_string\fP ()"
+.br
+.RI "\fIname of translator \fP"
+.ti -1c
+.RI "int \fBhdate_is_hebrew_locale\fP ()"
+.br
+.RI "\fIhelper function to find hebrew locale \fP"
+.ti -1c
+.RI "char * \fBhdate_string\fP (int type_of_string, int index, int short_form, int hebrew_form)"
+.br
+.RI "\fIReturn string values for hdate information\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+libhdate C language header\&. 
+
+libhdate - Hebrew calendar library, the C language header file\&. 
+.SH "Define Documentation"
+.PP 
+.SS "#define \fBHDATE_DIASPORA_FLAG\fP   -1"
+.PP
+use diaspora dates and holydays flag 
+.SS "#define \fBHDATE_ISRAEL_FLAG\fP   0"
+.PP
+use israel dates and holydays flag 
+.SS "#define \fBHDATE_SHORT_FLAG\fP   -1"
+.PP
+use short strings flag 
+.SS "#define \fBHDATE_LONG_FLAG\fP   0"
+.PP
+use long strings flag 
+.SS "#define \fBHEBREW_NUMBER_BUFFER_SIZE\fP   17"
+.PP
+for hdate_get_int_string_ and hdate_get_int_wstring \fBNote:\fP
+.RS 4
+How large should the buffer be? Hebrew year 10,999 would be י'תתקצ"ט, eight characters, each two bytes, plus an end-of-string delimiter, equals 17\&. This could effectively yield a range extending to Hebrew year 11,899, י'א תתצ'ט, due to the extra ק needed for the '900' century\&. However, for readability, I would want a an extra space at that point between the millenium and the century\&.\&.\&. 
+.RE
+.PP
+
+.SS "#define \fBHEBREW_WNUMBER_BUFFER_SIZE\fP   9"
+.SS "#define \fBHDATE_STRING_INT\fP   0"
+.PP
+for function hdate_string: identifies string type: integer 
+.SS "#define \fBHDATE_STRING_DOW\fP   1"
+.PP
+for function hdate_string: identifies string type: day of week 
+.SS "#define \fBHDATE_STRING_PARASHA\fP   2"
+.PP
+for function hdate_string: identifies string type: parasha 
+.SS "#define \fBHDATE_STRING_HMONTH\fP   3"
+.PP
+for function hdate_string: identifies string type: hebrew_month 
+.SS "#define \fBHDATE_STRING_GMONTH\fP   4"
+.PP
+for function hdate_string: identifies string type: gregorian_month 
+.SS "#define \fBHDATE_STRING_HOLIDAY\fP   5"
+.PP
+for function hdate_string: identifies string type: holiday 
+.SS "#define \fBHDATE_STRING_OMER\fP   6"
+.SS "#define \fBHDATE_STRING_SHORT\fP   1"
+.PP
+for function hdate_string: use short form, if one exists 
+.SS "#define \fBHDATE_STRING_LONG\fP   0"
+.PP
+for function hdate_string: use long form 
+.SS "#define \fBHDATE_STRING_HEBREW\fP   1"
+.PP
+for function hdate_string: use embedded hebrew string 
+.SS "#define \fBHDATE_STRING_LOCAL\fP   0"
+.PP
+for function hdate_string: use local locale string 
+.SH "Function Documentation"
+.PP 
+.SS "\fBhdate_struct\fP* \fBhdate_set_gdate\fP (\fBhdate_struct\fP *h, intd, intm, inty)"
+.PP
+compute date structure from the Gregorian date \fBParameters:\fP
+.RS 4
+\fIh\fP pointer this hdate struct\&. 
+.br
+\fId\fP Day of month 1\&.\&.31 
+.br
+\fIm\fP Month 1\&.\&.12 if m or d is 0 return current date\&. 
+.br
+\fIy\fP Year in 4 digits e\&.g\&. 2001 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+pointer to this hdate struct 
+.RE
+.PP
+
+.SS "\fBhdate_struct\fP* \fBhdate_set_hdate\fP (\fBhdate_struct\fP *h, intd, intm, inty)"
+.PP
+compute date structure from the Hebrew date \fBParameters:\fP
+.RS 4
+\fIh\fP pointer this hdate struct\&. 
+.br
+\fId\fP Day of month 1\&.\&.31 
+.br
+\fIm\fP Month 1\&.\&.14 ,(13 - Adar 1, 14 - Adar 2) if m or d is 0 return current date\&. 
+.br
+\fIy\fP Year in 4 digits e\&.g\&. 5731 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+pointer to this hdate struct 
+.RE
+.PP
+
+.SS "\fBhdate_struct\fP* \fBhdate_set_jd\fP (\fBhdate_struct\fP *h, intjd)"
+.PP
+compute date structure from the Julian day \fBParameters:\fP
+.RS 4
+\fIh\fP pointer this hdate struct\&. 
+.br
+\fIjd\fP the julian day number\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+pointer to this hdate struct 
+.RE
+.PP
+
+.SS "char* \fBhdate_get_format_date\fP (\fBhdate_struct\fP const *h, intdiaspora, ints)"
+.PP
+Return a string, with the hebrew date\&. \fBReturns:\fP
+.RS 4
+NULL pointer upon failure or, upon success, a pointer to a string containing the short ( e\&.g\&. '1 Tishrey' ) or long (e\&.g\&. 'Tuesday
+ 18 Tishrey 5763 Hol hamoed Sukot' ) formated date\&. You must free() the pointer after use\&.
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIh\fP The \fBhdate_struct\fP of the date to print\&. 
+.br
+\fIdiaspora\fP if true give diaspora holydays 
+.br
+\fIshort_format\fP A short flag (true - returns a short string, false returns a long string)\&.
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+This was originally written using a local static string, calling for output to be copied away\&. 
+.RE
+.PP
+
+.SS "int \fBhdate_get_parasha\fP (\fBhdate_struct\fP const *h, intdiaspora)"
+.PP
+get the number of hebrew parasha\&. \fBParameters:\fP
+.RS 4
+\fIh\fP pointer this hdate struct\&. 
+.br
+\fIdiaspora\fP if true give diaspora readings 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the number of parasha 1\&. Bereshit etc\&.\&. (55 through 61 are joined strings e\&.g\&. Vayakhel Pekudei) 
+.RE
+.PP
+
+.SS "int \fBhdate_get_holyday\fP (\fBhdate_struct\fP const *h, intdiaspora)"
+.PP
+get the number of hebrew holiday\&. \fBParameters:\fP
+.RS 4
+\fIh\fP pointer this hdate struct\&. 
+.br
+\fIdiaspora\fP if true give diaspora holidays 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the number of holiday\&. 
+.RE
+.PP
+
+.SS "char* \fBhdate_get_int_string\fP (intn)"
+.PP
+convert an integer to hebrew string\&. \fBParameters:\fP
+.RS 4
+\fIn\fP The int to convert ( 0 < n < 11000) 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a string of the hebrew number UTF-8 (logical) 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+DEPRECATION: This function is now just a wrapper for hdate_string, and is subject to deprecation\&. Callers to this function must free() after using the memory pointed to by the return value\&. The original function outputted to a local static string, and suggested that the caller copied it away\&. [deprecation date 2011-12-28] 
+.RE
+.PP
+
+.SS "char* \fBhdate_get_day_string\fP (intday, ints)"
+.PP
+Return a static string, with name of week day\&. \fBParameters:\fP
+.RS 4
+\fIday_of_week\fP The number of the day 1\&.\&.7 (1 - sun)\&. 
+.br
+\fIshort_form\fP A short flag (true - sun; false - sunday)\&. 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+DEPRECATION: This function is now just a wrapper for hdate_string, and is subject to deprecation\&. [deprecation date 2011-12-28] 
+.RE
+.PP
+
+.SS "char* \fBhdate_get_month_string\fP (intmonth, ints)"
+.PP
+Return a static string, with name of month\&. \fBParameters:\fP
+.RS 4
+\fImonth\fP The number of the month 1\&.\&.12 (1 - jan)\&. 
+.br
+\fIshort_form\fP A short flag\&. 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+DEPRECATION: This function is now just a wrapper for hdate_string, and is subject to deprecation\&. [deprecation date 2011-12-28] 
+.RE
+.PP
+
+.SS "char* \fBhdate_get_hebrew_month_string\fP (intmonth, ints)"
+.PP
+Return a static string, with name of hebrew month\&. \fBParameters:\fP
+.RS 4
+\fImonth\fP The number of the month 1\&.\&.14 (1 - tishre, 13 - adar 1, 14 - adar 2)\&. 
+.br
+\fIshort_form\fP A short flag\&. 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+DEPRECATION: This function is now just a wrapper for hdate_string, and is subject to deprecation\&. [deprecation date 2011-12-28] 
+.RE
+.PP
+
+.SS "char* \fBhdate_get_holyday_string\fP (intholyday, ints)"
+.PP
+Name of hebrew holiday\&. \fBParameters:\fP
+.RS 4
+\fIholiday\fP The holiday number\&. 
+.br
+\fIshort_text\fP A short flag\&. 0=true, !0=false 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+DEPRECATION: This function is now just a wrapper for hdate_string, and is subject to deprecation\&. [deprecation date 2011-12-28] 
+.RE
+.PP
+
+.SS "char* \fBhdate_get_parasha_string\fP (intparasha, ints)"
+.PP
+Name of Parasha\&. \fBParameters:\fP
+.RS 4
+\fIparasha\fP The Number of Parasha 1-Bereshit (55 through 61 are joined strings e\&.g\&. Vayakhel Pekudei) 
+.br
+\fIshort_form\fP A short flag\&. 0=true, !0 = false 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+DEPRECATION: This function is now just a wrapper for hdate_string, and is subject to deprecation\&. [deprecation date 2011-12-28] 
+.RE
+.PP
+
+.SS "char* \fBhdate_get_omer_string\fP (intomer_day)"
+.PP
+Return a static string, with the day in the omer\&. \fBParameters:\fP
+.RS 4
+\fIomer\fP day The day in the omer\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+a pointer to a string with the day in the omer\&. The caller must free() the pointer after use\&. 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+DEPRECATION: This function is now just a wrapper for hdate_string, and is subject to deprecation\&. 
+.RE
+.PP
+\fBAttention:\fP
+.RS 4
+The prior version of this function returned a pointer to a static string buffer\&. The current version returns a pointer to a malloc()ed buffer and needs to be free()d after use\&. [deprecation date 2011-12-28] 
+.RE
+.PP
+
+.SS "int \fBhdate_get_omer_day\fP (\fBhdate_struct\fP const *h)"
+.PP
+Return the day in the omer of the given date\&. \fBParameters:\fP
+.RS 4
+\fIh\fP The \fBhdate_struct\fP of the date to use\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The day in the omer, starting from 1 (or 0 if not in sfirat ha omer) 
+.RE
+.PP
+
+.SS "int \fBhdate_get_holyday_type\fP (intholyday)"
+.PP
+Return number of hebrew holyday type\&. Holiday types: 0 - Regular day 1 - Yom tov (plus yom kippor) 2 - Erev yom kippur 3 - Hol hamoed 4 - Hanuka and purim 5 - Tzomot 6 - Independance day and Yom yerushalaim 7 - Lag baomer ,Tu beav, Tu beshvat 8 - Tzahal and Holocaust memorial days 9 - National days
+.PP
+\fBParameters:\fP
+.RS 4
+\fIholyday\fP the holyday number 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the number of holyday type\&. 
+.RE
+.PP
+
+.SS "int \fBhdate_get_size_of_hebrew_year\fP (inthebrew_year)"
+.PP
+size of hebrew year in days\&. \fBParameters:\fP
+.RS 4
+\fIhebrew_year\fP the hebrew year\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+size of Hebrew year 
+.RE
+.PP
+
+.SS "int \fBhdate_days_from_3744\fP (inthebrew_year)"
+.PP
+Days since Tishrey 3744\&. \fBAuthor:\fP
+.RS 4
+Amos Shapir 1984 (rev\&. 1985, 1992) Yaacov Zamir 2003-2005
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIhebrew_year\fP The Hebrew year 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Number of days since 3,1,3744 
+.RE
+.PP
+
+.SS "int \fBhdate_get_year_type\fP (intsize_of_year, intnew_year_dw)"
+.PP
+Return Hebrew year type based on size and first week day of year\&. \fBParameters:\fP
+.RS 4
+\fIsize_of_year\fP Length of year in days 
+.br
+\fInew_year_dw\fP First week day of year 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the number for year type (1\&.\&.14) 
+.RE
+.PP
+
+.SS "int \fBhdate_gdate_to_jd\fP (intday, intmonth, intyear)"
+.PP
+Compute Julian day from Gregorian date\&. \fBAuthor:\fP
+.RS 4
+Yaacov Zamir (algorithm from Henry F\&. Fliegel and Thomas C\&. Van Flandern ,1968)
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIday\fP Day of month 1\&.\&.31 
+.br
+\fImonth\fP Month 1\&.\&.12 
+.br
+\fIyear\fP Year in 4 digits e\&.g\&. 2001 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the julian day number 
+.RE
+.PP
+
+.SS "int \fBhdate_hdate_to_jd\fP (intday, intmonth, intyear, int *jd_tishrey1, int *jd_tishrey1_next_year)"
+.PP
+Compute Julian day from Hebrew day, month and year\&. \fBAuthor:\fP
+.RS 4
+Amos Shapir 1984 (rev\&. 1985, 1992) Yaacov Zamir 2003-2005
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIday\fP Day of month 1\&.\&.31 
+.br
+\fImonth\fP Month 1\&.\&.14 (13 - Adar 1, 14 - Adar 2) 
+.br
+\fIyear\fP Hebrew year in 4 digits e\&.g\&. 5753 
+.br
+\fIjd_tishrey1\fP return the julian number of 1 Tishrey this year 
+.br
+\fIjd_tishrey1_next_year\fP return the julian number of 1 Tishrey next year 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the julian day number 
+.RE
+.PP
+
+.SS "void \fBhdate_jd_to_gdate\fP (intjd, int *day, int *month, int *year)"
+.PP
+Converting from the Julian day to the Gregorian date\&. \fBAuthor:\fP
+.RS 4
+Yaacov Zamir (Algorithm, Henry F\&. Fliegel and Thomas C\&. Van Flandern ,1968)
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIjd\fP Julian day 
+.br
+\fIday\fP return Day of month 1\&.\&.31 
+.br
+\fImonth\fP return Month 1\&.\&.12 
+.br
+\fIyear\fP return Year in 4 digits e\&.g\&. 2001 
+.RE
+.PP
+
+.SS "void \fBhdate_jd_to_hdate\fP (intjd, int *day, int *month, int *year, int *jd_tishrey1, int *jd_tishrey1_next_year)"
+.PP
+Converting from the Julian day to the Hebrew day\&. \fBAuthor:\fP
+.RS 4
+Yaacov Zamir 2005
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIjd\fP Julian day 
+.br
+\fIday\fP return Day of month 1\&.\&.31 
+.br
+\fImonth\fP return Month 1\&.\&.14 (13 - Adar 1, 14 - Adar 2) 
+.br
+\fIyear\fP return Year in 4 digits e\&.g\&. 2001 
+.br
+\fIjd_tishrey1\fP return the julian number of 1 Tishrey this year 
+.br
+\fIjd_tishrey1_next_year\fP return the julian number of 1 Tishrey next year 
+.RE
+.PP
+
+.SS "int \fBhdate_get_day_of_year\fP (intday, intmonth, intyear)"
+.PP
+days from 1 january \fBParameters:\fP
+.RS 4
+\fIday\fP this day of month 
+.br
+\fImonth\fP this month 
+.br
+\fIyear\fP this year 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the days from 1 jan 
+.RE
+.PP
+
+.SS "void \fBhdate_get_utc_sun_time_deg\fP (intday, intmonth, intyear, doublelatitude, doublelongitude, doubledeg, int *sunrise, int *sunset)"
+.PP
+utc sun times for altitude at a gregorian date Returns the sunset and sunrise times in minutes from 00:00 (utc time) if sun altitude in sunrise is deg degries\&. This function only works for altitudes sun realy is\&. If the sun never get to this altitude, the returned sunset and sunrise values will be negative\&. This can happen in low altitude when latitude is nearing the pols in winter times, the sun never goes very high in the sky there\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIday\fP this day of month 
+.br
+\fImonth\fP this month 
+.br
+\fIyear\fP this year 
+.br
+\fIlongitude\fP longitude to use in calculations 
+.br
+\fIlatitude\fP latitude to use in calculations 
+.br
+\fIdeg\fP degrees of sun's altitude (0 - Zenith \&.\&. 90 - Horizon) 
+.br
+\fIsunrise\fP return the utc sunrise in minutes 
+.br
+\fIsunset\fP return the utc sunset in minutes 
+.RE
+.PP
+
+.SS "void \fBhdate_get_utc_sun_time\fP (intday, intmonth, intyear, doublelatitude, doublelongitude, int *sunrise, int *sunset)"
+.PP
+utc sunrise/set time for a gregorian date \fBParameters:\fP
+.RS 4
+\fIday\fP this day of month 
+.br
+\fImonth\fP this month 
+.br
+\fIyear\fP this year 
+.br
+\fIlongitude\fP longitude to use in calculations degrees, negative values are east 
+.br
+\fIlatitude\fP latitude to use in calculations degrees, negative values are south 
+.br
+\fIsunrise\fP return the utc sunrise in minutes after midnight (00:00) 
+.br
+\fIsunset\fP return the utc sunset in minutes after midnight (00:00) 
+.RE
+.PP
+
+.SS "void \fBhdate_get_utc_sun_time_full\fP (intday, intmonth, intyear, doublelatitude, doublelongitude, int *sun_hour, int *first_light, int *talit, int *sunrise, int *midday, int *sunset, int *first_stars, int *three_stars)"
+.PP
+utc sunrise/set time for a gregorian date \fBParameters:\fP
+.RS 4
+\fIday\fP this day of month 
+.br
+\fImonth\fP this month 
+.br
+\fIyear\fP this year 
+.br
+\fIlongitude\fP longitude to use in calculations 
+.br
+\fIlatitude\fP latitude to use in calculations 
+.br
+\fIsun_hour\fP return the length of shaa zaminit in minutes 
+.br
+\fIfirst_light\fP return the utc alut ha-shachar in minutes 
+.br
+\fItalit\fP return the utc tphilin and talit in minutes 
+.br
+\fIsunrise\fP return the utc sunrise in minutes 
+.br
+\fImidday\fP return the utc midday in minutes 
+.br
+\fIsunset\fP return the utc sunset in minutes 
+.br
+\fIfirst_stars\fP return the utc tzeit hacochavim in minutes 
+.br
+\fIthree_stars\fP return the utc shlosha cochavim in minutes 
+.RE
+.PP
+
+.SS "int \fBhdate_get_gday\fP (\fBhdate_struct\fP const *h)"
+.PP
+get the Gregorian day of the month \fBParameters:\fP
+.RS 4
+\fIh\fP pointer this hdate struct\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the Gregorian day of the month, 1\&.\&.31\&. 
+.RE
+.PP
+
+.SS "int \fBhdate_get_gmonth\fP (\fBhdate_struct\fP const *h)"
+.PP
+get the Gregorian month \fBParameters:\fP
+.RS 4
+\fIh\fP pointer this hdate struct\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the Gregorian month, jan = 1\&. 
+.RE
+.PP
+
+.SS "int \fBhdate_get_gyear\fP (\fBhdate_struct\fP const *h)"
+.PP
+get the Gregorian year \fBParameters:\fP
+.RS 4
+\fIh\fP pointer this hdate struct\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the Gregorian year\&. 
+.RE
+.PP
+
+.SS "int \fBhdate_get_hday\fP (\fBhdate_struct\fP const *h)"
+.PP
+get the Hebrew day of the month \fBParameters:\fP
+.RS 4
+\fIh\fP pointer this hdate struct\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the Hebrew day of the month, 1\&.\&.30\&. 
+.RE
+.PP
+
+.SS "int \fBhdate_get_hmonth\fP (\fBhdate_struct\fP const *h)"
+.PP
+get the Hebrew month \fBParameters:\fP
+.RS 4
+\fIh\fP pointer this hdate struct\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the Hebrew month, Tishery = 1 \&.\&. Adar I =13, Adar II = 14\&. 
+.RE
+.PP
+
+.SS "int \fBhdate_get_hyear\fP (\fBhdate_struct\fP const *h)"
+.PP
+get the Hebrew year \fBParameters:\fP
+.RS 4
+\fIh\fP pointer this hdate struct\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the Hebrew year\&. 
+.RE
+.PP
+
+.SS "int \fBhdate_get_day_of_the_week\fP (\fBhdate_struct\fP const *h)"
+.PP
+get the day of the week \fBParameters:\fP
+.RS 4
+\fIh\fP pointer this hdate struct\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the the day of the week\&. 
+.RE
+.PP
+
+.SS "int \fBhdate_get_size_of_year\fP (\fBhdate_struct\fP const *h)"
+.PP
+get the size of the hebrew year \fBParameters:\fP
+.RS 4
+\fIh\fP pointer this hdate struct\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the the size of the hebrew year\&. 
+.RE
+.PP
+
+.SS "int \fBhdate_get_new_year_day_of_the_week\fP (\fBhdate_struct\fP const *h)"
+.PP
+get the new year day of the week \fBParameters:\fP
+.RS 4
+\fIh\fP pointer this hdate struct\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the the new year day of the week\&. 
+.RE
+.PP
+
+.SS "int \fBhdate_get_julian\fP (\fBhdate_struct\fP const *h)"
+.PP
+get the Julian day number \fBParameters:\fP
+.RS 4
+\fIh\fP pointer this hdate struct\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the Julian day number\&. 
+.RE
+.PP
+
+.SS "int \fBhdate_get_days\fP (\fBhdate_struct\fP const *h)"
+.PP
+get the number of days passed since 1 tishrey \fBParameters:\fP
+.RS 4
+\fIh\fP pointer this hdate struct\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the number of days passed since 1 tishrey\&. 
+.RE
+.PP
+
+.SS "int \fBhdate_get_weeks\fP (\fBhdate_struct\fP const *h)"
+.PP
+get the number of weeks passed since 1 tishrey \fBParameters:\fP
+.RS 4
+\fIh\fP pointer this hdate struct\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+the number of weeks passed since 1 tishrey\&. 
+.RE
+.PP
+
+.SS "\fBhdate_struct\fP* \fBnew_hdate\fP ()"
+.PP
+creat a new hdate struct object, must be deleted using delete_hdate\&. \fBReturns:\fP
+.RS 4
+a new hdate object 
+.RE
+.PP
+
+.SS "\fBhdate_struct\fP* \fBdelete_hdate\fP (\fBhdate_struct\fP *h)"
+.PP
+delete an hdate struct object\&. \fBParameters:\fP
+.RS 4
+\fIh\fP pointer this hdate struct\&. 
+.RE
+.PP
+
+.SS "char* \fBhdate_get_version_string\fP ()"
+.PP
+Return a static string, with the package name and version\&. \fBReturns:\fP
+.RS 4
+a static string, with the package name and version 
+.RE
+.PP
+
+.SS "char* \fBhdate_get_translator_string\fP ()"
+.PP
+name of translator \fBReturns:\fP
+.RS 4
+a static string with name of translator, or NULL if none\&. 
+.RE
+.PP
+
+.SS "int \fBhdate_is_hebrew_locale\fP ()"
+.PP
+helper function to find hebrew locale \fBReturns:\fP
+.RS 4
+0 - latin locale, -1 - hebrew locale 
+.RE
+.PP
+
+.SS "char* \fBhdate_string\fP (inttype_of_string, intindex, intshort_form, inthebrew_form)"
+.PP
+Return string values for hdate information\&. \fBReturns:\fP
+.RS 4
+a pointer to a string containing the information\&. In the cases integers and omer, the strings will NOT be static, and the caller must free() them after use\&. Returns a null pointer upon failure\&. 
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fItype_of_string\fP 0 = integer, 1 = day of week, 2 = parshaot, 3 = hmonth, 4 = gmonth, 5 = holiday, 6 = omer 
+.br
+\fIindex\fP integer ( 0 < n < 11000) day of week ( 0 < n < 8 ) parshaot ( 0 , n < 62 ) hmonth ( 0 < n < 15 ) gmonth ( 0 < n < 13 ) holiday ( 0 < n < 37 ) omer ( 0 < n < 50 ) 
+.br
+\fIshort_form\fP 0 = short format 
+.br
+\fIhebrew_form\fP 0 = not hebrew (native/embedded) 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libhdate C language from the source code\&.

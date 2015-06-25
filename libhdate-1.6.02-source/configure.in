@@ -1,0 +1,345 @@
+AC_INIT(src/hdate.h)
+
+dnl Set release number
+PACKAGE=libhdate
+LIBHDATE_MAJOR_VERSION=1
+LIBHDATE_MINOR_VERSION=6
+LIBHDATE_MICRO_VERSION=02
+
+VERSION=$LIBHDATE_MAJOR_VERSION.$LIBHDATE_MINOR_VERSION.$LIBHDATE_MICRO_VERSION
+
+dnl libtool library numbering
+VERSION_INFO=$LIBHDATE_MAJOR_VERSION:$LIBHDATE_MINOR_VERSION:0
+
+AC_SUBST(VERSION_INFO)
+
+AM_INIT_AUTOMAKE($PACKAGE, $VERSION)
+AM_MAINTAINER_MODE
+
+dnl Checks for programs.
+AC_ISC_POSIX
+AC_GNU_SOURCE
+AC_USE_SYSTEM_EXTENSIONS
+AC_PROG_CC
+AC_PROG_INSTALL
+AC_PROG_LN_S
+AC_PROG_MAKE_SET
+AC_STDC_HEADERS
+AM_PROG_LIBTOOL
+
+AM_MAINTAINER_MODE
+
+AC_C_CONST
+AC_CONFIG_MACRO_DIR([m4])
+AC_PATH_PROG(PKG_CONFIG, pkg-config, no)
+
+CFLAGS=" -Wall -g -Wformat -Wformat-security -Werror=format-security -D_FORTIFY_SOURCE=2 -O1 -fstack-protector --param ssp-buffer-size=4 -fPIE -pie"
+LIBS=-lm
+
+dnl =======================================================================================
+
+AC_CHECK_PROG(have_swig, "swig", yes, no)
+
+dnl =======================================================================================
+
+AC_CHECK_PROG(have_fpc, "fpc", yes, no)
+
+build_fpc=$have_fpc
+
+AC_ARG_ENABLE([fpc], 
+  [AS_HELP_STRING([--disable-fpc],
+  [do not build free pascal binding])],
+  [build_fpc=no], [build_fpc=$have_fpc])
+
+if test "$have_fpc" = "yes"; then
+	PA_VERSION=`fpc -iV`
+	PA_TPR=`fpc -iTP`
+	PA_TOS=`fpc -iTO`
+	PA_MODULES_PATH="/usr/lib/fpc/$PA_VERSION/units/$PA_TPR-$PA_TOS"
+	AC_SUBST([PA_VERSION])
+	AC_SUBST([PA_MODULES_PATH])
+fi
+
+dnl =======================================================================================
+
+AC_CHECK_PROG(have_gpc, "gpc", yes, no)
+
+build_gpc=$have_gpc
+
+AC_ARG_ENABLE([gpc], 
+  [AS_HELP_STRING([--disable-gpc],
+  [do not build gnu pascal binding])],
+  [build_gpc=no], [build_gpc=$have_gpc])
+
+if test "$have_gpc" = "yes"; then
+	GP_MODULES_PATH=`gpc -print-search-dirs | grep install | cut -d' ' -f 2`
+	AC_SUBST([GP_MODULES_PATH])
+fi
+
+dnl =======================================================================================
+
+AM_CONDITIONAL(WITH_GPC_FPC, [test "$build_fpc" = "yes" -a "$build_gpc" = "yes" ])
+AM_CONDITIONAL(WITH_GPC, [test "$build_gpc" = "yes" -a "$build_fpc" != "yes" ])
+AM_CONDITIONAL(WITH_FPC, [test "$build_gpc" != "yes" -a "$build_fpc" = "yes" ])
+
+dnl =======================================================================================
+
+AC_CHECK_PROG(have_python, "python", yes, no)
+
+build_python=$have_python
+
+AC_ARG_ENABLE([python], 
+  [AS_HELP_STRING([--disable-python],
+  [do not build python binding])],
+  [build_python=no], [build_python=$have_python])
+
+AC_ARG_WITH(python-sitelib-dir, 
+  [AS_HELP_STRING([--with-python-sitelib-dir=PATH],
+  [path to python site lib])])
+
+if test "$have_python" = "yes"; then
+	  PY_PREFIX=`python -c 'import sys ; print sys.prefix'`
+	  PY_VERSION=`python -c 'import sys ; print sys.version[[0:3]]'`
+	  AC_MSG_CHECKING(for $PY_PREFIX/include/python$PY_VERSION/Python.h)
+	  if test -f $PY_PREFIX/include/python$PY_VERSION/Python.h; then
+		  AC_MSG_RESULT(yes)
+		  PY_CFLAGS="-I$PY_PREFIX/include/python$PY_VERSION"
+		  
+		  if test "$with_python_sitelib_dir" = "" ; then
+		    PY_MODULES_PATH="$PY_PREFIX/lib/python$PY_VERSION/dist-packages"
+		  else
+		    PY_MODULES_PATH=$with_python_sitelib_dir
+		  fi
+		  
+		  AC_SUBST([PY_VERSION])
+		  AC_SUBST([PY_CFLAGS])
+		  AC_SUBST([PY_MODULES_PATH])
+		  if test "$have_swig" = "no"; then
+			build_python=no
+		  fi
+	  else
+		  AC_MSG_RESULT(no)
+		  build_python=no
+	  fi
+fi
+
+AM_CONDITIONAL(WITH_PYTHON, test "$build_python" = "yes")
+
+dnl =======================================================================================
+
+AC_CHECK_PROG(have_ruby, "ruby", yes, no)
+
+build_ruby=$have_ruby
+
+AC_ARG_ENABLE([ruby], 
+  [AS_HELP_STRING([--disable-ruby],
+  [do not build ruby binding])],
+  [build_ruby=no], [build_ruby=$have_ruby])
+
+AC_ARG_WITH(ruby-sitelib-dir, 
+  [AS_HELP_STRING([--with-ruby-sitelib-dir=PATH],
+  [path to ruby site lib])])
+
+if test "$have_ruby" = "yes"; then
+	  RU_PREFIX=`ruby -e 'require "mkmf"; puts $topdir'`
+	  RU_VERSION=`ruby -e "require 'mkmf'; puts config_string('MAJOR')"`
+	  RU_VERSION+=.`ruby -e "require 'mkmf'; puts config_string('MINOR')"`
+	  AC_MSG_CHECKING(for $RU_PREFIX/ruby.h)
+	  if test -f $RU_PREFIX/ruby.h; then
+		  AC_MSG_RESULT(yes)
+		  RU_CFLAGS="-I$RU_PREFIX"
+		  
+		  if test "$with_ruby_sitelib_dir" = "" ; then
+		    RU_MODULES_PATH="$RU_PREFIX"
+		  else
+		    RU_MODULES_PATH=$with_ruby_sitelib_dir
+		  fi
+		  
+		  AC_SUBST([RU_VERSION])
+		  AC_SUBST([RU_CFLAGS])
+		  AC_SUBST([RU_MODULES_PATH])
+		  if test "$have_swig" = "no"; then
+			build_ruby=no
+		  fi
+	  else
+		  AC_MSG_RESULT(no)
+		  build_ruby=no
+	  fi
+fi
+
+AM_CONDITIONAL(WITH_RUBY, test "$build_ruby" = "yes")
+
+dnl =======================================================================================
+
+AC_CHECK_PROG(have_php, "php", yes, no)
+
+build_php=$have_php
+
+AC_ARG_ENABLE([php], 
+  [AS_HELP_STRING([--disable-php],
+  [do not build php binding])],
+  [build_php=no], [build_php=$have_php])
+
+AC_ARG_WITH(php-sitelib-dir, 
+  [AS_HELP_STRING([--with-php-sitelib-dir=PATH],
+  [path to php site lib])])
+
+if test "$have_php" = "yes"; then
+	  AC_CHECK_PROG(have_php_config, "php-config5", yes, no)
+	  if test "$have_php_config" = "yes"; then
+	      
+	      PH_CONFIG_PATH=`php --ini |  grep "Scan" | cut -d: -f2 | sed 's/\s//g'`
+	      PH_INCLUDE_PATH=`php -r "echo get_include_path();" | cut -f2 -d:`
+		  if test "$with_php_sitelib_dir" = "" ; then
+		    PH_MODULES_PATH=`php-config5 --extension-dir`
+		  else
+		    PH_MODULES_PATH=$with_php_sitelib_dir
+		  fi
+		  
+		  AC_SUBST([PH_CONFIG_PATH])
+		  AC_SUBST([PH_INCLUDE_PATH])
+		  AC_SUBST([PH_MODULES_PATH])
+		  if test "$have_swig" = "no"; then
+			build_php=no
+		  fi
+	  else
+		  AC_MSG_RESULT(no)
+		  build_php=no
+	  fi
+fi
+
+AM_CONDITIONAL(WITH_PHP, test "$build_php" = "yes")
+
+dnl =======================================================================================
+
+AC_CHECK_PROG(have_perl, "perl", yes, no)
+
+build_perl=$have_perl
+
+AC_ARG_ENABLE([perl], 
+  [AS_HELP_STRING([--disable-perl],
+  [do not build perl binding])],
+  [build_perl=no], [build_perl=$have_perl])
+
+AC_ARG_WITH(perl-sitelib-dir, 
+  [AS_HELP_STRING([--with-perl-sitelib-dir=PATH],
+  [path to perl site lib])])
+  
+if test "$have_perl" = "yes"; then
+	  PE_PREFIX=`(perl -e 'use Config; print $Config{archlib};')`
+	  AC_MSG_CHECKING(for $PE_PREFIX/CORE/perl.h)
+	  if test -f $PE_PREFIX/CORE/perl.h; then
+		  AC_MSG_RESULT(yes)
+		  PE_CFLAGS="-I$PE_PREFIX/CORE "
+		  PE_CFLAGS=$PE_CFLAGS`(perl -e 'use Config; print $Config{cppflags};')`
+		  
+		  if test "$with_perl_sitelib_dir" = "" ; then
+		    PE_MODULES_PATH=`(perl -e 'use Config; print $Config{sitelib};')`
+		  else
+		    PE_MODULES_PATH=$with_perl_sitelib_dir
+		  fi
+		  		  
+		  AC_SUBST([PE_CFLAGS])
+		  AC_SUBST([PE_MODULES_PATH])
+		  if test "x$have_swig" = "xno"; then
+			build_perl=no
+		  fi
+	  else
+		  AC_MSG_RESULT(no)
+		  build_perl=no
+	  fi
+fi
+
+AM_CONDITIONAL(WITH_PERL, test "$build_perl" = "yes")
+
+dnl =======================================================================================
+
+dnl gettext
+
+dnl Languages which your application supports
+ALL_LINGUAS="he es_MX ru fr sv"
+AM_GNU_GETTEXT([external])
+AM_GNU_GETTEXT_VERSION([0.18.1])
+
+if test "$DATADIRNAME" = ""; then
+   DATADIRNAME="share"
+   AC_SUBST(DATADIRNAME)
+fi
+
+localepath=`eval eval echo ${localedir}`
+
+AC_DEFINE_UNQUOTED(PACKAGE_LOCALE_DIR, "${localepath}")
+
+dnl =======================================================================================
+
+build_hcal=yes
+
+AC_ARG_ENABLE([hcal], 
+  [AS_HELP_STRING([--disable-hcal],
+  [do not build hcal/hdate utility programs])],
+  [build_hcal=no], [build_hcal=yes])
+
+AM_CONDITIONAL(WITH_HCAL, test "$build_hcal" = "yes")
+
+dnl =======================================================================================
+
+AC_SUBST(CFLAGS)
+AC_SUBST(LIBS)
+
+dnl =======================================================================================
+
+AC_OUTPUT([
+Makefile
+libhdate.pc
+po/Makefile.in
+docs/Makefile
+docs/man/Makefile
+docs/man/man1/Makefile
+docs/man/man3/Makefile
+src/Makefile
+examples/Makefile
+examples/hcal/Makefile
+examples/bindings/Makefile
+examples/bindings/pascal/Makefile
+bindings/Makefile
+bindings/python/Makefile
+bindings/perl/Makefile
+bindings/pascal/Makefile
+bindings/ruby/Makefile
+bindings/php/Makefile
+])
+
+dnl ===========================================================================================
+
+echo "
+$PACKAGE-$VERSION
+
+	prefix:				${prefix}
+	compiler:			${CC}
+	locale-dir:			$localepath
+	
+	have swig			${have_swig}
+	have free pascal		${have_fpc}
+	have gnu pascal			${have_gpc}
+	have python			${have_python}
+	have perl			${have_perl}
+	have ruby			${have_ruby}
+	have php			${have_php} php-dev,php-cli ${have_php_config}
+	
+	build hcal			${build_hcal}
+	
+	build python binding	${build_python}
+	build perl binding		${build_perl}
+	puild free pascal binding	${build_fpc}
+	puild ruby binding		${build_ruby}
+	puild php binding		${build_php}
+	
+	perl site lib path:		$PE_MODULES_PATH
+	python site lib path:		$PY_MODULES_PATH
+	free pascal site lib path:	$PA_MODULES_PATH
+	gnu pascal site lib path:	$GP_MODULES_PATH
+	ruby site lib path:		$RU_MODULES_PATH
+	php site lib path:		$PH_MODULES_PATH
+	  php config path:		$PH_CONFIG_PATH
+	  php include path:		$PH_INCLUDE_PATH
+"

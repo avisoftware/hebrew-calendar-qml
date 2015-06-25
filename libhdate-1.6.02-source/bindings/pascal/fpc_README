@@ -1,0 +1,68 @@
+About
+=====
+
+LibHdate is a small C,C++ library for Hebrew calendar and dates, holidays, and reading sequence (parasha).
+It is using the source code from Amos Shapir's hdate package fixed and patched by Nadav Har'El.
+The Torah reading sequence is from tables by Zvi Har'El.
+
+The LibHdate is GPL library written by Kobi Zamir <kzamir@walla.co.il> and can be found at http://libhdate.sourceforge.net/ .
+
+The current version of LibHDate is  1.4.10 and contains a Free Pascal binding only that was written by Ido Kanner <idokan@gmail.com>.
+
+Existed Files:
+  /bindings/pascal/fpc_README  - This file.
+  
+  COPYING                      - A copy of the GPL license.
+  
+  examples/bindings/pascal/hdate_obj.pp        - An Object Oriented implementation for the hdate.pp API.
+  examples/bindings/pascal/hdate_obj_demo.pp   - An example for the use of the Object Oriented unit.
+  examples/bindings/pascal/hdate_class.pp      - A self made Object Oriented implementation for the LibHdate API.
+  
+  bindings/pascal/
+  bindings/pascal/hdate.pp                 - The main low level API of LibHdate binding.
+  bindings/pascal/hdate_dyn_pascal.pp      - A dynamic linking library.
+  
+
+Compiling
+=========
+
+The ctypes.pp unit was taken from FPC 1.9.8 version and was modified to contain also some floating point C equivalent. 
+The FPC version 2.0 have the floating points definition. If you are using FPC version 2.0 or above please remove the unit.
+
+Add the hdate.pp and the hdate_obj.pp (or thier .ppu files after compilation) to the path of fpc.cfg in order to use the units globally with all of your applications.
+
+It is recommanded to use FPC 2.2.0 or above for the newer version of this library.
+
+=========================================================================
+the old README from version 1.1.1
+=========================================================================
+
+About
+=====
+
+LibHdate is a small C,C++ library for Hebrew calendar and dates, holidays, and reading sequence (parasha).
+It is using the sorce code from Amos Shapir's hdate package fixed and patched by Nadav Har'El.
+The Torah reading sequence is from tables by Zvi Har'El.
+
+The LibHdate is GPL library written by Kobi Zamir <kzamir@walla.co.il> and can be found at http://libhdate.sourceforge.net/ .
+
+This version of LibHDate contains a FreePascal binding that was written by Ido Kanner <idokan@gmail.com>.
+
+Existed Files:
+	fpc_README                 - This file.
+	src/ctypes.pp          - A unit for making C like integer and floating points variable type.
+	src/hdate.pp           - The main low level API of LibHdate binding.
+	src/hdate_obj.pp       - An Object Oriented implementation for the hdate.pp API.
+	src/hdate_obj_demo.pp  - An example for the use of the Object Oriented unit.
+	src/hcal.pp            - An example for the use of the low level API.
+
+Compiling
+=========
+
+The ctypes.pp unit was taken from FPC 1.9.8 version and was modified to contain also some floating point C equivalent. 
+I hope that version 2.0 will contains them as well, if not please keep this unit, otherwise feel free to remove it.
+
+Add the hdate.pp and the hdate_obj.pp (or thier .ppu files after compilation) to the path of fpc.cfg in order to use 
+the units globally with all of your applications.
+
+

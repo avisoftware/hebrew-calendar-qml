@@ -1,0 +1,228 @@
+.\" .UC 4
+.TH "hdate" "1" "2013-01-01" "Linux" "libhdate"
+.SH "NAME"
+hdate \- displays Hebrew date information for a given Gregorian/Julian date
+.SH "SYNOPSIS"
+.B hdate
+[options] [coordinates [timezone]] [[[dd] mm] yyyy]
+.P
+.B hdate
+[options] [coordinates [timezone]] [ julian_day ]
+.TP
+coordinates: \-l [NS]yy[.yyy] \-L [EW]xx[.xxx]
+.RE
+.RS 7
+             \-l [NS]yy[:mm[:ss]] \-L [EW]xx[:mm[:ss]]
+.RE
+.RS 7
+timezone:    \-z nn[( .nn | :mm )]
+.PP
+.SH "DESCRIPTION"
+.B hdate
+translates the specified date to the Hebrew calendar and optionally displays further
+information about that Hebrew date, including holidays and astronomical-related times
+(see section LOCATION, below). If no arguments are given, it displays information for
+the current date. If a single numeric argument is given, it will be interpreted as a
+year, and 
+.B hdate
+will output the requested information for 
+.I all 
+days of that year. If two numeric arguments are given, it will be interpreted as mm yyyy, and
+.B hdate
+will output the requested information for 
+.I all 
+days of that month.
+.PP 
+.B INPUTTING A HEBREW DATE:
+If the year provided is greater than 3000,
+.B hdate
+will interpret the given date as a Hebrew date, and will display information for the corresponding Gregorian date. Hebrew months are expected to be passed as numbers 1-12 for Tishrei - Elul; Adar I and Adar II are expected to be passed as months 13 and 14.
+.PP
+.B INPUTTING A JULIAN DAY:
+If a single numeric argument is provided, and it is greater than 348021, 
+.B hdate 
+will interpret it as the "Julian day number" and will display information for the corresponding Hebrew date.
+.PP 
+.SH "OPTIONS"
+.TP 18
+.B \-b --bidi
+output Hebrew information in Hebrew, but in reverse
+.RE
+.RS 7
+.B \ \ \ --visual
+\      sequence.
+.TP 18
+.B \-c
+print Shabbat start/end times. Shabbat starts 20 min before sunset, 
+and ends when three stars are out. 
+.TP
+.B \-d --diaspora
+use diaspora reading and holidays.
+.TP
+.B \-h --holidays
+print holidays.
+.TP
+.B \-H 
+Print only if it is a holiday.
+.TP
+.B \-i --ical 
+use iCal formatted output.
+.TP
+.B \-j --julian
+print Julian day number.
+.TP
+.B \-o --omer
+print Sefirat Ha Omer
+.TP
+.B \-q --quiet-alerts
+quiet. suppress warning messages
+.TP
+.B \-r --parasha
+print weekly reading for Shabbat.
+.TP
+.B \-R 
+print only if the weekly reading is read on that Shabbat
+.TP
+.B \-s --sun
+print sunrise/sunset times.
+.TP
+.B \-S --short-format
+print using short format.
+.TP
+.B \-t
+print day times: first light, talit, sunrise, mid day, sunset, first stars, three stars
+.TP
+.B \-T --table
+print tabular output. All data for each requested day will be output on a single comma-delimited line.
+Most suitable for piping, or export to spreadsheets\n\n\
+.TP
+.B \-l --latitude
+[NS]yy[.yyy] decimal degrees, or [NS]yy[:mm[:ss]] degrees, minutes, seconds. Negative values are South
+.TP
+.B \-L --longitude
+[EW]xx[.xxx] decimal degrees, or [EW]xx[:mm[:ss]] degrees, minutes, seconds. Negative values are West
+.TP
+.B \-z --timezone
+\+/-UTC. Notation may  be in decimal hours ( hh[.hh] ) or hours, minutes ( hh[:mm] )
+.TP
+.B \ \   --hebrew
+forces Hebrew to print in Hebrew characters
+.TP
+.B \ \   --yom
+force Hebrew prefix to Hebrew day of week
+.TP
+.B \ \   --leshabbat
+insert parasha between day of week and day
+.TP
+.B \ \   --leseder
+insert parasha between day of week and day
+.TP
+.B \ \   --not-sunset-aware
+don't display next day if after sunset
+.SH NOTES
+.SS LOCATIONS
+If you want 
+.B hdate
+to display accurate time-of-day information,
+.B hdate
+requires location and time zone information in order to make astronomical calculations for a given date. If you don't provide ANY such information, 
+.B hdate
+uses your computer's local time zone information as an indicator, and either picks a city in that time zone, or defaults to the equator at the center of that time zone. If 
+.B hdate
+can't even retrieve time zone information from your computer, it defaults to Tel-Aviv. For other locations, use the 
+.B \-l \-L
+option pair. For other timezones, use the 
+.B \-z
+option. Co-ordinates and standard time zones for some common locations are listed below.
+.PP
+The current defaults include:
+.RS 9
+Timezone   Default city    Lattitude  Longitude
+.RE
+.RS 12
+-5      New York City      40        \-74
+.RE
+.RS 12
+ 0      London             51          0
+.RE
+.RS 12
+ 1      Paris              48          2
+.RE
+.RS 12
+ 2      Tel-Aviv           32         34
+.RE
+.RS 12
+ 3      Moscow             55         37
+.RE
+.PP
+Useful locations and time zones
+.RS 6
+Jerusalem   31, 35, 2      Buenos Aires 34,  -58, -3
+.RE
+.RS 6
+Tel Aviv    32, 34, 2      Hong Kong    22,  114,  8
+.RE
+.RS 6
+Haifa       32, 34, 2      Los Angeles  34, -118, -8
+.RE
+.RS 6
+Beer Sheva  31, 34, 2      Sao Paolo    23, -46,  -3
+.RE
+.RS 6
+Ashdod      31, 34, 2      Toronto      43, -79   -5
+.RS 6
+.RE
+Tiberias    32, 35, 2      
+.RS 6
+.RE
+Eilat       29, 34, 2
+.SH FILES
+.SS CONFIG FILE
+This folder and file will be automatically created, and
+includes its own documentation, in-line:
+.RS 16
+.I ${XDG_CONFIG_HOME}/hcal/hcalrc
+.P
+.RE
+If ${XDG_CONFIG_HOME} is undefined:
+.RS 16
+.I ~/.config/hcal/hcalrc
+.SH "BUGS"
+.TP 10
+.B Accuracy
+The accuracy of the astronomically-derived data will suffer from not accounting for environmental conditions such as elevation, horizon, temperature and air pressure.
+.RE
+.TP 10
+.B Timezones
+The timezone support is currenlty primitive and lacks support for daylight savings time transitions.
+.RE
+.TP 10
+.B Historical
+The software does not yet account for the phenomenon and complications of the "Gregorian transition" from the prior, Julian calendar, which effectively caused an instantaneous 'loss' of two weeks for all gentiles affected. Countries (eg. Poland, Spain and Italy) began adopting the Gregorian calendar on 8 Tishrei 5343 (4 October 1582CE), although many did not transition until the 56th century (1752 CE, eg. UK colonies, Sweden). Russia did not adopt the Gregorian calendar until 5678 (1918 CE) and Turkey did not until 5687 (December, 1926 CE). Many other countries made the transition on other dates. Keep in mind that Russia invaded part of Poland, undoing, for the interim, the Gregorian transition for (only) that part of Poland; Also important to remember in this regard is that Eretz Ysroel was part of the Turkish Ottoman empire until the British mandate (5677 (1917CE)). Until all this is accounted for adequately by this application, refer to '
+.B ncal \-p
+\' for a basic table of country transitions. However, keep in mind that European borders underwent many changes during the 426 years in question, so the accuracy of your data will depend on accurate knowledge of whether any particular date at any specific location was Julian or Gregorian.
+.SH "EXAMPLES"
+1. Create an iCal calendar of the holidays of year 2025.
+.RS 6
+.B       hdate \-Hi 2025
+.RE
+.HP 3
+2. Print out the weekly readings and sunset/sunrise times for Eilat, on April 2031.
+.RS  6  
+.B       hdate \-sR 4 2031 -l29 -L34 -z2
+.RE
+.SH "SEE ALSO"
+mlterm(1), hcal(1), hebcal(1), date(1), ncal(1), cal(1), remind(1)
+.SH "AUTHORS"
+.RS 0
+Boruch Baum 2011-2013. Yaacov Zamir 2005-2010.
+.PP
+project page: http://libhdate.sourceforge.net
+.PP
+.BR hcal \ and \ hdate
+are part of the package
+.B libhdate
+, a small C/C++ library for Hebrew dates, holidays, and reading
+sequences (parashiot). It uses the source code from Amos Shapir's
+"hdate" package, as fixed and patched by Nadav Har'El. The Torah
+reading sequence tables were contributed by Zvi Har'El.

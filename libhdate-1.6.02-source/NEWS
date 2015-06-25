@@ -1,0 +1,45 @@
+Libhdate, hcal, hdate: version 1.6.02 released
+==============================================
+This release brings the package into complicance with the Debian policy
+for packaging.
+
+2013-02-11 Boruch Baum <boruch-baum@users.sourceforge.net>
+
+
+Libhdate, hcal, hdate: version 1.6.01 released
+==============================================
+This is a bugfix release, correcting a problem in hcal, which would
+improoperly truncate the final week line in February.
+
+2013-01-02 Boruch Baum <boruch-baum@users.sourceforge.net>
+
+
+Libhdate, hcal, hdate: version 1.6 released
+===========================================
+
+LibHdate is a small library for the Hebrew calendar, dates, holidays,
+and reading sequence. It is written in C and includes bindings for
+pascal, perl, python, php, ruby.
+
+hcal and hdate are small example command line programs, written in C.
+
+This release brings many new options, features, and bug fixes to the two example
+programs hcal and hdate. The changes to the underlying function library include
+a few minor bug fixes, deprecation of a series of string functions in favor
+of a single new one with better memory allocation, and hard-coding of core
+elements of the Hebrew localization so that Hebrew can be displayed in all
+locales.
+
+Some selected highlights:
+
+* config files for storing defaults
+* user-defined menus (defined in config file)
+* sunset awareness, based on coordinates given or system timezone and guesswork
+* optional easier entry of coordinates (N, S, E, W, dd:mm:ss)
+* minhag customization for Shabbat times
+* Hebrew information in Hebrew characters (for all locales)
+* hcal can display in 3-month mode, in color, with footnotes and Shabbat information
+* hdate can output data in csv format, suitable for spreadsheets, awk, etc.
+* hdate has many format enhancements
+
+2012-01-09 Boruch Baum <boruch-baum@users.sourceforge.net>

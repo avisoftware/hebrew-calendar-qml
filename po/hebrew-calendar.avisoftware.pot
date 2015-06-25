@@ -8,108 +8,108 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-22 09:36+0300\n"
+"POT-Creation-Date: 2015-06-16 09:01+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/DayBaseComponent.qml:86
+#: ../app/DayBaseComponent.qml:85
 msgid "Day details"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:89
+#: ../app/DayBaseComponent.qml:88
 msgid "Day "
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:96
+#: ../app/DayBaseComponent.qml:95
 msgid "Parashat "
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:116
+#: ../app/DayBaseComponent.qml:115
 msgid "(click to expand)"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:136
+#: ../app/DayBaseComponent.qml:135
 msgid "Shabat Times"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:140
+#: ../app/DayBaseComponent.qml:139
 msgid "Candle light"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:146
+#: ../app/DayBaseComponent.qml:144
 msgid "Three stars"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:152
+#: ../app/DayBaseComponent.qml:149
 msgid "Three stars czhish"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:158
+#: ../app/DayBaseComponent.qml:154
 msgid "Shabat end RT (72 minute)"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:164
+#: ../app/DayBaseComponent.qml:159
 msgid "Day times"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:167
+#: ../app/DayBaseComponent.qml:162
 msgid "First ligth (mga)"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:172
+#: ../app/DayBaseComponent.qml:166
 msgid "First light"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:177
+#: ../app/DayBaseComponent.qml:170
 msgid "Talit"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:182
+#: ../app/DayBaseComponent.qml:174
 msgid "Sunrise"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:187
+#: ../app/DayBaseComponent.qml:178
 msgid "End shema (mga)"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:192
+#: ../app/DayBaseComponent.qml:182
 msgid "End shema"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:197
+#: ../app/DayBaseComponent.qml:186
 msgid "End tefila mga"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:202
+#: ../app/DayBaseComponent.qml:190
 msgid "End tefila"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:207
+#: ../app/DayBaseComponent.qml:194
 msgid "Midday"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:212
+#: ../app/DayBaseComponent.qml:198
 msgid "Big mincha"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:217
+#: ../app/DayBaseComponent.qml:202
 msgid "Little mincha"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:222
+#: ../app/DayBaseComponent.qml:206
 msgid "Plug mincha"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:227
+#: ../app/DayBaseComponent.qml:210
 msgid "Sunset"
 msgstr ""
 
-#: ../app/DayBaseComponent.qml:232
+#: ../app/DayBaseComponent.qml:214
 msgid "First stars"
 msgstr ""
 
@@ -174,31 +174,31 @@ msgstr ""
 msgid "Day"
 msgstr ""
 
-#: ../app/Main.qml:171 ../app/SettingsView.qml:16
+#: ../app/Main.qml:171 ../app/SettingsView.qml:18
 msgid "Settings"
 msgstr ""
 
-#: ../app/SettingsView.qml:104
+#: ../app/SettingsView.qml:106
 msgid "Global"
 msgstr ""
 
-#: ../app/SettingsView.qml:112
+#: ../app/SettingsView.qml:114
 msgid "Second Yom Tov:"
 msgstr ""
 
-#: ../app/SettingsView.qml:123
+#: ../app/SettingsView.qml:125
 msgid "Location"
 msgstr ""
 
-#: ../app/SettingsView.qml:203
+#: ../app/SettingsView.qml:204
 msgid "Times Of Day"
 msgstr ""
 
-#: ../app/SettingsView.qml:207
+#: ../app/SettingsView.qml:208
 msgid "Candle Light"
 msgstr ""
 
-#: ../app/SettingsView.qml:218
+#: ../app/SettingsView.qml:219
 msgid "Sefirat HaOmer"
 msgstr ""
 

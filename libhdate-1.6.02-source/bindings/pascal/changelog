@@ -1,0 +1,30 @@
+25/01/2008
+   - Moved the class implementation to examples/binding
+   - Added better support for FPDoc
+   - Changed the demo for the class usage
+
+11-12/01/2008
+   - Added support for newer API functions added at 1.3
+   - Added support for dynamic loading for the API.
+   - Added dynamic loading capabilities to the examples.
+   - Moved to GPL 3
+
+25/11/2005
+   - Added some constants and fixed comments according the orginal API file
+
+25/11/2005
+   - Added some constants and fixed comments according the orginal API file
+
+27/05/2005
+   - Created a Changelog.
+
+19-21/05/2005
+   - hdate_class.pp was created.
+   - Made changes for Free Pascal 2 support on with the units.
+
+13/03/2005
+   - Bug fix in hdate.pp - Added {$PACKRECORDS C}
+
+10-11/03/2005 
+   - hdate.pp was created.
+   - hdate_obj.pp was created.

@@ -1,0 +1,58 @@
+libhdate USE file
+
+CONTENTS
+========
+1] Usage, if you have pkg-config
+2] Usage, if you don't have pkg-config
+3] An expanded example
+3.1] Small sample source code
+3.2] Compile it
+3.3] Execute it
+
+
+1] Usage, if you have pkg-config
+================================
+gcc -c `pkg-config --cflags libhdate` <your code>.c 
+gcc `pkg-config --libs libhdate` <your code>.o -o <program name>
+
+
+2] Usage, if you don't have pkg-config
+======================================
+gcc -c <your code>.c 
+gcc -lm -lhdate <your code>.o -o <program name>
+
+  
+3] An expanded example
+======================
+
+
+3.1] Small sample source code
+=============================
+// example code: file: test.c
+#include <stdio.h>
+#include <hdate.h>
+
+#define TRUE  1
+#define FALSE 0
+
+int
+main()
+{
+	hdate_struct	*h;	
+
+	h = hdate_hdate( 0,0,0);
+	
+	printf ("%s\n", hdate_get_format_date (h, FALSE) );
+	
+	return 0;
+}
+
+
+3.2] Compile it
+===============
+gcc -lm -lhdate test.c -o test
+
+
+3.3] Execute it
+===============
+./test

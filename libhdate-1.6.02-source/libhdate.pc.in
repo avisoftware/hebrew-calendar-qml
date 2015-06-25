@@ -1,0 +1,10 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: libhdate
+Description: A c/cpp library for hebrew dates
+Version: @VERSION@
+Libs: -L${libdir} -lm -lhdate
+Cflags: -I${includedir}

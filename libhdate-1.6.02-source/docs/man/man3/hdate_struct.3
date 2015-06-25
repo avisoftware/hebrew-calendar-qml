@@ -1,0 +1,78 @@
+.TH "hdate_struct" 3 "Sun Jan 8 2012" "Version 1.4" "libhdate C language" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+hdate_struct \- 
+.PP
+libhdate Hebrew date struct  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <hdate\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int \fBhd_day\fP"
+.br
+.ti -1c
+.RI "int \fBhd_mon\fP"
+.br
+.ti -1c
+.RI "int \fBhd_year\fP"
+.br
+.ti -1c
+.RI "int \fBgd_day\fP"
+.br
+.ti -1c
+.RI "int \fBgd_mon\fP"
+.br
+.ti -1c
+.RI "int \fBgd_year\fP"
+.br
+.ti -1c
+.RI "int \fBhd_dw\fP"
+.br
+.ti -1c
+.RI "int \fBhd_size_of_year\fP"
+.br
+.ti -1c
+.RI "int \fBhd_new_year_dw\fP"
+.br
+.ti -1c
+.RI "int \fBhd_year_type\fP"
+.br
+.ti -1c
+.RI "int \fBhd_jd\fP"
+.br
+.ti -1c
+.RI "int \fBhd_days\fP"
+.br
+.ti -1c
+.RI "int \fBhd_weeks\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+libhdate Hebrew date struct 
+.SH "Field Documentation"
+.PP 
+.SS "int \fBhdate_struct::hd_day\fP"The number of day in the hebrew month (1\&.\&.31)\&. 
+.SS "int \fBhdate_struct::hd_mon\fP"The number of the hebrew month 1\&.\&.14 (1 - tishre, 13 - adar 1, 14 - adar 2)\&. 
+.SS "int \fBhdate_struct::hd_year\fP"The number of the hebrew year\&. 
+.SS "int \fBhdate_struct::gd_day\fP"The number of the day in the month\&. (1\&.\&.31) 
+.SS "int \fBhdate_struct::gd_mon\fP"The number of the month 1\&.\&.12 (1 - jan)\&. 
+.SS "int \fBhdate_struct::gd_year\fP"The number of the year\&. 
+.SS "int \fBhdate_struct::hd_dw\fP"The day of the week 1\&.\&.7 (1 - sunday)\&. 
+.SS "int \fBhdate_struct::hd_size_of_year\fP"The length of the year in days\&. 
+.SS "int \fBhdate_struct::hd_new_year_dw\fP"The week day of Hebrew new year\&. 
+.SS "int \fBhdate_struct::hd_year_type\fP"The number type of year\&. 
+.SS "int \fBhdate_struct::hd_jd\fP"The Julian day number 
+.SS "int \fBhdate_struct::hd_days\fP"The number of days passed since 1 tishrey 
+.SS "int \fBhdate_struct::hd_weeks\fP"The number of weeks passed since 1 tishrey 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for libhdate C language from the source code\&.

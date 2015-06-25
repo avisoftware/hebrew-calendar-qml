@@ -1,0 +1,12 @@
+[package]
+name=hdate
+version=1.4.11
+[require]
+libc=y
+packages_linux_m68k=
+packages_linux_powerpc=
+packages=rtl 
+packages_linux_i386=
+packages_linux_sparc=
+packages_linux_x86_64=
+packages_linux_arm=
