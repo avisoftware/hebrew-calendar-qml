@@ -19,9 +19,9 @@ It is written QML and C++ by QT.
 
 ####Dependencies note  
   Click packages are not supported  dependencies, so **you have** to ship the libhdate.so with the package.  
-	Additionally, to load the translations files of the libhdate you have to recompile the libhdate . see the changes in the source code in `libhdate-1.6.02-source/src/hdate_strings.c#480`
+	Additionally, to load the translations files of the libhdate you have to recompile the libhdate . see the changes in the source code in (libhdate-1.6.02-source/src/hdate_strings.c#L480)[libhdate-1.6.02-source/src/hdate_strings.c#L480]
 ##### Cross compile libhdate
-Use something like this to compile it for armhf, run it from **click target**.
+Use something like this to compile it for armhf, run it from **click target**.  
 `./configure --prefix=somedir --host=arm-linux-gnueabihf CXX="g++ -arch arm-linux-gnueabihf"`
 
 ##Compiling click package
