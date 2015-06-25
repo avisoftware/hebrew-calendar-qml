@@ -47,38 +47,19 @@ Item{
     }
     QtObject{
         id: intern
-
-//        property int curMonthDate: currentMonth.getDate()
-//        property int curMonth: currentMonth.getMonth()
-//        property int curMonthYear: currentMonth.getFullYear()
-
         property int curMonthDate: hebrewDate.getDay(currentMonth)
         property int curMonth: hebrewDate.getMonth(currentMonth)
         property int curMonthYear: hebrewDate.getYear(currentMonth)
-
-//        property var today: DateExt.today()
-//        property int todayDate: today.getDate()
-//        property int todayMonth: today.getMonth()
-//        property int todayYear: today.getFullYear()
 
         property var today:hebrewDate.today()
         property int todayDate: hebrewDate.getDay(today)
         property int todayMonth: hebrewDate.getMonth(today)
         property int todayYear: hebrewDate.getYear(today)
 
-        //date from month will start, this date might be from previous month
-//        property var monthStart: currentMonth.weekStart( Qt.locale().firstDayOfWeek )
-//        property int monthStartDate: monthStart.getDate()
-//        property int monthStartMonth: monthStart.getMonth()
-//        property int monthStartYear: monthStart.getFullYear()
-
         property var monthStart: hebrewDate.weekStartMonth( currentMonth)
         property int monthStartDate: hebrewDate.getDay(monthStart)
         property int monthStartMonth: hebrewDate.getMonth(monthStart)
         property int monthStartYear: hebrewDate.getYear(monthStart)
-
-//        property int daysInStartMonth: Date.daysInMonth(monthStartYear, monthStartMonth)
-//        property int daysInCurMonth:  Date.daysInMonth(curMonthYear,curMonth)
 
         property int daysInStartMonth: hebrewDate.daysInMonth(monthStart)
         property int daysInCurMonth:  hebrewDate.daysInMonth(currentMonth)
@@ -95,6 +76,8 @@ Item{
 
         property int dateFontSize: FontUtils.sizeToPixels(root.dateLabelFontSize)
         property int dayFontSize: FontUtils.sizeToPixels(root.dayLabelFontSize)
+
+
     }
 
     Column{
@@ -124,6 +107,7 @@ Item{
                     monthLabelFontSize: root.monthLabelFontSize
                     yearLabelFontSize: root.yearLabelFontSize
                 }
+
             }
         }
 
@@ -224,6 +208,6 @@ Item{
             font.bold: true
             color: "black"
 
-        }
+        }        
     }
 }

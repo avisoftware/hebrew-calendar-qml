@@ -56,8 +56,6 @@ install(FILES "libhdate/libhdate_${ARCH_TRIPLET}/usr/lib/${ARCH_TRIPLET}/libhdat
               "libhdate/libhdate_${ARCH_TRIPLET}/usr/lib/${ARCH_TRIPLET}/libhdate.so.1.0.6"
               DESTINATION ${QT_IMPORTS_DIR})
 message(STATUS "target arch=${ARCH_TRIPLET}")
-install(FILES "libhdate/locale/he/LC_MESSAGES/libhdate.mo" DESTINATION ${QT_IMPORTS_DIR})
-install(DIRECTORY "libhdate/locale" DESTINATION "${DATA_DIR}usr/share/")
 install(DIRECTORY "libhdate/locale" DESTINATION "${DATA_DIR}share/")
 install(FILES "hebrew-calendar.apparmor" DESTINATION ${DATA_DIR})
 

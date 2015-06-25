@@ -37,7 +37,7 @@ public:
     Q_INVOKABLE bool is_leap_year(int year);
     Q_INVOKABLE hdate_struct addDays(hdate_struct h,int n);
 
-     Q_INVOKABLE bool smallTo(hdate_struct from, hdate_struct to);
+    Q_INVOKABLE bool smallTo(hdate_struct from, hdate_struct to);
     Q_INVOKABLE bool bigOrEquel(hdate_struct from, hdate_struct to);
 // get times
 // first you should calculate them

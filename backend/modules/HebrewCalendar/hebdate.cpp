@@ -1,5 +1,4 @@
 #include <QDate>
-
 #include "hebdate.h"
 #include "omerFullStr.h"
 #include <qdatetime.h>
@@ -7,7 +6,6 @@
 HDate::HDate(QObject *parent) :
     QObject(parent)
 {
-
 }
 
 HDate::~HDate() {
@@ -296,8 +294,6 @@ int HDate::isDateHoliday(hdate_struct h,int d)
     }
     return 0;
 }
-
-
 
 bool HDate::is_leap_year(int year){
     int length_of_year;
