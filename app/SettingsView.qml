@@ -3,6 +3,7 @@ import Ubuntu.Components 1.1
 import Ubuntu.Components.ListItems 1.0 as ListItem
 import Ubuntu.Components.Popups 1.0
 import U1db 1.0 as U1db
+
 Page {
     id: settingsViewPage
     objectName: "settingsViewPage"
@@ -98,7 +99,7 @@ Page {
                 right: parent.right;
             }
             anchors.margins: units.gu(2)
-            spacing: units.gu(2)           
+            spacing: units.gu(2)
 
             ListItem.Header  {
                 text: i18n.tr("Global")
@@ -131,7 +132,7 @@ Page {
                 }
 
                 Component.onCompleted: {
-                    selectedIndex=getIndexOf(settings.locationName.toString())
+                    selectedIndex=getIndexOf(settings.locationName.toString())                     
                 }
                 //get the index of settings from results
                 function getIndexOf(text){
