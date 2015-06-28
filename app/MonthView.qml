@@ -19,12 +19,9 @@ import QtQuick 2.3
 import Ubuntu.Components 1.1
 import HebrewCalendar 1.0
 
-
 Page {
     id: monthViewPage
     objectName: "monthViewPage"
-
-//    property var currentMonth: DateExt.today();
     property var currentMonth: hebrewDate.today();
     signal dateSelected(var date);
     HDate{
@@ -33,16 +30,13 @@ Page {
     Settings{
         id:settings
     }
-
     Keys.forwardTo: [monthViewPath]
-
     Action {
         id: calendarTodayAction
         objectName:"todaybutton"
         iconName: "calendar-today"
         text: i18n.tr("Today")
         onTriggered: {
-//            currentMonth = new Date().midnight()
             currentMonth = hebrewDate.today()
         }
     }
@@ -51,72 +45,52 @@ Page {
         actions: [
             calendarTodayAction
         ]
-
         contents: Label {
             fontSize: "x-large"
             text: hebrewDate.currentMonthStr(currentMonth)
             font.capitalization: Font.Capitalize
-           //to anchors it to right side
-          //  anchors{right: parent.right; rightMargin: units.gu(2) }
         }
     }
-
 
     PathViewBase{
         id: monthViewPath
         objectName: "monthViewPath"
-
         property var startMonth: currentMonth;
-
         anchors.top:parent.top
-
         width:parent.width
         height: parent.height
-
         onNextItemHighlighted: {
             nextMonth();
         }
-
         onPreviousItemHighlighted: {
             previousMonth();
         }
 
         function nextMonth() {
-           currentMonth = addMonth(currentMonth, 1);
-//             currentMonth = hebrewDate.nextMonth()
+            currentMonth = addMonth(currentMonth, 1);
         }
 
         function previousMonth() {
-          currentMonth = addMonth(currentMonth, -1);
-//            currentMonth= hebrewDate.previousMonth()
+            currentMonth = addMonth(currentMonth, -1);
         }
 
         function addMonth(date,month) {
             return hebrewDate.addMonths(date,month)
-          }
+        }
 
         delegate: Loader {
             width: parent.width - units.gu(4)
             height: parent.height
-
             sourceComponent: delegateComponent
             asynchronous: index !== monthViewPath.currentIndex
-
             Component {
                 id: delegateComponent
-
                 MonthComponent {
                     isCurrentItem: index === monthViewPath.currentIndex
-
-
                     anchors.fill: parent
-
-                   currentMonth: monthViewPath.addMonth(monthViewPath.startMonth,
-                                                        monthViewPath.indexType(index));
-//                    currentMonth:monthViewPage.currentMonth
-
+                    currentMonth: monthViewPath.addMonth(monthViewPath.startMonth,
+                                                         monthViewPath.indexType(index));
                     isYearView: false
-
                     onDateSelected: {
                         monthViewPage.dateSelected(date);
                     }

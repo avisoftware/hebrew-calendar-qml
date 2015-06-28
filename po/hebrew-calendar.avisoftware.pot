@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-25 08:47+0300\n"
+"POT-Creation-Date: 2015-06-28 09:19+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -113,7 +113,7 @@ msgstr ""
 msgid "First stars"
 msgstr ""
 
-#: ../app/DayView.qml:38 ../app/MonthView.qml:43 ../app/YearView.qml:35
+#: ../app/DayView.qml:38 ../app/MonthView.qml:38 ../app/YearView.qml:35
 msgid "Today"
 msgstr ""
 
@@ -223,6 +223,6 @@ msgstr ""
 msgid "Year %1"
 msgstr ""
 
-#: /home/avi/qt/ubuntu-touch/build-hebrew-calendar-qml-UbuntuSDK_for_i386_GCC_ubuntu_sdk_14_10_utopic_2-Default/po/hebrew-calendar.desktop.in.h:1
+#: /home/avi/qt/ubuntu-touch/build-hebrew-calendar-qml-Desktop-Default/po/hebrew-calendar.desktop.in.h:1
 msgid "Hebrew Calendar"
 msgstr ""

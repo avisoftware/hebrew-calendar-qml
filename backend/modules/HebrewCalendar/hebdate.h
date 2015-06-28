@@ -16,9 +16,9 @@ public:
     Q_INVOKABLE int getDay(hdate_struct h){return h.hd_day;}
     Q_INVOKABLE int getMonth(hdate_struct h){return h.hd_mon;}
     Q_INVOKABLE int getYear(hdate_struct h){return h.hd_year;}
-//    Q_INVOKABLE int getGDay(hdate_struct h){return h.gd_day;}
-//    Q_INVOKABLE int getGMonth(hdate_struct h){return h.gd_mon;}
-//    Q_INVOKABLE int getGYear(hdate_struct h){return h.gd_year;}
+    Q_INVOKABLE int getGDay(hdate_struct h){return h.gd_day;}
+    Q_INVOKABLE int getGMonth(hdate_struct h){return h.gd_mon;}
+    Q_INVOKABLE int getGYear(hdate_struct h){return h.gd_year;}
     Q_INVOKABLE int getDayInWeek(hdate_struct h){return h.hd_dw;}
 
     Q_INVOKABLE hdate_struct weekStart(hdate_struct h);

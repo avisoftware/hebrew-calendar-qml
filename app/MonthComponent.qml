@@ -18,7 +18,6 @@
 import QtQuick 2.3
 import Ubuntu.Components 1.1
 import HebrewCalendar 1.0
-
 Item{
     id: root
     objectName: "MonthComponent"
@@ -47,7 +46,8 @@ Item{
     }
     QtObject{
         id: intern
-        property int curMonthDate: hebrewDate.getDay(currentMonth)
+
+       property int curMonthDate: hebrewDate.getDay(currentMonth)
         property int curMonth: hebrewDate.getMonth(currentMonth)
         property int curMonthYear: hebrewDate.getYear(currentMonth)
 
@@ -159,6 +159,7 @@ Item{
             date: {
                 //try to find date from index and month's first week's first date
                 var temp = intern.daysInStartMonth - intern.offset + index
+                var c = 0;
                 //date exceeds days in startMonth,
                 //this means previous month is over and we are now in current month
                 //to get actual date we need to remove number of days in startMonth
@@ -167,16 +168,27 @@ Item{
                     //date exceeds days in current month
                     // this means date is from next month
                     //to get actual date we need to remove number of days in current month
+                   c=1;
                     if( temp > intern.daysInCurMonth ) {
                         temp = temp - intern.daysInCurMonth
+                        c=2;
                     }
-                }                
-                return temp;
+                }
+                var gd =0;
+                if(c===0){
+                     gd = hebrewDate.getGDay(hebrewDate.setHebDate(intern.monthStartYear,intern.monthStartMonth,temp));
+                }else if(c===1){
+                    gd = hebrewDate.getGDay(hebrewDate.setHebDate(intern.curMonthYear,intern.curMonth,temp));
+                }else if (c===2){
+                    var temp_d = hebrewDate.addMonths (hebrewDate.setHebDate(intern.curMonthYear,intern.curMonth,temp),1);
+                    gd = hebrewDate.getGDay(hebrewDate.setHebDate(hebrewDate.getYear(temp_d),hebrewDate.getMonth(temp_d),temp));
+                }
+                return [temp,gd];
             }
             isHoliday:{
-                var h = hebrewDate.setHebDate(intern.curMonthYear,intern.curMonth,date)
+                var h = hebrewDate.setHebDate(intern.curMonthYear,intern.curMonth,date[0])
                 var a = hebrewDate.isDateHoliday(h,settings.diaspora)
-               return  a
+                return  a
             }
 
             isCurrentMonth: {
@@ -187,12 +199,12 @@ Item{
                 return (temp >= 1 && temp <= intern.daysInCurMonth)
             }
 
-            isToday: intern.todayDate == date && intern.isCurMonthTodayMonth
+            isToday: intern.todayDate == date[0] && intern.isCurMonthTodayMonth
 
             width: parent.dayWidth
             height: parent.dayHeight
             fontSize: intern.dateFontSize
-         }
+        }
     }
 
     Component{
@@ -208,6 +220,6 @@ Item{
             font.bold: true
             color: "black"
 
-        }        
+        }
     }
 }

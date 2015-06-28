@@ -5,7 +5,7 @@ import HebrewCalendar 1.0
 Item{
     id: dateRootItem
 
-    property int date;
+    property var date;
     property bool isCurrentMonth;
     property bool isToday;
     property int isHoliday:0
@@ -35,7 +35,7 @@ Item{
     Label {
         id: dateLabel
         anchors.centerIn: parent
-        text: isYearView ? hebrewDate.intToHebStr(date) : hebrewDate.intToHebStr(date)+"<br>"+"<span style='font-size:10px'>"+date+"</span>"
+        text: isYearView ? hebrewDate.intToHebStr(date[0]) : hebrewDate.intToHebStr(date[0])+"<br>"+"<span style='font-size:10px'>"+date[1]+"</span>"
         textFormat: Text.RichText
         fontSize: root.dateLabelFontSize
         horizontalAlignment:Text.AlignHCenter
@@ -69,7 +69,6 @@ Item{
 
     MouseArea {
         anchors.fill: parent
-
         onClicked: {
             var selectedDate = hebrewDate.addDays(intern.monthStart,index);
 
