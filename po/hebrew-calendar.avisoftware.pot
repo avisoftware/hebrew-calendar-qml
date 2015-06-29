@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-28 09:19+0300\n"
+"POT-Creation-Date: 2015-06-29 09:27+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -198,23 +198,23 @@ msgstr ""
 msgid "Candle Light"
 msgstr ""
 
-#: ../app/SettingsView.qml:219
+#: ../app/SettingsView.qml:222
 msgid "Sefirat HaOmer"
 msgstr ""
 
-#: ../app/SettingsView.qml:225
+#: ../app/SettingsView.qml:226
 msgid "Nosach Sefirat HaOmer:"
 msgstr ""
 
-#: ../app/SettingsView.qml:226
+#: ../app/SettingsView.qml:227
 msgid "Ashkenazi"
 msgstr ""
 
-#: ../app/SettingsView.qml:227
+#: ../app/SettingsView.qml:228
 msgid "Hasidic"
 msgstr ""
 
-#: ../app/SettingsView.qml:228
+#: ../app/SettingsView.qml:229
 msgid "Mizrachi"
 msgstr ""
 

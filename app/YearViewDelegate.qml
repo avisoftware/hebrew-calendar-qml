@@ -57,7 +57,12 @@ GridView{
             yearView.positionViewAtIndex(scrollMonth, GridView.Beginning);
         }
     }
-
+    ActivityIndicator {
+        visible: running
+        running: yearView.isLoading
+        anchors.centerIn: parent
+        z:2
+    }
     delegate: Loader {
         width: yearView.cellWidth
         height: yearView.cellHeight

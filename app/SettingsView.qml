@@ -208,6 +208,9 @@ Page {
                 text: i18n.tr("Candle Light")
                 model: ["15", "18", "20", "22", "30", "40", "50", "60"]
                 containerHeight: itemHeight * 4
+                delegate: OptionSelectorDelegate {
+                    LayoutMirroring.enabled: mirror
+                }
                 onSelectedIndexChanged: {
                     settings.candleLight =model[selectedIndex];
                 }
@@ -217,15 +220,16 @@ Page {
             }
             ListItem.Header  {
                 text: i18n.tr("Sefirat HaOmer")
-
             }
-
             OptionSelector {
                 id:nosachSelector
                 text: i18n.tr("Nosach Sefirat HaOmer:")
                 model: [i18n.tr("Ashkenazi"),
                     i18n.tr("Hasidic"),
                     i18n.tr("Mizrachi")]
+                delegate: OptionSelectorDelegate {
+                    LayoutMirroring.enabled: mirror
+                }
                 onSelectedIndexChanged: {
                     settings.nosach = nosachSelector.selectedIndex;
                 }
