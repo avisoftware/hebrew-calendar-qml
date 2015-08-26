@@ -58,9 +58,9 @@ Page{
     HDate{
         id:hebrewDate
     }
-    Settings{
-        id:settings
-    }
+//    Settings{
+//        id:settings
+//    }
     Column {
         anchors.fill: parent
         anchors.topMargin: units.gu(1)
