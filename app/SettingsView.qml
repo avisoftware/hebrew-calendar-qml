@@ -75,6 +75,16 @@ Page {
                     "longitude":["34.82"],
                     "timeZone":["Asia/Tel_Aviv"]}
     }
+    U1db.Document {
+        id: locationTemplate6
+        database: loacationDatabase
+        docId: 'firstRun6'
+        create: true
+        defaults: { "name":["Kansas City, Misouri, U.S.A"],
+                    "latitude":["-94.57"],
+                    "longitude":["39.09"],
+                    "timeZone":["America/Chicago"]}
+    }
     U1db.Index{
         database: loacationDatabase
         id: loacationIndex
