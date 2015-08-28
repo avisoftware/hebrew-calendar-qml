@@ -3,6 +3,7 @@
 #include "omerFullStr.h"
 #include <qdatetime.h>
 #include <time.h>
+#include <QtCore>
 HDate::HDate(QObject *parent) :
     QObject(parent)
 {
@@ -241,6 +242,7 @@ void HDate::calcTimes(hdate_struct h,double longitude, double latitude)
     hdate_get_utc_sun_time_deg (h.gd_day, h.gd_mon, h.gd_year, latitude, longitude, 99.28, &place_holder, &three_stars_czhish);
     /* first light and first stars by the magen avraham*/
     hdate_get_utc_sun_time_deg (h.gd_day, h.gd_mon, h.gd_year, latitude, longitude,109.75, &first_light_mga, &first_stars_mga);
+
 }
 
 QString HDate::getTimeString(hdate_struct h, int min, QString tz)

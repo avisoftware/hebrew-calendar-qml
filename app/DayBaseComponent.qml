@@ -62,9 +62,9 @@ Item {
     HDate{
         id:hebrewDate
     }
-    Settings{
-        id:settings
-    }
+//    Settings{
+//        id:settings
+//    }
     Flickable {
 
         id: timeLineView

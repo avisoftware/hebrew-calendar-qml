@@ -27,9 +27,9 @@ Page {
     HDate{
         id:hebrewDate
     }
-    Settings{
-        id:settings
-    }
+//    Settings{
+//        id:settings
+//    }
     Keys.forwardTo: [monthViewPath]
     Action {
         id: calendarTodayAction
