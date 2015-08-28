@@ -9,7 +9,7 @@
             "desktop": "hebrew-calendar.desktop"
         }
     },
-    "version": "0.2.3",
+    "version": "0.2.4",
     "maintainer": "Avi Software <avisoftware123@gmail.com>",
     "framework": "ubuntu-sdk-14.04"
 }

@@ -3,6 +3,7 @@
 #include "omerFullStr.h"
 #include <qdatetime.h>
 #include <time.h>
+#include <QtCore>
 HDate::HDate(QObject *parent) :
     QObject(parent)
 {
@@ -28,7 +29,7 @@ hdate_struct HDate::weekStart(hdate_struct h)
 hdate_struct HDate::weekStartMonth(hdate_struct h)
 {
         hdate_set_hdate (&h, 1, h.hd_mon, h.hd_year);
-        int jd_current_month = h.hd_jd - h.hd_dw + 1;
+        int jd_current_month = h.hd_jd - h.hd_dw ;//+ 1;
         hdate_struct h1;
         hdate_set_jd (&h1, jd_current_month);
             return h1;
@@ -241,6 +242,7 @@ void HDate::calcTimes(hdate_struct h,double longitude, double latitude)
     hdate_get_utc_sun_time_deg (h.gd_day, h.gd_mon, h.gd_year, latitude, longitude, 99.28, &place_holder, &three_stars_czhish);
     /* first light and first stars by the magen avraham*/
     hdate_get_utc_sun_time_deg (h.gd_day, h.gd_mon, h.gd_year, latitude, longitude,109.75, &first_light_mga, &first_stars_mga);
+
 }
 
 QString HDate::getTimeString(hdate_struct h, int min, QString tz)

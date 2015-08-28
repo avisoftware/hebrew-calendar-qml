@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-13 09:14+0300\n"
+"POT-Creation-Date: 2015-08-28 12:14+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -139,26 +139,26 @@ msgstr ""
 msgid "use you GPS"
 msgstr ""
 
-#: ../app/LocationDialog.qml:60
+#: ../app/LocationDialog.qml:66
 msgid ""
 "You can find TimeZone <a href='http://en.wikipedia.org/wiki/"
 "List_of_tz_database_time_zones'>here</a><br>if you get wrong times, check "
 "this."
 msgstr ""
 
-#: ../app/LocationDialog.qml:81
+#: ../app/LocationDialog.qml:87
 msgid "Dont leave empty fileds!"
 msgstr ""
 
-#: ../app/LocationDialog.qml:86
+#: ../app/LocationDialog.qml:92
 msgid "save"
 msgstr ""
 
-#: ../app/LocationDialog.qml:107
+#: ../app/LocationDialog.qml:113
 msgid "Location Name already exist"
 msgstr ""
 
-#: ../app/LocationDialog.qml:147
+#: ../app/LocationDialog.qml:153
 msgid "cancel"
 msgstr ""
 
@@ -178,43 +178,43 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: ../app/SettingsView.qml:105
+#: ../app/SettingsView.qml:115
 msgid "Global"
 msgstr ""
 
-#: ../app/SettingsView.qml:113
+#: ../app/SettingsView.qml:123
 msgid "Second Yom Tov:"
 msgstr ""
 
-#: ../app/SettingsView.qml:124
+#: ../app/SettingsView.qml:134
 msgid "Location"
 msgstr ""
 
-#: ../app/SettingsView.qml:204
+#: ../app/SettingsView.qml:214
 msgid "Times Of Day"
 msgstr ""
 
-#: ../app/SettingsView.qml:208
+#: ../app/SettingsView.qml:218
 msgid "Candle Light"
 msgstr ""
 
-#: ../app/SettingsView.qml:222
+#: ../app/SettingsView.qml:232
 msgid "Sefirat HaOmer"
 msgstr ""
 
-#: ../app/SettingsView.qml:226
+#: ../app/SettingsView.qml:236
 msgid "Nosach Sefirat HaOmer:"
 msgstr ""
 
-#: ../app/SettingsView.qml:227
+#: ../app/SettingsView.qml:237
 msgid "Ashkenazi"
 msgstr ""
 
-#: ../app/SettingsView.qml:228
+#: ../app/SettingsView.qml:238
 msgid "Hasidic"
 msgstr ""
 
-#: ../app/SettingsView.qml:229
+#: ../app/SettingsView.qml:239
 msgid "Mizrachi"
 msgstr ""
 

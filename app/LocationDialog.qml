@@ -42,12 +42,18 @@ Dialog {
         updateInterval: 1000
         active: false
     }
+    Label{
+        text:"Longitude:"
+    }
     TextField {
         id:longitudeTextField
         placeholderText: "35.22"
         validator: DoubleValidator{bottom: -180.0; top: 180.0;notation: DoubleValidator.StandardNotation;}
         errorHighlight:true
         text:locationLongitude!=0.0?locationLongitude:""
+    }
+    Label{
+        text:"Latitude:"
     }
     TextField {
         id:latitudeTextField

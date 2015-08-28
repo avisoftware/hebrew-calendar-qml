@@ -41,9 +41,9 @@ Item{
     HDate{
         id:hebrewDate
     }
-    Settings{
-        id:settings
-    }
+//    Settings{
+//        id:settings
+//    }
     QtObject{
         id: intern
 

@@ -53,9 +53,9 @@ Page {
     HDate{
         id:hebrewDate
     }
-    Settings{
-        id:settings
-    }
+//    Settings{
+//        id:settings
+//    }
     PathViewBase {
         id: yearPathView
         objectName: "yearPathView"

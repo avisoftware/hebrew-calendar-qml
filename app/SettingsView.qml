@@ -18,9 +18,9 @@ Page {
             font.capitalization: Font.Capitalize
         }
     }
-    Settings{
-        id:settings
-    }
+//    Settings{
+//        id:settings
+//    }
     U1db.Database {
         id: loacationDatabase
         path: "lU1DbDatabase"
@@ -74,6 +74,16 @@ Page {
                     "latitude":["32.08"],
                     "longitude":["34.82"],
                     "timeZone":["Asia/Tel_Aviv"]}
+    }
+    U1db.Document {
+        id: locationTemplate6
+        database: loacationDatabase
+        docId: 'firstRun6'
+        create: true
+        defaults: { "name":["Kansas City, Misouri, U.S.A"],
+                    "latitude":["39.09"],
+                    "longitude":["-94.57"],
+                    "timeZone":["America/Chicago"]}
     }
     U1db.Index{
         database: loacationDatabase
