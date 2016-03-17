@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Hebrew-calendar-qml by avi-software</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Hebrew-calendar-qml</h1>
+      <h2 class="project-tagline">hebrew calendar in qml for ubuntu-touch</h2>
+      <a href="https://github.com/avi-software/hebrew-calendar-qml" class="btn">View on GitHub</a>
+      <a href="https://github.com/avi-software/hebrew-calendar-qml/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/avi-software/hebrew-calendar-qml/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="hebrew-calendar-qml" class="anchor" href="#hebrew-calendar-qml" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>hebrew-calendar-qml</h1>
+
+<p><img src="https://img.shields.io/github/tag/avi-software/hebrew-calendar-qml.svg?style=flat-square" alt="GitHub release">
+<img src="https://img.shields.io/github/stars/avi-software/hebrew-calendar-qml.svg?style=flat-square" alt="GitHub stars">
+<img src="https://img.shields.io/github/issues/avi-software/hebrew-calendar-qml.svg?style=flat-square" alt="GitHub issues">
+<img src="https://img.shields.io/github/license/avi-software/hebrew-calendar-qml.svg?style=flat-square" alt="GitHub license"></p>
+
+<p><img src="https://myapps.developer.ubuntu.com/site_media/appmedia/2015/06/drawing2.png" height="128" width="128">  </p>
+
+<h2>
+<a id="description" class="anchor" href="#description" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Description</h2>
+
+<p>hebrew-calendar-qml, It is an Hebrew calendar for Ubuntu Phone.<br>
+The calendar includes Hebrew dates, holidays, times, Parshiot Hashavua, and more.</p>
+
+<p>It is written QML and C++ by QT.</p>
+
+<h2>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies</h2>
+
+<p><code>libhdate1</code></p>
+
+<h3>
+<a id="build-depend" class="anchor" href="#build-depend" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>build-depend:</h3>
+
+<p><code>libhdate-dev</code>  </p>
+
+<h4>
+<a id="dependencies-note" class="anchor" href="#dependencies-note" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Dependencies note</h4>
+
+<p>Click packages are not supported  dependencies, so <strong>you have</strong> to ship the libhdate.so with the package.<br>
+    Additionally, to load the translations files of the libhdate you have to recompile the libhdate . see the changes in the source code in <a href="libhdate-1.6.02-source/src/hdate_strings.c#L480">libhdate-1.6.02-source/src/hdate_strings.c#L480</a></p>
+
+<h5>
+<a id="cross-compile-libhdate" class="anchor" href="#cross-compile-libhdate" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cross compile libhdate</h5>
+
+<p>Use something like this to compile it for armhf, run it from <strong>click target</strong>.<br>
+<code>./configure --prefix=somedir --host=arm-linux-gnueabihf CXX="g++ -arch arm-linux-gnueabihf"</code></p>
+
+<h2>
+<a id="compiling-click-package" class="anchor" href="#compiling-click-package" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Compiling click package</h2>
+
+<h4>
+<a id="prepare" class="anchor" href="#prepare" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prepare</h4>
+
+<ul>
+<li>First you should install <code>ubuntu sdk</code> package, <a href="https://developer.ubuntu.com/en/start/ubuntu-sdk/installing-the-sdk/">see here</a>.</li>
+<li>Create build target like <a href="https://developer.ubuntu.com/en/apps/sdk/tutorials/click-targets-and-device-kits/">this</a>.<br>
+</li>
+</ul>
+
+<h4>
+<a id="install-dependencies" class="anchor" href="#install-dependencies" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install dependencies</h4>
+
+<ul>
+<li>Go to <strong>Tool</strong> &gt; <strong>Option</strong>
+</li>
+<li>Select <strong>Ubuntu</strong> and the <strong>Click</strong> tab.</li>
+<li>Click <strong>Maintain</strong> for the click build target you wish to install the package.</li>
+<li>On the terminal window type <code>apt-get install libhdate-dev:&lt;arch&gt;</code><br>
+<em>(replace <code>&lt;arch&gt;</code> with the build target architecture)</em>
+</li>
+</ul>
+
+<h4>
+<a id="open-the-project" class="anchor" href="#open-the-project" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Open The project</h4>
+
+<ul>
+<li>Go to <strong>File</strong> &gt; <strong>Open</strong>
+</li>
+<li>Select the <code>CMakeLists.txt</code> file from the root of the project directory.</li>
+<li>Open the project against your build target.</li>
+<li>check in the <strong>General Messages</strong> tab, if you get errors.</li>
+</ul>
+
+<h4>
+<a id="create-click-package" class="anchor" href="#create-click-package" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Create click package</h4>
+
+<ul>
+<li>Go to <strong>Publish</strong> tab.</li>
+<li>Click on <strong>Build and Validate click package</strong> .</li>
+</ul>
+
+<h5>
+<a id="packaging-note" class="anchor" href="#packaging-note" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a><em>Packaging note:</em>
+</h5>
+
+<p><em>If you want to create multiarch click package <a href="http://www.theorangenotebook.com/2014/12/creating-mutli-arch-click-packages.html">read this</a>.</em></p>
+
+<h2>
+<a id="screenshots" class="anchor" href="#screenshots" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Screenshots</h2>
+
+<p><img src="https://myapps.developer.ubuntu.com/site_media/appmedia/2015/07/calendar1.png" alt="screen shot">
+<img src="https://myapps.developer.ubuntu.com/site_media/appmedia/2015/07/calendar2.png" alt="screen shot1"></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/avi-software/hebrew-calendar-qml">Hebrew-calendar-qml</a> is maintained by <a href="https://github.com/avi-software">avi-software</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
