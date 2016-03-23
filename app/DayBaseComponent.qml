@@ -133,8 +133,26 @@ Item {
                 }
             }
             ListItem.Header  {
-                text: i18n.tr("Shabat Times")
-                visible:isHoliday||isTomorrowHoliday
+                text: {
+                   if(isHoliday===10){
+                      i18n.tr("Shabat Times")
+                   }else if(isHoliday===1){
+                       i18n.tr("Holyday Times")
+                   }else if(isHoliday===5){
+                       i18n.tr("Fast Times")
+                   }else if(isTomorrowHoliday){
+                        i18n.tr("Holyday and Shabat Times");
+                   }else{
+                       "";
+                   }
+                }
+                visible:{
+                   if ((isHoliday==10||isHoliday==1||isHoliday==5)||isTomorrowHoliday){
+                       return true;
+                   }else{
+                       return false;
+                   }
+                }
             }
             ListItem.SingleValue {
                 text: i18n.tr("Candle light")
@@ -145,19 +163,37 @@ Item {
             ListItem.SingleValue {
                 text: i18n.tr("Three stars")
                 value: threeStars
-                visible:isHoliday
+                visible: {
+                    if ((isHoliday==10||isHoliday==1)||isHoliday==5){
+                             return true;
+                         }else{
+                             return false;
+                         }
+                }
                 LayoutMirroring.enabled: mirror
             }
             ListItem.SingleValue {
                 text: i18n.tr("Three stars czhish")
                 value: threeStarsCzhish
-                visible:isHoliday
+                visible: {
+                    if ((isHoliday==10||isHoliday==1)||isHoliday==5){
+                             return true;
+                         }else{
+                             return false;
+                         }
+                }
                 LayoutMirroring.enabled: mirror
             }
             ListItem.SingleValue {
-                text: i18n.tr("Shabat end RT (72 minute)")
+                text: i18n.tr("Three stars RT (72 minute)")
                 value: shabatEndRT
-                visible:isHoliday
+                visible: {
+                    if ((isHoliday==10||isHoliday==1)||isHoliday==5){
+                             return true;
+                         }else{
+                             return false;
+                         }
+                }
                 LayoutMirroring.enabled: mirror
             }
             ListItem.Header  {
