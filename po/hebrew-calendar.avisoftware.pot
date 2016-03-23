@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-23 14:39+0200\n"
+"POT-Creation-Date: 2016-03-23 14:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -235,6 +235,6 @@ msgstr ""
 msgid "Year %1"
 msgstr ""
 
-#: /home/avi/qt/hebrew-calendar-qml-build/po/hebrew-calendar.desktop.in.h:1
+#: /home/avi/qt/build-hebrew-calendar-qml-UbuntuSDK_for_armhf_GCC_ubuntu_sdk_15_04_vivid-Default/po/hebrew-calendar.desktop.in.h:1
 msgid "Hebrew Calendar"
 msgstr ""
