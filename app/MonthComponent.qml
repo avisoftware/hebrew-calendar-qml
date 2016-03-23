@@ -144,7 +144,6 @@ Item{
 
             rows: 6
             columns: 7
-
             Repeater{
                 id: dateLabelRepeater
                 model: 42 //monthGrid.rows * monthGrid.columns

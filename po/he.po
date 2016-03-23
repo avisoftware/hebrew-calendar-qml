@@ -1,119 +1,131 @@
 # Hebrew translations for  package.
 # Copyright (C) 2015 THE 'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the  package.
-# Avi Software<avisoftware123@gmail.com>, 2015.
-#
+# Avi Software<avisoftware123@gmail.com>, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-16 09:01+0300\n"
-"PO-Revision-Date: 2015-06-12 12:56+0300\n"
-"Last-Translator: Avi Software <avisoftware123@gmail.com>\n"
+"POT-Creation-Date: 2016-03-23 14:39+0200\n"
+"PO-Revision-Date: 2016-03-23 14:43+0300\n"
+"Last-Translator: avi <avisoftware123@gmail.com>\n"
 "Language-Team: \n"
 "Language: he\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
 
-#: ../app/DayBaseComponent.qml:85
+#: ../app/DayBaseComponent.qml:86
 msgid "Day details"
 msgstr "פרטי היום"
 
-#: ../app/DayBaseComponent.qml:88
+#: ../app/DayBaseComponent.qml:89
 msgid "Day "
 msgstr "יום "
 
-#: ../app/DayBaseComponent.qml:95
+#: ../app/DayBaseComponent.qml:96
 msgid "Parashat "
 msgstr "פרשת "
 
-#: ../app/DayBaseComponent.qml:115
+#: ../app/DayBaseComponent.qml:116
 msgid "(click to expand)"
 msgstr "(לחץ כדי להרחיב)"
 
-#: ../app/DayBaseComponent.qml:135
+#: ../app/DayBaseComponent.qml:138
 msgid "Shabat Times"
 msgstr "זמני השבת"
 
-#: ../app/DayBaseComponent.qml:139
+#: ../app/DayBaseComponent.qml:140
+msgid "Holyday Times"
+msgstr "זמני החג"
+
+#: ../app/DayBaseComponent.qml:142
+msgid "Fast Times"
+msgstr "זמני הצום"
+
+#: ../app/DayBaseComponent.qml:144
+msgid "Holyday and Shabat Times"
+msgstr "זמני חג ושבת"
+
+#: ../app/DayBaseComponent.qml:158
 msgid "Candle light"
 msgstr "הדלקת נרות"
 
-#: ../app/DayBaseComponent.qml:144
+#: ../app/DayBaseComponent.qml:164
 msgid "Three stars"
 msgstr "צאת הכוכבים"
 
-#: ../app/DayBaseComponent.qml:149
+#: ../app/DayBaseComponent.qml:176
 msgid "Three stars czhish"
 msgstr "צאת הכוכבים חזוא"
 
-#: ../app/DayBaseComponent.qml:154
-msgid "Shabat end RT (72 minute)"
-msgstr "צאת השבת רת (72 דקות)"
+#: ../app/DayBaseComponent.qml:188
+msgid "Three stars RT (72 minute)"
+msgstr "צאת הכוכבים רת (72 דקות)"
 
-#: ../app/DayBaseComponent.qml:159
+#: ../app/DayBaseComponent.qml:200
 msgid "Day times"
 msgstr "זמני היום"
 
-#: ../app/DayBaseComponent.qml:162
+#: ../app/DayBaseComponent.qml:203
 msgid "First ligth (mga)"
 msgstr "עלות השחר (מגא)"
 
-#: ../app/DayBaseComponent.qml:166
+#: ../app/DayBaseComponent.qml:208
 msgid "First light"
 msgstr "עלות השחר"
 
-#: ../app/DayBaseComponent.qml:170
+#: ../app/DayBaseComponent.qml:213
 msgid "Talit"
 msgstr "זמן טלית"
 
-#: ../app/DayBaseComponent.qml:174
+#: ../app/DayBaseComponent.qml:218
 msgid "Sunrise"
 msgstr "זריחה"
 
-#: ../app/DayBaseComponent.qml:178
+#: ../app/DayBaseComponent.qml:223
 msgid "End shema (mga)"
 msgstr "סוף זמן קריאת שמע (מגא)"
 
-#: ../app/DayBaseComponent.qml:182
+#: ../app/DayBaseComponent.qml:228
 msgid "End shema"
 msgstr "סוף זמן קריאת שמע"
 
-#: ../app/DayBaseComponent.qml:186
+#: ../app/DayBaseComponent.qml:233
 msgid "End tefila mga"
 msgstr "סוף זמן תפילה מגא"
 
-#: ../app/DayBaseComponent.qml:190
+#: ../app/DayBaseComponent.qml:238
 msgid "End tefila"
 msgstr "סוף זמן תפילה"
 
-#: ../app/DayBaseComponent.qml:194
+#: ../app/DayBaseComponent.qml:243
 msgid "Midday"
 msgstr "חצות היום"
 
-#: ../app/DayBaseComponent.qml:198
+#: ../app/DayBaseComponent.qml:248
 msgid "Big mincha"
 msgstr "מנחה גדולה"
 
-#: ../app/DayBaseComponent.qml:202
+#: ../app/DayBaseComponent.qml:253
 msgid "Little mincha"
 msgstr "מנחה קטנה"
 
-#: ../app/DayBaseComponent.qml:206
+#: ../app/DayBaseComponent.qml:258
 msgid "Plug mincha"
 msgstr "פלג המנחה"
 
-#: ../app/DayBaseComponent.qml:210
+#: ../app/DayBaseComponent.qml:263
 msgid "Sunset"
 msgstr "שקיעה"
 
-#: ../app/DayBaseComponent.qml:214
+#: ../app/DayBaseComponent.qml:268
 msgid "First stars"
 msgstr "צאת הכוכבים"
 
-#: ../app/DayView.qml:38 ../app/MonthView.qml:43 ../app/YearView.qml:35
+#: ../app/DayView.qml:38 ../app/MonthView.qml:38 ../app/YearView.qml:35
 msgid "Today"
 msgstr "היום"
 
@@ -141,28 +153,28 @@ msgstr ""
 msgid "use you GPS"
 msgstr "השתמש ב GPS"
 
-#: ../app/LocationDialog.qml:60
+#: ../app/LocationDialog.qml:66
 msgid ""
 "You can find TimeZone <a href='http://en.wikipedia.org/wiki/"
 "List_of_tz_database_time_zones'>here</a><br>if you get wrong times, check "
 "this."
 msgstr ""
-"אתה יכול למצוא את הTimeZone <a href='http://en.wikipedia.org/wiki/"
-"List_of_tz_database_time_zones'>כאן</a><br> אם אתה מקבל זמן שגוי, תבדוק כאן."
+"אתה יכול למצוא את הTimeZone <a href='http://en.wikipedia.org/wiki/List_of_tz_"
+"database_time_zones'>כאן</a><br> אם אתה מקבל זמן שגוי, תבדוק כאן."
 
-#: ../app/LocationDialog.qml:81
+#: ../app/LocationDialog.qml:87
 msgid "Dont leave empty fileds!"
 msgstr "אל תשאיר שדות ריקים!"
 
-#: ../app/LocationDialog.qml:86
+#: ../app/LocationDialog.qml:92
 msgid "save"
 msgstr "שמור"
 
-#: ../app/LocationDialog.qml:107
+#: ../app/LocationDialog.qml:113
 msgid "Location Name already exist"
 msgstr "מקום עם שם זהה כבר קיים"
 
-#: ../app/LocationDialog.qml:147
+#: ../app/LocationDialog.qml:153
 msgid "cancel"
 msgstr "בטל"
 
@@ -178,47 +190,47 @@ msgstr "חודש"
 msgid "Day"
 msgstr "יום"
 
-#: ../app/Main.qml:171 ../app/SettingsView.qml:18
+#: ../app/Main.qml:171 ../app/SettingsView.qml:17
 msgid "Settings"
 msgstr "הגדרות"
 
-#: ../app/SettingsView.qml:106
+#: ../app/SettingsView.qml:115
 msgid "Global"
 msgstr "כללי"
 
-#: ../app/SettingsView.qml:114
+#: ../app/SettingsView.qml:123
 msgid "Second Yom Tov:"
 msgstr "יום טוב שני:"
 
-#: ../app/SettingsView.qml:125
+#: ../app/SettingsView.qml:134
 msgid "Location"
 msgstr "מיקום"
 
-#: ../app/SettingsView.qml:204
+#: ../app/SettingsView.qml:214
 msgid "Times Of Day"
 msgstr "זמני היום"
 
-#: ../app/SettingsView.qml:208
+#: ../app/SettingsView.qml:218
 msgid "Candle Light"
 msgstr "הדלקת נרות"
 
-#: ../app/SettingsView.qml:219
+#: ../app/SettingsView.qml:232
 msgid "Sefirat HaOmer"
 msgstr "ספירת העומר"
 
-#: ../app/SettingsView.qml:224
+#: ../app/SettingsView.qml:236
 msgid "Nosach Sefirat HaOmer:"
 msgstr "נוסח ספירת העומר:"
 
-#: ../app/SettingsView.qml:225
+#: ../app/SettingsView.qml:237
 msgid "Ashkenazi"
 msgstr "אשכנזי"
 
-#: ../app/SettingsView.qml:226
+#: ../app/SettingsView.qml:238
 msgid "Hasidic"
 msgstr "חסידי"
 
-#: ../app/SettingsView.qml:227
+#: ../app/SettingsView.qml:239
 msgid "Mizrachi"
 msgstr "מזרחי"
 
@@ -227,6 +239,9 @@ msgstr "מזרחי"
 msgid "Year %1"
 msgstr "שנת %1"
 
-#: /home/avi/qt/ubuntu-touch/build-hebrew-calendar-qml-UbuntuSDK_for_i386_GCC_ubuntu_sdk_14_10_utopic_2-Default/po/hebrew-calendar.desktop.in.h:1
+#: /home/avi/qt/hebrew-calendar-qml-build/po/hebrew-calendar.desktop.in.h:1
 msgid "Hebrew Calendar"
 msgstr "לוח שנה עברי"
+
+#~ msgid "Shabat end RT (72 minute)"
+#~ msgstr "צאת השבת רת (72 דקות)"
